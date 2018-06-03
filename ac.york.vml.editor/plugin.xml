@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated vml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="vml.presentation.VmlModelWizardID"
+            name="%_UI_VmlModelWizard_label"
+            class="vml.presentation.VmlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/VmlModelFile.gif">
+         <description>%_UI_VmlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated vml -->
+      <editor
+            id="vml.presentation.VmlEditorID"
+            name="%_UI_VmlEditor_label"
+            icon="icons/full/obj16/VmlModelFile.gif"
+            extensions="vml"
+            class="vml.presentation.VmlEditor"
+            contributorClass="vml.presentation.VmlActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
