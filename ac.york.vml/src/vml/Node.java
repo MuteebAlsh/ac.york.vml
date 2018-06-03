@@ -54,6 +54,7 @@ public interface Node extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
 	 * The list contents are of type {@link vml.Edge}.
+	 * It is bidirectional and its opposite is '{@link vml.Edge#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Outgoing</em>' reference list isn't clear,
@@ -62,7 +63,8 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing</em>' reference list.
 	 * @see vml.VmlPackage#getNode_Outgoing()
-	 * @model
+	 * @see vml.Edge#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
 	EList<Edge> getOutgoing();
@@ -70,6 +72,7 @@ public interface Node extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Incoming</b></em>' reference list.
 	 * The list contents are of type {@link vml.Edge}.
+	 * It is bidirectional and its opposite is '{@link vml.Edge#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Incoming</em>' reference list isn't clear,
@@ -78,7 +81,8 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming</em>' reference list.
 	 * @see vml.VmlPackage#getNode_Incoming()
-	 * @model
+	 * @see vml.Edge#getTarget
+	 * @model opposite="target"
 	 * @generated
 	 */
 	EList<Edge> getIncoming();

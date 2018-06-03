@@ -51,6 +51,7 @@ public interface Edge extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link vml.Node#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source</em>' reference isn't clear,
@@ -60,7 +61,8 @@ public interface Edge extends EObject {
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Node)
 	 * @see vml.VmlPackage#getEdge_Source()
-	 * @model
+	 * @see vml.Node#getOutgoing
+	 * @model opposite="outgoing"
 	 * @generated
 	 */
 	Node getSource();
@@ -77,6 +79,7 @@ public interface Edge extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link vml.Node#getIncoming <em>Incoming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' reference isn't clear,
@@ -86,7 +89,8 @@ public interface Edge extends EObject {
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Node)
 	 * @see vml.VmlPackage#getEdge_Target()
-	 * @model
+	 * @see vml.Node#getIncoming
+	 * @model opposite="incoming"
 	 * @generated
 	 */
 	Node getTarget();

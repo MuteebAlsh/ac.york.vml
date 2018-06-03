@@ -5,12 +5,11 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            name="Sample Multi-page Editor"
-            extensions="mpe"
+            name="VML Model Viewer"
+            extensions="vml"
             icon="icons/sample.png"
-            contributorClass="ac.york.vml.plugin.editors.MultiPageEditorContributor"
-            class="ac.york.vml.plugin.editors.MultiPageEditor"
-            id="ac.york.vml.plugin.editors.MultiPageEditor">
+            class="ac.york.vml.plugin.editors.VmlEditior"
+            id="ac.york.vml.plugin.editors.VmlEditior">
       </editor>
    </extension>
 

@@ -6,15 +6,16 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import vml.Edge;
 import vml.Node;
 import vml.VmlPackage;
@@ -122,7 +123,7 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 */
 	public EList<Edge> getOutgoing() {
 		if (outgoing == null) {
-			outgoing = new EObjectResolvingEList<Edge>(Edge.class, this, VmlPackage.NODE__OUTGOING);
+			outgoing = new EObjectWithInverseResolvingEList<Edge>(Edge.class, this, VmlPackage.NODE__OUTGOING, VmlPackage.EDGE__SOURCE);
 		}
 		return outgoing;
 	}
@@ -134,9 +135,42 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 */
 	public EList<Edge> getIncoming() {
 		if (incoming == null) {
-			incoming = new EObjectResolvingEList<Edge>(Edge.class, this, VmlPackage.NODE__INCOMING);
+			incoming = new EObjectWithInverseResolvingEList<Edge>(Edge.class, this, VmlPackage.NODE__INCOMING, VmlPackage.EDGE__TARGET);
 		}
 		return incoming;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case VmlPackage.NODE__OUTGOING:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoing()).basicAdd(otherEnd, msgs);
+			case VmlPackage.NODE__INCOMING:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncoming()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case VmlPackage.NODE__OUTGOING:
+				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
+			case VmlPackage.NODE__INCOMING:
+				return ((InternalEList<?>)getIncoming()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

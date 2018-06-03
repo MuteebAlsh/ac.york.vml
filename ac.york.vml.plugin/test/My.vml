@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="vml">
+  <diagrams>
+    <graph>
+      <nodes title="11" outgoing="//@diagrams.0/@graph.0/@edges.0"/>
+      <nodes title="22" incoming="//@diagrams.0/@graph.0/@edges.0"/>
+      <edges relation="has" source="//@diagrams.0/@graph.0/@nodes.0" target="//@diagrams.0/@graph.0/@nodes.1"/>
+    </graph>
+  </diagrams>
+</Model>
