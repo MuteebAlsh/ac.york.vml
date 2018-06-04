@@ -12,5 +12,74 @@
             id="ac.york.vml.plugin.editors.VmlEditior">
       </editor>
    </extension>
-
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+      		name="VML Navigator"
+      		id="ac.york.vml.category"></category>
+      <view
+      		id="ac.york.vml.vmlview"
+      		name="VML Navigator"
+      		class="org.eclipse.ui.navigator.CommonNavigator"
+      		category="ac.york.vml.category"></view>
+      <view
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/sample.png"
+            id="com.example.test"
+            name="My Common Navigator">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="ac.york.vml.vmlview">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="ac.york.vml.vmlview">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="ac.york.vml.vmlModelContent">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+         <navigatorContent
+         	id="ac.york.vml.vmlModelContent"
+         	name="VML Model Content"
+         	contentProvider="ac.york.vml.plugin.provider.VMLContentProvider"
+         	labelProvider="ac.york.vml.plugin.provider.VMLLableProvider"
+         	priority="normal"
+         	activeByDefault="true">
+         	
+         	 <triggerPoints> 
+         	<or>
+         		<and> 
+         			<instanceof value="org.eclipse.core.resources.IResource"/> 
+         				<test
+         					forcePluginActivation="true"
+         					property="org.eclipse.core.resources.extension"
+         					value="vml"/> 
+				</and> 
+			</or>
+		</triggerPoints> 
+		<possibleChildren> 
+			<or> 
+				<instanceof value="ac.york.vml.Model"/>
+				<instanceof value="ac.york.vml.Diagram"/>  
+			</or> 
+		</possibleChildren>
+         	
+         </navigatorContent>
+           </extension>
+        
 </plugin>

@@ -13,6 +13,13 @@ Require-Bundle: org.eclipse.jface.text,
  org.eclipse.ui.views,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.zest.core,
- org.eclipse.zest.layouts
+ org.eclipse.zest.layouts,
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.navigator.resources,
+ ac.york.vml.edit,
+ org.eclipse.jface
 Automatic-Module-Name: ac.york.vml.plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.eclipse.emf.edit.provider,
+ org.eclipse.emf.edit.provider.resource,
+ org.eclipse.emf.edit.ui.provider
