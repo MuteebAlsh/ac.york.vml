@@ -1,15 +1,26 @@
 package ac.york.vml.plugin.editors;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.zest.core.widgets.Graph;
 import org.eclipse.zest.core.widgets.GraphConnection;
 import org.eclipse.zest.core.widgets.GraphNode;
@@ -21,12 +32,12 @@ import vml.Diagram;
 import vml.Edge;
 import vml.Model;
 import vml.Node;
+import vml.VmlPackage;
 
-public class VmlEditior extends EditorPart{
+public class VmlEditior extends EditorPart implements IResourceChangeListener{
 
-//	protected Resource resource;
-//	protected IFile file;
-	
+	protected Resource resource;
+	protected IFile file;
 	
 
 	@Override
@@ -45,20 +56,22 @@ public class VmlEditior extends EditorPart{
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 		setSite(site);
 		setInput(input);
-		//ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
-//		
-//		FileEditorInput fileInputEditor = (FileEditorInput) input;
-//		file = fileInputEditor.getFile();
-//		setPartName(file.getName());
-//		ResourceSet resourceSet = new ResourceSetImpl();
-//		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-//		resourceSet.getPackageRegistry().put(VmlPackage.eINSTANCE.getNsURI(), VmlPackage.eINSTANCE);
-//		resource = resourceSet.createResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true));
-//		try {
-//			resource.load(null);
-//		} catch (IOException e) {
-//			throw new PartInitException(e.getMessage(), e);
-//		}
+		
+		
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
+		
+		FileEditorInput fileInputEditor = (FileEditorInput) input;
+		file = fileInputEditor.getFile();
+		setPartName(file.getName());
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+		resourceSet.getPackageRegistry().put(VmlPackage.eINSTANCE.getNsURI(), VmlPackage.eINSTANCE);
+		resource = resourceSet.createResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true));
+		try {
+			resource.load(null);
+		} catch (IOException e) {
+			throw new PartInitException(e.getMessage(), e);
+		}
 	}
 
 	@Override
@@ -75,7 +88,7 @@ public class VmlEditior extends EditorPart{
 
 	@Override
 	public void createPartControl(Composite parentElement) {
-		Model model = (Model) parentElement;;
+		Model model = (Model) resource.getContents().get(0);
 		Diagram diagram = (Diagram) model.getDiagrams().get(0);
 		vml.Graph vmlGraph = (vml.Graph) diagram.getGraph().get(0);
 		Graph graph = new Graph(parentElement, SWT.NONE);
@@ -109,9 +122,17 @@ public class VmlEditior extends EditorPart{
 	}
 	
 	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+		/*
+		if (event.getResource().getLocation().toOSString().equalsIgnoreCase(file.getLocation().toOSString()) && event.getDelta().getKind() == IResourceDelta.CHANGED) {
+			System.out.println("Here we are");
+		}*/
+	}
+	
+	@Override
 	public void dispose() {
 		super.dispose();
-//		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 	}
 
 }
