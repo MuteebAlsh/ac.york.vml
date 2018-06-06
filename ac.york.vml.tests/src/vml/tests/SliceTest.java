@@ -2,8 +2,6 @@
  */
 package vml.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import vml.Slice;
@@ -15,15 +13,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SliceTest extends TestCase {
-
-	/**
-	 * The fixture for this Slice test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Slice fixture = null;
+public class SliceTest extends DiagramElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class SliceTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Slice test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Slice fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Slice test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Slice getFixture() {
-		return fixture;
+		return (Slice)fixture;
 	}
 
 	/**

@@ -104,40 +104,13 @@ public interface VmlPackage extends EPackage {
 	int DIAGRAM = 1;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__TITLE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Pies</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__PIES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Graph</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__GRAPH = 2;
-
-	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_FEATURE_COUNT = 3;
+	int DIAGRAM_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Diagram</em>' class.
@@ -149,6 +122,43 @@ public interface VmlPackage extends EPackage {
 	int DIAGRAM_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link vml.impl.DiagramElementImpl <em>Diagram Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.DiagramElementImpl
+	 * @see vml.impl.VmlPackageImpl#getDiagramElement()
+	 * @generated
+	 */
+	int DIAGRAM_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_ELEMENT__DIAGRAMS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Diagram Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Diagram Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link vml.impl.PieImpl <em>Pie</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,7 +166,7 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getPie()
 	 * @generated
 	 */
-	int PIE = 2;
+	int PIE = 3;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -165,7 +175,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIE__ID = 0;
+	int PIE__ID = DIAGRAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -174,7 +184,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIE__TITLE = 1;
+	int PIE__TITLE = DIAGRAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Slices</b></em>' containment reference list.
@@ -183,7 +193,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIE__SLICES = 2;
+	int PIE__SLICES = DIAGRAM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Pie</em>' class.
@@ -192,7 +202,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIE_FEATURE_COUNT = 3;
+	int PIE_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Pie</em>' class.
@@ -201,7 +211,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIE_OPERATION_COUNT = 0;
+	int PIE_OPERATION_COUNT = DIAGRAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link vml.impl.SliceImpl <em>Slice</em>}' class.
@@ -211,7 +221,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getSlice()
 	 * @generated
 	 */
-	int SLICE = 3;
+	int SLICE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -220,7 +239,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICE__TITLE = 0;
+	int SLICE__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -229,7 +248,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICE__VALUE = 1;
+	int SLICE__VALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Slice</em>' class.
@@ -238,7 +257,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICE_FEATURE_COUNT = 2;
+	int SLICE_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Slice</em>' class.
@@ -247,7 +266,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICE_OPERATION_COUNT = 0;
+	int SLICE_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link vml.impl.GraphImpl <em>Graph</em>}' class.
@@ -257,7 +276,7 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getGraph()
 	 * @generated
 	 */
-	int GRAPH = 4;
+	int GRAPH = 5;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -266,7 +285,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ID = 0;
+	int GRAPH__ID = DIAGRAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -275,7 +294,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__TITLE = 1;
+	int GRAPH__TITLE = DIAGRAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -284,7 +303,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__NODES = 2;
+	int GRAPH__NODES = DIAGRAM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Edges</b></em>' containment reference list.
@@ -293,7 +312,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__EDGES = 3;
+	int GRAPH__EDGES = DIAGRAM_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -302,7 +321,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = 4;
+	int GRAPH_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -311,7 +330,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = 0;
+	int GRAPH_OPERATION_COUNT = DIAGRAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link vml.impl.NodeImpl <em>Node</em>}' class.
@@ -321,7 +340,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 5;
+	int NODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -330,7 +358,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__TITLE = 0;
+	int NODE__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -339,7 +367,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__OUTGOING = 1;
+	int NODE__OUTGOING = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -348,7 +376,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__INCOMING = 2;
+	int NODE__INCOMING = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -357,7 +385,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 3;
+	int NODE_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -366,7 +394,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = 0;
+	int NODE_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link vml.impl.EdgeImpl <em>Edge</em>}' class.
@@ -376,7 +404,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getEdge()
 	 * @generated
 	 */
-	int EDGE = 6;
+	int EDGE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>Relation</b></em>' attribute.
@@ -385,7 +422,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__RELATION = 0;
+	int EDGE__RELATION = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -394,7 +431,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__SOURCE = 1;
+	int EDGE__SOURCE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -403,7 +440,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__TARGET = 2;
+	int EDGE__TARGET = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Edge</em>' class.
@@ -412,7 +449,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE_FEATURE_COUNT = 3;
+	int EDGE_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Edge</em>' class.
@@ -421,7 +458,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE_OPERATION_COUNT = 0;
+	int EDGE_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -456,37 +493,25 @@ public interface VmlPackage extends EPackage {
 	EClass getDiagram();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.Diagram#getTitle <em>Title</em>}'.
+	 * Returns the meta object for class '{@link vml.DiagramElement <em>Diagram Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see vml.Diagram#getTitle()
-	 * @see #getDiagram()
+	 * @return the meta object for class '<em>Diagram Element</em>'.
+	 * @see vml.DiagramElement
 	 * @generated
 	 */
-	EAttribute getDiagram_Title();
+	EClass getDiagramElement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link vml.Diagram#getPies <em>Pies</em>}'.
+	 * Returns the meta object for the reference list '{@link vml.DiagramElement#getDiagrams <em>Diagrams</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pies</em>'.
-	 * @see vml.Diagram#getPies()
-	 * @see #getDiagram()
+	 * @return the meta object for the reference list '<em>Diagrams</em>'.
+	 * @see vml.DiagramElement#getDiagrams()
+	 * @see #getDiagramElement()
 	 * @generated
 	 */
-	EReference getDiagram_Pies();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link vml.Diagram#getGraph <em>Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Graph</em>'.
-	 * @see vml.Diagram#getGraph()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EReference getDiagram_Graph();
+	EReference getDiagramElement_Diagrams();
 
 	/**
 	 * Returns the meta object for class '{@link vml.Pie <em>Pie</em>}'.
@@ -755,28 +780,22 @@ public interface VmlPackage extends EPackage {
 		EClass DIAGRAM = eINSTANCE.getDiagram();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * The meta object literal for the '{@link vml.impl.DiagramElementImpl <em>Diagram Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see vml.impl.DiagramElementImpl
+		 * @see vml.impl.VmlPackageImpl#getDiagramElement()
 		 * @generated
 		 */
-		EAttribute DIAGRAM__TITLE = eINSTANCE.getDiagram_Title();
+		EClass DIAGRAM_ELEMENT = eINSTANCE.getDiagramElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Pies</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Diagrams</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DIAGRAM__PIES = eINSTANCE.getDiagram_Pies();
-
-		/**
-		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DIAGRAM__GRAPH = eINSTANCE.getDiagram_Graph();
+		EReference DIAGRAM_ELEMENT__DIAGRAMS = eINSTANCE.getDiagramElement_Diagrams();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.PieImpl <em>Pie</em>}' class.

@@ -40,6 +40,15 @@ public interface VmlFactory extends EFactory {
 	Diagram createDiagram();
 
 	/**
+	 * Returns a new object of class '<em>Diagram Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagram Element</em>'.
+	 * @generated
+	 */
+	DiagramElement createDiagramElement();
+
+	/**
 	 * Returns a new object of class '<em>Pie</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

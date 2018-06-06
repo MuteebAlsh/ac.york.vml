@@ -58,6 +58,7 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 		switch (eClass.getClassifierID()) {
 			case VmlPackage.MODEL: return createModel();
 			case VmlPackage.DIAGRAM: return createDiagram();
+			case VmlPackage.DIAGRAM_ELEMENT: return createDiagramElement();
 			case VmlPackage.PIE: return createPie();
 			case VmlPackage.SLICE: return createSlice();
 			case VmlPackage.GRAPH: return createGraph();
@@ -86,6 +87,16 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Diagram createDiagram() {
 		DiagramImpl diagram = new DiagramImpl();
 		return diagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DiagramElement createDiagramElement() {
+		DiagramElementImpl diagramElement = new DiagramElementImpl();
+		return diagramElement;
 	}
 
 	/**

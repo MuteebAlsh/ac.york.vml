@@ -7,8 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import vml.Slice;
 import vml.VmlPackage;
 
@@ -26,7 +24,7 @@ import vml.VmlPackage;
  *
  * @generated
  */
-public class SliceImpl extends MinimalEObjectImpl.Container implements Slice {
+public class SliceImpl extends DiagramElementImpl implements Slice {
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->

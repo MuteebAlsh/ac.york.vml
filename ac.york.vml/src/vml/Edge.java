@@ -2,8 +2,6 @@
  */
 package vml;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Edge</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Edge extends EObject {
+public interface Edge extends DiagramElement {
 	/**
 	 * Returns the value of the '<em><b>Relation</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import vml.Edge;
 import vml.Node;
 import vml.VmlPackage;
@@ -30,7 +28,7 @@ import vml.VmlPackage;
  *
  * @generated
  */
-public class EdgeImpl extends MinimalEObjectImpl.Container implements Edge {
+public class EdgeImpl extends DiagramElementImpl implements Edge {
 	/**
 	 * The default value of the '{@link #getRelation() <em>Relation</em>}' attribute.
 	 * <!-- begin-user-doc -->

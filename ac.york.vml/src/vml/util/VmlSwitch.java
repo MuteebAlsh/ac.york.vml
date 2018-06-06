@@ -78,33 +78,44 @@ public class VmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VmlPackage.DIAGRAM_ELEMENT: {
+				DiagramElement diagramElement = (DiagramElement)theEObject;
+				T result = caseDiagramElement(diagramElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case VmlPackage.PIE: {
 				Pie pie = (Pie)theEObject;
 				T result = casePie(pie);
+				if (result == null) result = caseDiagram(pie);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case VmlPackage.SLICE: {
 				Slice slice = (Slice)theEObject;
 				T result = caseSlice(slice);
+				if (result == null) result = caseDiagramElement(slice);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case VmlPackage.GRAPH: {
 				Graph graph = (Graph)theEObject;
 				T result = caseGraph(graph);
+				if (result == null) result = caseDiagram(graph);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case VmlPackage.NODE: {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
+				if (result == null) result = caseDiagramElement(node);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case VmlPackage.EDGE: {
 				Edge edge = (Edge)theEObject;
 				T result = caseEdge(edge);
+				if (result == null) result = caseDiagramElement(edge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +150,21 @@ public class VmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDiagram(Diagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Diagram Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Diagram Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDiagramElement(DiagramElement object) {
 		return null;
 	}
 

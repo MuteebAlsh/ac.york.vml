@@ -2,8 +2,6 @@
  */
 package vml.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import vml.Node;
@@ -15,15 +13,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NodeTest extends TestCase {
-
-	/**
-	 * The fixture for this Node test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Node fixture = null;
+public class NodeTest extends DiagramElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class NodeTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Node test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Node fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Node test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Node getFixture() {
-		return fixture;
+		return (Node)fixture;
 	}
 
 	/**

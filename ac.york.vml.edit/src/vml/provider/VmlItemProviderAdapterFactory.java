@@ -118,6 +118,29 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.DiagramElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DiagramElementItemProvider diagramElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.DiagramElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDiagramElementAdapter() {
+		if (diagramElementItemProvider == null) {
+			diagramElementItemProvider = new DiagramElementItemProvider(this);
+		}
+
+		return diagramElementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link vml.Pie} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,6 +356,7 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (diagramItemProvider != null) diagramItemProvider.dispose();
+		if (diagramElementItemProvider != null) diagramElementItemProvider.dispose();
 		if (pieItemProvider != null) pieItemProvider.dispose();
 		if (sliceItemProvider != null) sliceItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();

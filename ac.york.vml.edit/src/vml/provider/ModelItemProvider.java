@@ -152,6 +152,16 @@ public class ModelItemProvider
 			(createChildParameter
 				(VmlPackage.Literals.MODEL__DIAGRAMS,
 				 VmlFactory.eINSTANCE.createDiagram()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createPie()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createGraph()));
 	}
 
 	/**

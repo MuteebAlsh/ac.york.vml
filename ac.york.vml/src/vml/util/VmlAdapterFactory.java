@@ -76,6 +76,10 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 				return createDiagramAdapter();
 			}
 			@Override
+			public Adapter caseDiagramElement(DiagramElement object) {
+				return createDiagramElementAdapter();
+			}
+			@Override
 			public Adapter casePie(Pie object) {
 				return createPieAdapter();
 			}
@@ -140,6 +144,20 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiagramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.DiagramElement <em>Diagram Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.DiagramElement
+	 * @generated
+	 */
+	public Adapter createDiagramElementAdapter() {
 		return null;
 	}
 

@@ -3,7 +3,6 @@
 package vml.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -11,10 +10,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,7 +33,7 @@ import vml.VmlPackage;
  *
  * @generated
  */
-public class PieImpl extends MinimalEObjectImpl.Container implements Pie {
+public class PieImpl extends DiagramImpl implements Pie {
 	/**
 	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,7 +43,6 @@ public class PieImpl extends MinimalEObjectImpl.Container implements Pie {
 	 * @ordered
 	 */
 	protected static final Integer ID_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,7 +52,6 @@ public class PieImpl extends MinimalEObjectImpl.Container implements Pie {
 	 * @ordered
 	 */
 	protected Integer id = ID_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,7 +61,6 @@ public class PieImpl extends MinimalEObjectImpl.Container implements Pie {
 	 * @ordered
 	 */
 	protected static final String TITLE_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,7 +70,6 @@ public class PieImpl extends MinimalEObjectImpl.Container implements Pie {
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getSlices() <em>Slices</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

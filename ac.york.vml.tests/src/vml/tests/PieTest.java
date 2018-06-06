@@ -2,8 +2,6 @@
  */
 package vml.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import vml.Pie;
@@ -15,15 +13,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PieTest extends TestCase {
-
-	/**
-	 * The fixture for this Pie test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Pie fixture = null;
+public class PieTest extends DiagramTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class PieTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Pie test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Pie fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Pie test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Pie getFixture() {
-		return fixture;
+		return (Pie)fixture;
 	}
 
 	/**

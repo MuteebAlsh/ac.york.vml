@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
@@ -28,7 +29,6 @@ import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
-import vml.Diagram;
 import vml.Edge;
 import vml.Model;
 import vml.Node;
@@ -88,9 +88,15 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener{
 
 	@Override
 	public void createPartControl(Composite parentElement) {
+		
 		Model model = (Model) resource.getContents().get(0);
-		Diagram diagram = (Diagram) model.getDiagrams().get(0);
-		vml.Graph vmlGraph = (vml.Graph) diagram.getGraph().get(0);
+		if (model.getDiagrams().get(0) instanceof vml.Graph) {
+			System.out.println("it's a graph");
+		}
+		
+		CTabFolder tabs = new CTabFolder(parentElement, SWT.BOTTOM);
+		vml.Graph vmlGraph = (vml.Graph) model.getDiagrams().get(0);
+
 		Graph graph = new Graph(parentElement, SWT.NONE);
 		
 		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
@@ -106,15 +112,18 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener{
 			int style = ZestStyles.CONNECTIONS_SOLID;
 			GraphConnection graphConnection = new GraphConnection(graph, style, nodeMap.get(edge.getSource()), nodeMap.get(edge.getTarget()));
 			graphConnection.setData(edge);
-			graphConnection.setText(edge.getRelation());
+			if(edge.getRelation() == null) {
+				graphConnection.setText("Untitile");
+			} else {
+				graphConnection.setText(edge.getRelation());
+			}
 		}
 		
         graph.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 
-		
-		
 	}
 
+	
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import vml.Diagram;
+import vml.DiagramElement;
 import vml.Edge;
 import vml.Graph;
 import vml.Model;
@@ -39,6 +40,13 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * @generated
 	 */
 	private EClass diagramEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass diagramElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,8 +176,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Title() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(0);
+	public EClass getDiagramElement() {
+		return diagramElementEClass;
 	}
 
 	/**
@@ -177,17 +185,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagram_Pies() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDiagram_Graph() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(2);
+	public EReference getDiagramElement_Diagrams() {
+		return (EReference)diagramElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -402,9 +401,9 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEReference(modelEClass, MODEL__DIAGRAMS);
 
 		diagramEClass = createEClass(DIAGRAM);
-		createEAttribute(diagramEClass, DIAGRAM__TITLE);
-		createEReference(diagramEClass, DIAGRAM__PIES);
-		createEReference(diagramEClass, DIAGRAM__GRAPH);
+
+		diagramElementEClass = createEClass(DIAGRAM_ELEMENT);
+		createEReference(diagramElementEClass, DIAGRAM_ELEMENT__DIAGRAMS);
 
 		pieEClass = createEClass(PIE);
 		createEAttribute(pieEClass, PIE__ID);
@@ -460,15 +459,20 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		pieEClass.getESuperTypes().add(this.getDiagram());
+		sliceEClass.getESuperTypes().add(this.getDiagramElement());
+		graphEClass.getESuperTypes().add(this.getDiagram());
+		nodeEClass.getESuperTypes().add(this.getDiagramElement());
+		edgeEClass.getESuperTypes().add(this.getDiagramElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(diagramEClass, Diagram.class, "Diagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDiagram_Title(), ecorePackage.getEString(), "title", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDiagram_Pies(), this.getPie(), null, "pies", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDiagram_Graph(), this.getGraph(), null, "graph", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(diagramElementEClass, DiagramElement.class, "DiagramElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDiagramElement_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, -1, DiagramElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pieEClass, Pie.class, "Pie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPie_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

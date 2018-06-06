@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import vml.Diagram;
 import vml.Model;
 import vml.VmlPackage;
@@ -43,7 +42,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected EList<Diagram> diagrams;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
