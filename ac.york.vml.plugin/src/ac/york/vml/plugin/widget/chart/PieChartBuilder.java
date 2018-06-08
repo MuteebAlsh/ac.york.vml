@@ -10,7 +10,6 @@
 *******************************************************************************/
 package ac.york.vml.plugin.widget.chart;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,56 +40,62 @@ import vml.Slice;
  */
 public class PieChartBuilder extends AbstractChartBuilder {
 
-    SeriesDefinition sdX = null;
+	SeriesDefinition sdX = null;
+	
+	private Pie pie_ = null;
 
-    /**
-     * Constructor.
-     * 
-     * @param dataSet
-     *            data for chart
-     */
-    public PieChartBuilder(Pie dataSet) {
-        super(dataSet);
-        title = "Pie Chart" ;
-    }
+	/**
+	 * Constructor.
+	 * 
+	 * @param dataSet
+	 *            data for chart
+	 */
+	public PieChartBuilder(Pie dataSet) {
+		super(dataSet);
+		pie_ = (Pie) dataSet;
+		if (pie_.getTitle() != null)
+			title = pie_.getTitle();
+		else
+			title = "Pie Chart";
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#createChart()
-     */
-    protected void createChart() {
-        chart = ChartWithoutAxesImpl.create();
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#createChart()
+	 */
+	protected void createChart() {
+		chart = ChartWithoutAxesImpl.create();
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildPlot()
-     */
-    protected void buildPlot() {
-        chart.setSeriesThickness(25);
-        chart.getBlock().setBackground(ColorDefinitionImpl.WHITE());
-        Plot p = chart.getPlot();
-        p.getClientArea().setBackground(null);
-        p.getClientArea().getOutline().setVisible(true);
-        p.getOutline().setVisible(true);
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildPlot()
+	 */
+	protected void buildPlot() {
+		chart.setSeriesThickness(25);
+		chart.getBlock().setBackground(ColorDefinitionImpl.WHITE());
+		Plot p = chart.getPlot();
+		p.getClientArea().setBackground(null);
+		p.getClientArea().getOutline().setVisible(true);
+		p.getOutline().setVisible(true);
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildLegend()
-     */
-    protected void buildLegend() {
-        Legend lg = chart.getLegend();
-        lg.getText().getFont().setSize(16);
-        lg.getOutline().setVisible(true);
-    }
-    
-    protected List<String> getTitle() {
-    	Pie textPie = (Pie) dataSet;
-		EList<Slice> slices = textPie.getSlices();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildLegend()
+	 */
+	protected void buildLegend() {
+		Legend lg = chart.getLegend();
+		lg.getText().getFont().setSize(16);
+		lg.getOutline().setVisible(true);
+	}
+
+	protected List<String> getTitle() {
+		
+		EList<Slice> slices = pie_.getSlices();
 
 		List<String> slicesTitle = new ArrayList<>();
 
@@ -98,13 +103,11 @@ public class PieChartBuilder extends AbstractChartBuilder {
 			slicesTitle.add(slice.getTitle());
 		}
 		return slicesTitle;
-    }
-    
-    
-    
-    protected List<Integer> getValue(){
-    	Pie textPie = (Pie) dataSet;
-		EList<Slice> slices = textPie.getSlices();
+	}
+
+	protected List<Integer> getValue() {
+
+		EList<Slice> slices = pie_.getSlices();
 
 		List<Integer> slicesValue = new ArrayList<>();
 
@@ -112,48 +115,45 @@ public class PieChartBuilder extends AbstractChartBuilder {
 			slicesValue.add(slice.getValue());
 		}
 		return slicesValue;
-    }
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildXSeries()
-     */
-    protected void buildXSeries() {
-    	
-    	
-    	
-        TextDataSet categoryValues = TextDataSetImpl
-                .create(getTitle());
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildXSeries()
+	 */
+	protected void buildXSeries() {
 
-        Series seCategory = SeriesImpl.create();
-        seCategory.setDataSet(categoryValues);
+		TextDataSet categoryValues = TextDataSetImpl.create(getTitle());
 
-        // Apply the color palette
-        sdX = SeriesDefinitionImpl.create();
-        sdX.getSeriesPalette().update(1);
+		Series seCategory = SeriesImpl.create();
+		seCategory.setDataSet(categoryValues);
 
-        ((ChartWithoutAxes) chart).getSeriesDefinitions().add(sdX);
-        sdX.getSeries().add(seCategory);
-    }
+		// Apply the color palette
+		sdX = SeriesDefinitionImpl.create();
+		sdX.getSeriesPalette().update(1);
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildYSeries()
-     */
-    protected void buildYSeries() {
+		((ChartWithoutAxes) chart).getSeriesDefinitions().add(sdX);
+		sdX.getSeries().add(seCategory);
+	}
 
-        NumberDataSet orthoValuesDataSet = NumberDataSetImpl.create(getValue());
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildYSeries()
+	 */
+	protected void buildYSeries() {
 
-        PieSeries sePie = (PieSeries) PieSeriesImpl.create();
-        sePie.setDataSet(orthoValuesDataSet);
-        sePie.setSeriesIdentifier("Cities");
+		NumberDataSet orthoValuesDataSet = NumberDataSetImpl.create(getValue());
 
-        SeriesDefinition sdCity = SeriesDefinitionImpl.create();
-        sdX.getSeriesDefinitions().add(sdCity);
-        sdCity.getSeries().add(sePie);
+		PieSeries sePie = (PieSeries) PieSeriesImpl.create();
+		sePie.setDataSet(orthoValuesDataSet);
+		sePie.setSeriesIdentifier(pie_.getIdentifier() != null ? pie_.getIdentifier() : "Untitiled");
 
-    }
+		SeriesDefinition sdCity = SeriesDefinitionImpl.create();
+		sdX.getSeriesDefinitions().add(sdCity);
+		sdCity.getSeries().add(sePie);
+
+	}
 
 }

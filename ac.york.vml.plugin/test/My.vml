@@ -7,9 +7,13 @@
   </diagrams>
   <diagrams xsi:type="Graph" title="ss"/>
   <diagrams xsi:type="Graph" title="ssss"/>
-  <diagrams xsi:type="Pie" title="First Pie">
+  <diagrams xsi:type="Pie" title="First Pie" identifier="Cities">
     <slices title="USA" value="25"/>
     <slices title="UK" value="75"/>
     <slices title="Saudi Arabia" value="50"/>
+  </diagrams>
+  <diagrams xsi:type="BarChart" title="First Bar Chart" xTitle="Cities" yTitle="Population">
+    <bars title="New York" value="20.0"/>
+    <bars title="London" value="30.0"/>
   </diagrams>
 </Model>

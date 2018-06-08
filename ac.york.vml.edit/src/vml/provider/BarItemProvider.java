@@ -8,31 +8,29 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import vml.Pie;
-import vml.VmlFactory;
+import vml.Bar;
 import vml.VmlPackage;
 
 /**
- * This is the item provider adapter for a {@link vml.Pie} object.
+ * This is the item provider adapter for a {@link vml.Bar} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PieItemProvider 
-	extends DiagramItemProvider {
+public class BarItemProvider extends DiagramElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PieItemProvider(AdapterFactory adapterFactory) {
+	public BarItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,10 +45,33 @@ public class PieItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIDPropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
-			addIdentifierPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Bar_ID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bar_ID_feature", "_UI_Bar_type"),
+				 VmlPackage.Literals.BAR__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -64,9 +85,9 @@ public class PieItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pie_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pie_title_feature", "_UI_Pie_type"),
-				 VmlPackage.Literals.PIE__TITLE,
+				 getString("_UI_Bar_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bar_title_feature", "_UI_Bar_type"),
+				 VmlPackage.Literals.BAR__TITLE,
 				 true,
 				 false,
 				 false,
@@ -76,19 +97,19 @@ public class PieItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Identifier feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdentifierPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pie_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pie_identifier_feature", "_UI_Pie_type"),
-				 VmlPackage.Literals.PIE__IDENTIFIER,
+				 getString("_UI_Bar_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bar_value_feature", "_UI_Bar_type"),
+				 VmlPackage.Literals.BAR__VALUE,
 				 true,
 				 false,
 				 false,
@@ -98,44 +119,14 @@ public class PieItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(VmlPackage.Literals.PIE__SLICES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Pie.gif.
+	 * This returns Bar.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pie"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Bar"));
 	}
 
 	/**
@@ -146,10 +137,11 @@ public class PieItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Pie)object).getTitle();
+		Integer labelValue = ((Bar)object).getID();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Pie_type") :
-			getString("_UI_Pie_type") + " " + label;
+			getString("_UI_Bar_type") :
+			getString("_UI_Bar_type") + " " + label;
 	}
 	
 
@@ -164,13 +156,11 @@ public class PieItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Pie.class)) {
-			case VmlPackage.PIE__TITLE:
-			case VmlPackage.PIE__IDENTIFIER:
+		switch (notification.getFeatureID(Bar.class)) {
+			case VmlPackage.BAR__ID:
+			case VmlPackage.BAR__TITLE:
+			case VmlPackage.BAR__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case VmlPackage.PIE__SLICES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -186,11 +176,6 @@ public class PieItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.PIE__SLICES,
-				 VmlFactory.eINSTANCE.createSlice()));
 	}
 
 }

@@ -169,22 +169,22 @@ public interface VmlPackage extends EPackage {
 	int PIE = 3;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIE__ID = DIAGRAM_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIE__TITLE = DIAGRAM_FEATURE_COUNT + 1;
+	int PIE__TITLE = DIAGRAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE__IDENTIFIER = DIAGRAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Slices</b></em>' containment reference list.
@@ -462,6 +462,144 @@ public interface VmlPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.BarChartImpl
+	 * @see vml.impl.VmlPackageImpl#getBarChart()
+	 * @generated
+	 */
+	int BAR_CHART = 8;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__ID = DIAGRAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__TITLE = DIAGRAM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__XTITLE = DIAGRAM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__YTITLE = DIAGRAM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Bars</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__BARS = DIAGRAM_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Bar Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Bar Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_OPERATION_COUNT = DIAGRAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.BarImpl <em>Bar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.BarImpl
+	 * @see vml.impl.VmlPackageImpl#getBar()
+	 * @generated
+	 */
+	int BAR = 9;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__ID = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__VALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link vml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,17 +662,6 @@ public interface VmlPackage extends EPackage {
 	EClass getPie();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.Pie#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see vml.Pie#getID()
-	 * @see #getPie()
-	 * @generated
-	 */
-	EAttribute getPie_ID();
-
-	/**
 	 * Returns the meta object for the attribute '{@link vml.Pie#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,6 +671,17 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPie_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Pie#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see vml.Pie#getIdentifier()
+	 * @see #getPie()
+	 * @generated
+	 */
+	EAttribute getPie_Identifier();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link vml.Pie#getSlices <em>Slices</em>}'.
@@ -729,6 +867,114 @@ public interface VmlPackage extends EPackage {
 	EReference getEdge_Target();
 
 	/**
+	 * Returns the meta object for class '{@link vml.BarChart <em>Bar Chart</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bar Chart</em>'.
+	 * @see vml.BarChart
+	 * @generated
+	 */
+	EClass getBarChart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.BarChart#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see vml.BarChart#getID()
+	 * @see #getBarChart()
+	 * @generated
+	 */
+	EAttribute getBarChart_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.BarChart#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see vml.BarChart#getTitle()
+	 * @see #getBarChart()
+	 * @generated
+	 */
+	EAttribute getBarChart_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.BarChart#getXTitle <em>XTitle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XTitle</em>'.
+	 * @see vml.BarChart#getXTitle()
+	 * @see #getBarChart()
+	 * @generated
+	 */
+	EAttribute getBarChart_XTitle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.BarChart#getYTitle <em>YTitle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YTitle</em>'.
+	 * @see vml.BarChart#getYTitle()
+	 * @see #getBarChart()
+	 * @generated
+	 */
+	EAttribute getBarChart_YTitle();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.BarChart#getBars <em>Bars</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bars</em>'.
+	 * @see vml.BarChart#getBars()
+	 * @see #getBarChart()
+	 * @generated
+	 */
+	EReference getBarChart_Bars();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Bar <em>Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bar</em>'.
+	 * @see vml.Bar
+	 * @generated
+	 */
+	EClass getBar();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Bar#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see vml.Bar#getID()
+	 * @see #getBar()
+	 * @generated
+	 */
+	EAttribute getBar_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Bar#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see vml.Bar#getTitle()
+	 * @see #getBar()
+	 * @generated
+	 */
+	EAttribute getBar_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Bar#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see vml.Bar#getValue()
+	 * @see #getBar()
+	 * @generated
+	 */
+	EAttribute getBar_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -808,20 +1054,20 @@ public interface VmlPackage extends EPackage {
 		EClass PIE = eINSTANCE.getPie();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PIE__ID = eINSTANCE.getPie_ID();
-
-		/**
 		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PIE__TITLE = eINSTANCE.getPie_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIE__IDENTIFIER = eINSTANCE.getPie_Identifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Slices</b></em>' containment reference list feature.
@@ -966,6 +1212,90 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EDGE__TARGET = eINSTANCE.getEdge_Target();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.BarChartImpl
+		 * @see vml.impl.VmlPackageImpl#getBarChart()
+		 * @generated
+		 */
+		EClass BAR_CHART = eINSTANCE.getBarChart();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR_CHART__ID = eINSTANCE.getBarChart_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR_CHART__TITLE = eINSTANCE.getBarChart_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>XTitle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR_CHART__XTITLE = eINSTANCE.getBarChart_XTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>YTitle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR_CHART__YTITLE = eINSTANCE.getBarChart_YTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Bars</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BAR_CHART__BARS = eINSTANCE.getBarChart_Bars();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.BarImpl <em>Bar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.BarImpl
+		 * @see vml.impl.VmlPackageImpl#getBar()
+		 * @generated
+		 */
+		EClass BAR = eINSTANCE.getBar();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR__ID = eINSTANCE.getBar_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR__TITLE = eINSTANCE.getBar_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR__VALUE = eINSTANCE.getBar_Value();
 
 	}
 

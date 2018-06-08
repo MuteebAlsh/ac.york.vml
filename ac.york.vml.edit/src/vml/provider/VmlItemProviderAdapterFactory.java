@@ -256,6 +256,52 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.BarChart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BarChartItemProvider barChartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.BarChart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBarChartAdapter() {
+		if (barChartItemProvider == null) {
+			barChartItemProvider = new BarChartItemProvider(this);
+		}
+
+		return barChartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Bar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BarItemProvider barItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Bar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBarAdapter() {
+		if (barItemProvider == null) {
+			barItemProvider = new BarItemProvider(this);
+		}
+
+		return barItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +408,8 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		if (graphItemProvider != null) graphItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
 		if (edgeItemProvider != null) edgeItemProvider.dispose();
+		if (barChartItemProvider != null) barChartItemProvider.dispose();
+		if (barItemProvider != null) barItemProvider.dispose();
 	}
 
 }

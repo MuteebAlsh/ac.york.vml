@@ -26,32 +26,14 @@ import vml.VmlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link vml.impl.PieImpl#getID <em>ID</em>}</li>
  *   <li>{@link vml.impl.PieImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link vml.impl.PieImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link vml.impl.PieImpl#getSlices <em>Slices</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PieImpl extends DiagramImpl implements Pie {
-	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer ID_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer id = ID_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,6 +52,24 @@ public class PieImpl extends DiagramImpl implements Pie {
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IDENTIFIER_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String identifier = IDENTIFIER_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getSlices() <em>Slices</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -104,27 +104,6 @@ public class PieImpl extends DiagramImpl implements Pie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getID() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setID(Integer newID) {
-		Integer oldID = id;
-		id = newID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.PIE__ID, oldID, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getTitle() {
 		return title;
 	}
@@ -139,6 +118,27 @@ public class PieImpl extends DiagramImpl implements Pie {
 		title = newTitle;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.PIE__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(String newIdentifier) {
+		String oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.PIE__IDENTIFIER, oldIdentifier, identifier));
 	}
 
 	/**
@@ -175,10 +175,10 @@ public class PieImpl extends DiagramImpl implements Pie {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case VmlPackage.PIE__ID:
-				return getID();
 			case VmlPackage.PIE__TITLE:
 				return getTitle();
+			case VmlPackage.PIE__IDENTIFIER:
+				return getIdentifier();
 			case VmlPackage.PIE__SLICES:
 				return getSlices();
 		}
@@ -194,11 +194,11 @@ public class PieImpl extends DiagramImpl implements Pie {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case VmlPackage.PIE__ID:
-				setID((Integer)newValue);
-				return;
 			case VmlPackage.PIE__TITLE:
 				setTitle((String)newValue);
+				return;
+			case VmlPackage.PIE__IDENTIFIER:
+				setIdentifier((String)newValue);
 				return;
 			case VmlPackage.PIE__SLICES:
 				getSlices().clear();
@@ -216,11 +216,11 @@ public class PieImpl extends DiagramImpl implements Pie {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case VmlPackage.PIE__ID:
-				setID(ID_EDEFAULT);
-				return;
 			case VmlPackage.PIE__TITLE:
 				setTitle(TITLE_EDEFAULT);
+				return;
+			case VmlPackage.PIE__IDENTIFIER:
+				setIdentifier(IDENTIFIER_EDEFAULT);
 				return;
 			case VmlPackage.PIE__SLICES:
 				getSlices().clear();
@@ -237,10 +237,10 @@ public class PieImpl extends DiagramImpl implements Pie {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case VmlPackage.PIE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case VmlPackage.PIE__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case VmlPackage.PIE__IDENTIFIER:
+				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case VmlPackage.PIE__SLICES:
 				return slices != null && !slices.isEmpty();
 		}
@@ -257,10 +257,10 @@ public class PieImpl extends DiagramImpl implements Pie {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ID: ");
-		result.append(id);
-		result.append(", title: ");
+		result.append(" (title: ");
 		result.append(title);
+		result.append(", identifier: ");
+		result.append(identifier);
 		result.append(')');
 		return result.toString();
 	}

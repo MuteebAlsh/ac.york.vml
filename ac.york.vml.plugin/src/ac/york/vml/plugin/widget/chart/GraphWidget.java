@@ -1,4 +1,4 @@
-package ac.york.vml.plugin.editors;
+package ac.york.vml.plugin.widget.chart;
 
 import java.util.HashMap;
 import java.util.Map;

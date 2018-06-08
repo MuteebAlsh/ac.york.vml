@@ -162,6 +162,11 @@ public class ModelItemProvider
 			(createChildParameter
 				(VmlPackage.Literals.MODEL__DIAGRAMS,
 				 VmlFactory.eINSTANCE.createGraph()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createBarChart()));
 	}
 
 	/**

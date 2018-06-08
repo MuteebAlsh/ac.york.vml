@@ -64,6 +64,8 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 			case VmlPackage.GRAPH: return createGraph();
 			case VmlPackage.NODE: return createNode();
 			case VmlPackage.EDGE: return createEdge();
+			case VmlPackage.BAR_CHART: return createBarChart();
+			case VmlPackage.BAR: return createBar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +149,26 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Edge createEdge() {
 		EdgeImpl edge = new EdgeImpl();
 		return edge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BarChart createBarChart() {
+		BarChartImpl barChart = new BarChartImpl();
+		return barChart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Bar createBar() {
+		BarImpl bar = new BarImpl();
+		return bar;
 	}
 
 	/**

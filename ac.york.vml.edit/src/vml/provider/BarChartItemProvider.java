@@ -8,31 +8,31 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import vml.Pie;
+import vml.BarChart;
 import vml.VmlFactory;
 import vml.VmlPackage;
 
 /**
- * This is the item provider adapter for a {@link vml.Pie} object.
+ * This is the item provider adapter for a {@link vml.BarChart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PieItemProvider 
-	extends DiagramItemProvider {
+public class BarChartItemProvider extends DiagramItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PieItemProvider(AdapterFactory adapterFactory) {
+	public BarChartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,10 +47,34 @@ public class PieItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIDPropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
-			addIdentifierPropertyDescriptor(object);
+			addXTitlePropertyDescriptor(object);
+			addYTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BarChart_ID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_ID_feature", "_UI_BarChart_type"),
+				 VmlPackage.Literals.BAR_CHART__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -64,9 +88,9 @@ public class PieItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pie_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pie_title_feature", "_UI_Pie_type"),
-				 VmlPackage.Literals.PIE__TITLE,
+				 getString("_UI_BarChart_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_title_feature", "_UI_BarChart_type"),
+				 VmlPackage.Literals.BAR_CHART__TITLE,
 				 true,
 				 false,
 				 false,
@@ -76,19 +100,41 @@ public class PieItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Identifier feature.
+	 * This adds a property descriptor for the XTitle feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdentifierPropertyDescriptor(Object object) {
+	protected void addXTitlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pie_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pie_identifier_feature", "_UI_Pie_type"),
-				 VmlPackage.Literals.PIE__IDENTIFIER,
+				 getString("_UI_BarChart_xTitle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_xTitle_feature", "_UI_BarChart_type"),
+				 VmlPackage.Literals.BAR_CHART__XTITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the YTitle feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BarChart_yTitle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_yTitle_feature", "_UI_BarChart_type"),
+				 VmlPackage.Literals.BAR_CHART__YTITLE,
 				 true,
 				 false,
 				 false,
@@ -109,7 +155,7 @@ public class PieItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(VmlPackage.Literals.PIE__SLICES);
+			childrenFeatures.add(VmlPackage.Literals.BAR_CHART__BARS);
 		}
 		return childrenFeatures;
 	}
@@ -128,14 +174,14 @@ public class PieItemProvider
 	}
 
 	/**
-	 * This returns Pie.gif.
+	 * This returns BarChart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pie"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BarChart"));
 	}
 
 	/**
@@ -146,10 +192,11 @@ public class PieItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Pie)object).getTitle();
+		Integer labelValue = ((BarChart)object).getID();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Pie_type") :
-			getString("_UI_Pie_type") + " " + label;
+			getString("_UI_BarChart_type") :
+			getString("_UI_BarChart_type") + " " + label;
 	}
 	
 
@@ -164,12 +211,14 @@ public class PieItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Pie.class)) {
-			case VmlPackage.PIE__TITLE:
-			case VmlPackage.PIE__IDENTIFIER:
+		switch (notification.getFeatureID(BarChart.class)) {
+			case VmlPackage.BAR_CHART__ID:
+			case VmlPackage.BAR_CHART__TITLE:
+			case VmlPackage.BAR_CHART__XTITLE:
+			case VmlPackage.BAR_CHART__YTITLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case VmlPackage.PIE__SLICES:
+			case VmlPackage.BAR_CHART__BARS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,8 +238,8 @@ public class PieItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VmlPackage.Literals.PIE__SLICES,
-				 VmlFactory.eINSTANCE.createSlice()));
+				(VmlPackage.Literals.BAR_CHART__BARS,
+				 VmlFactory.eINSTANCE.createBar()));
 	}
 
 }

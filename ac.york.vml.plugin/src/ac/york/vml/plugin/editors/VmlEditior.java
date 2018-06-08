@@ -28,7 +28,10 @@ import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
 import ac.york.vml.plugin.widget.chart.AbstractChartBuilder;
+import ac.york.vml.plugin.widget.chart.BarChartBuilder;
+import ac.york.vml.plugin.widget.chart.GraphWidget;
 import ac.york.vml.plugin.widget.chart.PieChartBuilder;
+import vml.BarChart;
 import vml.Diagram;
 import vml.Model;
 import vml.Pie;
@@ -124,11 +127,16 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
+
 				
+			} else if (diagram instanceof BarChart) {
+				BarChart bar = (BarChart) diagram;
+				Chart chart = createChart(bar); 
+				item.setText(bar.getTitle() != null ? bar.getTitle() : "Untitiled");
 				
-//				PieWidget pie = new PieWidget(diagramComposite, SWT.NONE, diagram);
-//				pie.setLayout(new FillLayout());
-				
+				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+				canvas.setChart(chart);
+				canvas.setSize(800, 600);
 			}
 		}
 		tabs.setSelection(0);
@@ -141,6 +149,9 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 		if (diagram instanceof Pie) {
 			Pie pie_ = (Pie) diagram;
 			builder = new PieChartBuilder(pie_);
+		} else if (diagram instanceof BarChart) {
+			BarChart bar = (BarChart) diagram;
+			builder = new BarChartBuilder(bar);
 		}
 		builder.build();
         Chart chart = builder.getChart();

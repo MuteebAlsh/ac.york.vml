@@ -94,6 +94,24 @@ public interface VmlFactory extends EFactory {
 	Edge createEdge();
 
 	/**
+	 * Returns a new object of class '<em>Bar Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bar Chart</em>'.
+	 * @generated
+	 */
+	BarChart createBarChart();
+
+	/**
+	 * Returns a new object of class '<em>Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bar</em>'.
+	 * @generated
+	 */
+	Bar createBar();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
