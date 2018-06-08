@@ -17,7 +17,10 @@ Require-Bundle: org.eclipse.jface.text,
  org.eclipse.ui.navigator,
  org.eclipse.ui.navigator.resources,
  org.eclipse.jface,
- ac.york.vml.edit
+ ac.york.vml.edit,
+ org.eclipse.birt.chart.engine,
+ org.eclipse.birt.chart.engine.extension,
+ org.eclipse.birt.chart.device.swt
 Automatic-Module-Name: ac.york.vml.plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.emf.edit.provider,

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="vml">
-  <diagrams xsi:type="Graph">
+  <diagrams xsi:type="Graph" title="first Diagram">
     <nodes title="first node" outgoing="//@diagrams.0/@edges.0"/>
     <nodes title="second node" incoming="//@diagrams.0/@edges.0"/>
     <edges relation="has" source="//@diagrams.0/@nodes.0" target="//@diagrams.0/@nodes.1"/>
   </diagrams>
   <diagrams xsi:type="Graph" title="ss"/>
   <diagrams xsi:type="Graph" title="ssss"/>
+  <diagrams xsi:type="Pie" title="First Pie">
+    <slices title="USA" value="25"/>
+    <slices title="UK" value="75"/>
+    <slices title="Saudi Arabia" value="50"/>
+  </diagrams>
 </Model>

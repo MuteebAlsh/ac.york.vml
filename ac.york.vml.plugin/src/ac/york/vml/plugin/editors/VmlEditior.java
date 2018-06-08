@@ -1,9 +1,9 @@
 package ac.york.vml.plugin.editors;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -15,51 +15,50 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.zest.core.widgets.Graph;
-import org.eclipse.zest.core.widgets.GraphConnection;
-import org.eclipse.zest.core.widgets.GraphNode;
-import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
-import vml.Edge;
+import ac.york.vml.plugin.widget.chart.AbstractChartBuilder;
+import ac.york.vml.plugin.widget.chart.PieChartBuilder;
+import vml.Diagram;
 import vml.Model;
-import vml.Node;
+import vml.Pie;
 import vml.VmlPackage;
 
-public class VmlEditior extends EditorPart implements IResourceChangeListener{
+public class VmlEditior extends EditorPart implements IResourceChangeListener {
 
 	protected Resource resource;
 	protected IFile file;
-	
+	protected Chart chart;
 
 	@Override
 	public void doSave(IProgressMonitor arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void doSaveAs() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 		setSite(site);
 		setInput(input);
-		
-		
+
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
-		
+
 		FileEditorInput fileInputEditor = (FileEditorInput) input;
 		file = fileInputEditor.getFile();
 		setPartName(file.getName());
@@ -88,56 +87,84 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener{
 
 	@Override
 	public void createPartControl(Composite parentElement) {
-		
-		Model model = (Model) resource.getContents().get(0);
-		if (model.getDiagrams().get(0) instanceof vml.Graph) {
-			System.out.println("it's a graph");
-		}
-		
-		CTabFolder tabs = new CTabFolder(parentElement, SWT.BOTTOM);
-		vml.Graph vmlGraph = (vml.Graph) model.getDiagrams().get(0);
 
-		Graph graph = new Graph(parentElement, SWT.NONE);
-		
-		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
-		
-		for (Node node : vmlGraph.getNodes()) {
-			GraphNode graphNode = new GraphNode(graph, SWT.NONE, node.getTitle());
-			graphNode.setData(node);
-			nodeMap.put(node, graphNode);
+		Model model = (Model) resource.getContents().get(0);
+
+		TabFolder tabs = new TabFolder(parentElement, SWT.BOTTOM);
+		List<Diagram> iteratorGraph = model.getDiagrams();
+
+		for (Diagram diagram : iteratorGraph) {
+			TabItem item = new TabItem(tabs, SWT.NONE);
 			
-		}
-		
-		for (Edge edge : vmlGraph.getEdges()) {
-			int style = ZestStyles.CONNECTIONS_SOLID;
-			GraphConnection graphConnection = new GraphConnection(graph, style, nodeMap.get(edge.getSource()), nodeMap.get(edge.getTarget()));
-			graphConnection.setData(edge);
-			if(edge.getRelation() == null) {
-				graphConnection.setText("Untitile");
-			} else {
-				graphConnection.setText(edge.getRelation());
+			Composite diagramComposite = new Composite(tabs, SWT.NONE);
+			diagramComposite.setLayout(new FillLayout());
+			item.setControl(diagramComposite);
+			
+
+
+			if (diagram instanceof vml.Graph) {
+				
+				vml.Graph vmlGraph = (vml.Graph) diagram;
+
+				if (vmlGraph.getTitle() == null) {
+					item.setText("Graph Chart");
+				} else
+					item.setText(vmlGraph.getTitle());
+
+				GraphWidget graphWidget = new GraphWidget(diagramComposite, SWT.None, diagram);
+				graphWidget.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+
+			} else if (diagram instanceof Pie) {
+				Pie vmlPie = (Pie) diagram;
+				Chart chart = createChart(vmlPie); 
+				if (vmlPie.getTitle() == null)
+					item.setText("Pie Chart");
+				else
+					item.setText(vmlPie.getTitle());
+				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+				canvas.setChart(chart);
+				canvas.setSize(800, 600);
+				
+				
+//				PieWidget pie = new PieWidget(diagramComposite, SWT.NONE, diagram);
+//				pie.setLayout(new FillLayout());
+				
 			}
 		}
-		
-        graph.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+		tabs.setSelection(0);
 
 	}
-
 	
+	private Chart createChart(Diagram diagram) {
+		AbstractChartBuilder builder = null;
+		
+		if (diagram instanceof Pie) {
+			Pie pie_ = (Pie) diagram;
+			builder = new PieChartBuilder(pie_);
+		}
+		builder.build();
+        Chart chart = builder.getChart();
+
+        return chart;
+		
+
+    }
+
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		/*
-		if (event.getResource().getLocation().toOSString().equalsIgnoreCase(file.getLocation().toOSString()) && event.getDelta().getKind() == IResourceDelta.CHANGED) {
-			System.out.println("Here we are");
-		}*/
+		 * if (event.getResource().getLocation().toOSString().equalsIgnoreCase(file.
+		 * getLocation().toOSString()) && event.getDelta().getKind() ==
+		 * IResourceDelta.CHANGED) { System.out.println("Here we are"); }
+		 */
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
