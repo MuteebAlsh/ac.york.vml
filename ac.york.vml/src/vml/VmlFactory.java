@@ -94,6 +94,24 @@ public interface VmlFactory extends EFactory {
 	Edge createEdge();
 
 	/**
+	 * Returns a new object of class '<em>Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chart</em>'.
+	 * @generated
+	 */
+	Chart createChart();
+
+	/**
+	 * Returns a new object of class '<em>Chart Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chart Element</em>'.
+	 * @generated
+	 */
+	ChartElement createChartElement();
+
+	/**
 	 * Returns a new object of class '<em>Bar Chart</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +128,51 @@ public interface VmlFactory extends EFactory {
 	 * @generated
 	 */
 	Bar createBar();
+
+	/**
+	 * Returns a new object of class '<em>Stack Bar Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stack Bar Chart</em>'.
+	 * @generated
+	 */
+	StackBarChart createStackBarChart();
+
+	/**
+	 * Returns a new object of class '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category</em>'.
+	 * @generated
+	 */
+	Category createCategory();
+
+	/**
+	 * Returns a new object of class '<em>Stack Bars</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stack Bars</em>'.
+	 * @generated
+	 */
+	StackBars createStackBars();
+
+	/**
+	 * Returns a new object of class '<em>Line Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Chart</em>'.
+	 * @generated
+	 */
+	LineChart createLineChart();
+
+	/**
+	 * Returns a new object of class '<em>Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Point</em>'.
+	 * @generated
+	 */
+	Point createPoint();
 
 	/**
 	 * Returns the package supported by this factory.

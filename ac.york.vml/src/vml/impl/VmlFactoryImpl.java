@@ -64,8 +64,15 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 			case VmlPackage.GRAPH: return createGraph();
 			case VmlPackage.NODE: return createNode();
 			case VmlPackage.EDGE: return createEdge();
+			case VmlPackage.CHART: return createChart();
+			case VmlPackage.CHART_ELEMENT: return createChartElement();
 			case VmlPackage.BAR_CHART: return createBarChart();
 			case VmlPackage.BAR: return createBar();
+			case VmlPackage.STACK_BAR_CHART: return createStackBarChart();
+			case VmlPackage.CATEGORY: return createCategory();
+			case VmlPackage.STACK_BARS: return createStackBars();
+			case VmlPackage.LINE_CHART: return createLineChart();
+			case VmlPackage.POINT: return createPoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -156,6 +163,26 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Chart createChart() {
+		ChartImpl chart = new ChartImpl();
+		return chart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChartElement createChartElement() {
+		ChartElementImpl chartElement = new ChartElementImpl();
+		return chartElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BarChart createBarChart() {
 		BarChartImpl barChart = new BarChartImpl();
 		return barChart;
@@ -169,6 +196,56 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Bar createBar() {
 		BarImpl bar = new BarImpl();
 		return bar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StackBarChart createStackBarChart() {
+		StackBarChartImpl stackBarChart = new StackBarChartImpl();
+		return stackBarChart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Category createCategory() {
+		CategoryImpl category = new CategoryImpl();
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StackBars createStackBars() {
+		StackBarsImpl stackBars = new StackBarsImpl();
+		return stackBars;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineChart createLineChart() {
+		LineChartImpl lineChart = new LineChartImpl();
+		return lineChart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Point createPoint() {
+		PointImpl point = new PointImpl();
+		return point;
 	}
 
 	/**

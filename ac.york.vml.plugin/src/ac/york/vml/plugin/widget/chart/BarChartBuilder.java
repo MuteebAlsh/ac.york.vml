@@ -37,7 +37,6 @@ import org.eclipse.emf.common.util.EList;
 
 import vml.Bar;
 import vml.BarChart;
-import vml.Slice;
 
 /**
  * Builds bar chart.
@@ -155,7 +154,7 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 
 		// Apply the color palette
 		SeriesDefinition sdX = SeriesDefinitionImpl.create();
-		sdX.getSeriesPalette().update(1);
+		sdX.getSeriesPalette().shift(0);;
 
 		xAxis.getSeriesDefinitions().add(sdX);
 		sdX.getSeries().add(seCategory);

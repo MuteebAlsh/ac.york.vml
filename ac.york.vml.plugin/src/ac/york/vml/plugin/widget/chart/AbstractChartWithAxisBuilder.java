@@ -13,7 +13,6 @@ package ac.york.vml.plugin.widget.chart;
 import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 
-import vml.BarChart;
 import vml.Diagram;
 
 /**

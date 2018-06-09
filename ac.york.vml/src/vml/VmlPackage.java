@@ -462,14 +462,14 @@ public interface VmlPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
+	 * The meta object id for the '{@link vml.impl.ChartImpl <em>Chart</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see vml.impl.BarChartImpl
-	 * @see vml.impl.VmlPackageImpl#getBarChart()
+	 * @see vml.impl.ChartImpl
+	 * @see vml.impl.VmlPackageImpl#getChart()
 	 * @generated
 	 */
-	int BAR_CHART = 8;
+	int CHART = 8;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -478,7 +478,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART__ID = DIAGRAM_FEATURE_COUNT + 0;
+	int CHART__ID = DIAGRAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -487,7 +487,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART__TITLE = DIAGRAM_FEATURE_COUNT + 1;
+	int CHART__TITLE = DIAGRAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
@@ -496,7 +496,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART__XTITLE = DIAGRAM_FEATURE_COUNT + 2;
+	int CHART__XTITLE = DIAGRAM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
@@ -505,7 +505,135 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART__YTITLE = DIAGRAM_FEATURE_COUNT + 3;
+	int CHART__YTITLE = DIAGRAM_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_OPERATION_COUNT = DIAGRAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.ChartElementImpl <em>Chart Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ChartElementImpl
+	 * @see vml.impl.VmlPackageImpl#getChartElement()
+	 * @generated
+	 */
+	int CHART_ELEMENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT__ID = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT__VALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Chart Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Chart Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.BarChartImpl
+	 * @see vml.impl.VmlPackageImpl#getBarChart()
+	 * @generated
+	 */
+	int BAR_CHART = 10;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__ID = CHART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__TITLE = CHART__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__XTITLE = CHART__XTITLE;
+
+	/**
+	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__YTITLE = CHART__YTITLE;
 
 	/**
 	 * The feature id for the '<em><b>Bars</b></em>' containment reference list.
@@ -514,7 +642,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART__BARS = DIAGRAM_FEATURE_COUNT + 4;
+	int BAR_CHART__BARS = CHART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Bar Chart</em>' class.
@@ -523,7 +651,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 5;
+	int BAR_CHART_FEATURE_COUNT = CHART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Bar Chart</em>' class.
@@ -532,7 +660,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART_OPERATION_COUNT = DIAGRAM_OPERATION_COUNT + 0;
+	int BAR_CHART_OPERATION_COUNT = CHART_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link vml.impl.BarImpl <em>Bar</em>}' class.
@@ -542,7 +670,7 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getBar()
 	 * @generated
 	 */
-	int BAR = 9;
+	int BAR = 11;
 
 	/**
 	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
@@ -551,7 +679,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+	int BAR__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -560,7 +688,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__ID = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+	int BAR__ID = CHART_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -569,7 +697,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+	int BAR__TITLE = CHART_ELEMENT__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -578,7 +706,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__VALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
+	int BAR__VALUE = CHART_ELEMENT__VALUE;
 
 	/**
 	 * The number of structural features of the '<em>Bar</em>' class.
@@ -587,7 +715,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
+	int BAR_FEATURE_COUNT = CHART_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Bar</em>' class.
@@ -596,8 +724,346 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+	int BAR_OPERATION_COUNT = CHART_ELEMENT_OPERATION_COUNT + 0;
 
+
+	/**
+	 * The meta object id for the '{@link vml.impl.StackBarChartImpl <em>Stack Bar Chart</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.StackBarChartImpl
+	 * @see vml.impl.VmlPackageImpl#getStackBarChart()
+	 * @generated
+	 */
+	int STACK_BAR_CHART = 12;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__ID = CHART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__TITLE = CHART__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__XTITLE = CHART__XTITLE;
+
+	/**
+	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__YTITLE = CHART__YTITLE;
+
+	/**
+	 * The feature id for the '<em><b>Stack Bar</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__STACK_BAR = CHART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__CATEGORIES = CHART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Stack Bar Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART_FEATURE_COUNT = CHART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Stack Bar Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART_OPERATION_COUNT = CHART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.CategoryImpl <em>Category</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.CategoryImpl
+	 * @see vml.impl.VmlPackageImpl#getCategory()
+	 * @generated
+	 */
+	int CATEGORY = 13;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CATEGORY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.StackBarsImpl <em>Stack Bars</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.StackBarsImpl
+	 * @see vml.impl.VmlPackageImpl#getStackBars()
+	 * @generated
+	 */
+	int STACK_BARS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__ID = CHART_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__TITLE = CHART_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__VALUE = CHART_ELEMENT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__CATEGORY = CHART_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Bars</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__BARS = CHART_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Stack Bars</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS_FEATURE_COUNT = CHART_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Stack Bars</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS_OPERATION_COUNT = CHART_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.LineChartImpl <em>Line Chart</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.LineChartImpl
+	 * @see vml.impl.VmlPackageImpl#getLineChart()
+	 * @generated
+	 */
+	int LINE_CHART = 15;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__ID = CHART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__TITLE = CHART__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__XTITLE = CHART__XTITLE;
+
+	/**
+	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__YTITLE = CHART__YTITLE;
+
+	/**
+	 * The feature id for the '<em><b>Points</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__POINTS = CHART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Line Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FEATURE_COUNT = CHART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Line Chart</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_OPERATION_COUNT = CHART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.PointImpl <em>Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.PointImpl
+	 * @see vml.impl.VmlPackageImpl#getPoint()
+	 * @generated
+	 */
+	int POINT = 16;
+
+	/**
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__ID = CHART_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__TITLE = CHART_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__VALUE = CHART_ELEMENT__VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = CHART_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_OPERATION_COUNT = CHART_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link vml.Model <em>Model</em>}'.
@@ -867,6 +1333,103 @@ public interface VmlPackage extends EPackage {
 	EReference getEdge_Target();
 
 	/**
+	 * Returns the meta object for class '{@link vml.Chart <em>Chart</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart</em>'.
+	 * @see vml.Chart
+	 * @generated
+	 */
+	EClass getChart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Chart#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see vml.Chart#getID()
+	 * @see #getChart()
+	 * @generated
+	 */
+	EAttribute getChart_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Chart#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see vml.Chart#getTitle()
+	 * @see #getChart()
+	 * @generated
+	 */
+	EAttribute getChart_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Chart#getXTitle <em>XTitle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XTitle</em>'.
+	 * @see vml.Chart#getXTitle()
+	 * @see #getChart()
+	 * @generated
+	 */
+	EAttribute getChart_XTitle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Chart#getYTitle <em>YTitle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YTitle</em>'.
+	 * @see vml.Chart#getYTitle()
+	 * @see #getChart()
+	 * @generated
+	 */
+	EAttribute getChart_YTitle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.ChartElement <em>Chart Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart Element</em>'.
+	 * @see vml.ChartElement
+	 * @generated
+	 */
+	EClass getChartElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.ChartElement#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see vml.ChartElement#getID()
+	 * @see #getChartElement()
+	 * @generated
+	 */
+	EAttribute getChartElement_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.ChartElement#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see vml.ChartElement#getTitle()
+	 * @see #getChartElement()
+	 * @generated
+	 */
+	EAttribute getChartElement_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.ChartElement#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see vml.ChartElement#getValue()
+	 * @see #getChartElement()
+	 * @generated
+	 */
+	EAttribute getChartElement_Value();
+
+	/**
 	 * Returns the meta object for class '{@link vml.BarChart <em>Bar Chart</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -875,50 +1438,6 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBarChart();
-
-	/**
-	 * Returns the meta object for the attribute '{@link vml.BarChart#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see vml.BarChart#getID()
-	 * @see #getBarChart()
-	 * @generated
-	 */
-	EAttribute getBarChart_ID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link vml.BarChart#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see vml.BarChart#getTitle()
-	 * @see #getBarChart()
-	 * @generated
-	 */
-	EAttribute getBarChart_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link vml.BarChart#getXTitle <em>XTitle</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>XTitle</em>'.
-	 * @see vml.BarChart#getXTitle()
-	 * @see #getBarChart()
-	 * @generated
-	 */
-	EAttribute getBarChart_XTitle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link vml.BarChart#getYTitle <em>YTitle</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>YTitle</em>'.
-	 * @see vml.BarChart#getYTitle()
-	 * @see #getBarChart()
-	 * @generated
-	 */
-	EAttribute getBarChart_YTitle();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link vml.BarChart#getBars <em>Bars</em>}'.
@@ -942,37 +1461,120 @@ public interface VmlPackage extends EPackage {
 	EClass getBar();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.Bar#getID <em>ID</em>}'.
+	 * Returns the meta object for class '{@link vml.StackBarChart <em>Stack Bar Chart</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see vml.Bar#getID()
-	 * @see #getBar()
+	 * @return the meta object for class '<em>Stack Bar Chart</em>'.
+	 * @see vml.StackBarChart
 	 * @generated
 	 */
-	EAttribute getBar_ID();
+	EClass getStackBarChart();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.Bar#getTitle <em>Title</em>}'.
+	 * Returns the meta object for the containment reference list '{@link vml.StackBarChart#getStackBar <em>Stack Bar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see vml.Bar#getTitle()
-	 * @see #getBar()
+	 * @return the meta object for the containment reference list '<em>Stack Bar</em>'.
+	 * @see vml.StackBarChart#getStackBar()
+	 * @see #getStackBarChart()
 	 * @generated
 	 */
-	EAttribute getBar_Title();
+	EReference getStackBarChart_StackBar();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.Bar#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference list '{@link vml.StackBarChart#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see vml.Bar#getValue()
-	 * @see #getBar()
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see vml.StackBarChart#getCategories()
+	 * @see #getStackBarChart()
 	 * @generated
 	 */
-	EAttribute getBar_Value();
+	EReference getStackBarChart_Categories();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category</em>'.
+	 * @see vml.Category
+	 * @generated
+	 */
+	EClass getCategory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Category#getCategory <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Category</em>'.
+	 * @see vml.Category#getCategory()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	EAttribute getCategory_Category();
+
+	/**
+	 * Returns the meta object for class '{@link vml.StackBars <em>Stack Bars</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stack Bars</em>'.
+	 * @see vml.StackBars
+	 * @generated
+	 */
+	EClass getStackBars();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.StackBars#getCategory <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Category</em>'.
+	 * @see vml.StackBars#getCategory()
+	 * @see #getStackBars()
+	 * @generated
+	 */
+	EReference getStackBars_Category();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.StackBars#getBars <em>Bars</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bars</em>'.
+	 * @see vml.StackBars#getBars()
+	 * @see #getStackBars()
+	 * @generated
+	 */
+	EReference getStackBars_Bars();
+
+	/**
+	 * Returns the meta object for class '{@link vml.LineChart <em>Line Chart</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Chart</em>'.
+	 * @see vml.LineChart
+	 * @generated
+	 */
+	EClass getLineChart();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.LineChart#getPoints <em>Points</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Points</em>'.
+	 * @see vml.LineChart#getPoints()
+	 * @see #getLineChart()
+	 * @generated
+	 */
+	EReference getLineChart_Points();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Point <em>Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point</em>'.
+	 * @see vml.Point
+	 * @generated
+	 */
+	EClass getPoint();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1214,6 +1816,82 @@ public interface VmlPackage extends EPackage {
 		EReference EDGE__TARGET = eINSTANCE.getEdge_Target();
 
 		/**
+		 * The meta object literal for the '{@link vml.impl.ChartImpl <em>Chart</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ChartImpl
+		 * @see vml.impl.VmlPackageImpl#getChart()
+		 * @generated
+		 */
+		EClass CHART = eINSTANCE.getChart();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART__ID = eINSTANCE.getChart_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART__TITLE = eINSTANCE.getChart_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>XTitle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART__XTITLE = eINSTANCE.getChart_XTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>YTitle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART__YTITLE = eINSTANCE.getChart_YTitle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ChartElementImpl <em>Chart Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ChartElementImpl
+		 * @see vml.impl.VmlPackageImpl#getChartElement()
+		 * @generated
+		 */
+		EClass CHART_ELEMENT = eINSTANCE.getChartElement();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_ELEMENT__ID = eINSTANCE.getChartElement_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_ELEMENT__TITLE = eINSTANCE.getChartElement_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_ELEMENT__VALUE = eINSTANCE.getChartElement_Value();
+
+		/**
 		 * The meta object literal for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1222,38 +1900,6 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BAR_CHART = eINSTANCE.getBarChart();
-
-		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BAR_CHART__ID = eINSTANCE.getBarChart_ID();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BAR_CHART__TITLE = eINSTANCE.getBarChart_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>XTitle</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BAR_CHART__XTITLE = eINSTANCE.getBarChart_XTitle();
-
-		/**
-		 * The meta object literal for the '<em><b>YTitle</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BAR_CHART__YTITLE = eINSTANCE.getBarChart_YTitle();
 
 		/**
 		 * The meta object literal for the '<em><b>Bars</b></em>' containment reference list feature.
@@ -1274,28 +1920,102 @@ public interface VmlPackage extends EPackage {
 		EClass BAR = eINSTANCE.getBar();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * The meta object literal for the '{@link vml.impl.StackBarChartImpl <em>Stack Bar Chart</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see vml.impl.StackBarChartImpl
+		 * @see vml.impl.VmlPackageImpl#getStackBarChart()
 		 * @generated
 		 */
-		EAttribute BAR__ID = eINSTANCE.getBar_ID();
+		EClass STACK_BAR_CHART = eINSTANCE.getStackBarChart();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Stack Bar</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BAR__TITLE = eINSTANCE.getBar_Title();
+		EReference STACK_BAR_CHART__STACK_BAR = eINSTANCE.getStackBarChart_StackBar();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BAR__VALUE = eINSTANCE.getBar_Value();
+		EReference STACK_BAR_CHART__CATEGORIES = eINSTANCE.getStackBarChart_Categories();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.CategoryImpl <em>Category</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.CategoryImpl
+		 * @see vml.impl.VmlPackageImpl#getCategory()
+		 * @generated
+		 */
+		EClass CATEGORY = eINSTANCE.getCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY__CATEGORY = eINSTANCE.getCategory_Category();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.StackBarsImpl <em>Stack Bars</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.StackBarsImpl
+		 * @see vml.impl.VmlPackageImpl#getStackBars()
+		 * @generated
+		 */
+		EClass STACK_BARS = eINSTANCE.getStackBars();
+
+		/**
+		 * The meta object literal for the '<em><b>Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STACK_BARS__CATEGORY = eINSTANCE.getStackBars_Category();
+
+		/**
+		 * The meta object literal for the '<em><b>Bars</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STACK_BARS__BARS = eINSTANCE.getStackBars_Bars();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.LineChartImpl <em>Line Chart</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.LineChartImpl
+		 * @see vml.impl.VmlPackageImpl#getLineChart()
+		 * @generated
+		 */
+		EClass LINE_CHART = eINSTANCE.getLineChart();
+
+		/**
+		 * The meta object literal for the '<em><b>Points</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE_CHART__POINTS = eINSTANCE.getLineChart_Points();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.PointImpl <em>Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.PointImpl
+		 * @see vml.impl.VmlPackageImpl#getPoint()
+		 * @generated
+		 */
+		EClass POINT = eINSTANCE.getPoint();
 
 	}
 

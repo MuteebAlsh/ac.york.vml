@@ -11,14 +11,21 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import vml.Bar;
 import vml.BarChart;
+import vml.Category;
+import vml.Chart;
+import vml.ChartElement;
 import vml.Diagram;
 import vml.DiagramElement;
 import vml.Edge;
 import vml.Graph;
+import vml.LineChart;
 import vml.Model;
 import vml.Node;
 import vml.Pie;
+import vml.Point;
 import vml.Slice;
+import vml.StackBarChart;
+import vml.StackBars;
 import vml.VmlFactory;
 import vml.VmlPackage;
 
@@ -90,6 +97,20 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass chartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass barChartEClass = null;
 
 	/**
@@ -98,6 +119,41 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * @generated
 	 */
 	private EClass barEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stackBarChartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stackBarsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineChartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pointEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -390,6 +446,87 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getChart() {
+		return chartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChart_ID() {
+		return (EAttribute)chartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChart_Title() {
+		return (EAttribute)chartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChart_XTitle() {
+		return (EAttribute)chartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChart_YTitle() {
+		return (EAttribute)chartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartElement() {
+		return chartElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartElement_ID() {
+		return (EAttribute)chartElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartElement_Title() {
+		return (EAttribute)chartElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartElement_Value() {
+		return (EAttribute)chartElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBarChart() {
 		return barChartEClass;
 	}
@@ -399,44 +536,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBarChart_ID() {
-		return (EAttribute)barChartEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBarChart_Title() {
-		return (EAttribute)barChartEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBarChart_XTitle() {
-		return (EAttribute)barChartEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBarChart_YTitle() {
-		return (EAttribute)barChartEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBarChart_Bars() {
-		return (EReference)barChartEClass.getEStructuralFeatures().get(4);
+		return (EReference)barChartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -453,8 +554,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBar_ID() {
-		return (EAttribute)barEClass.getEStructuralFeatures().get(0);
+	public EClass getStackBarChart() {
+		return stackBarChartEClass;
 	}
 
 	/**
@@ -462,8 +563,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBar_Title() {
-		return (EAttribute)barEClass.getEStructuralFeatures().get(1);
+	public EReference getStackBarChart_StackBar() {
+		return (EReference)stackBarChartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -471,8 +572,80 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBar_Value() {
-		return (EAttribute)barEClass.getEStructuralFeatures().get(2);
+	public EReference getStackBarChart_Categories() {
+		return (EReference)stackBarChartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCategory() {
+		return categoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCategory_Category() {
+		return (EAttribute)categoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStackBars() {
+		return stackBarsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStackBars_Category() {
+		return (EReference)stackBarsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStackBars_Bars() {
+		return (EReference)stackBarsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLineChart() {
+		return lineChartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLineChart_Points() {
+		return (EReference)lineChartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPoint() {
+		return pointEClass;
 	}
 
 	/**
@@ -536,17 +709,37 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEReference(edgeEClass, EDGE__SOURCE);
 		createEReference(edgeEClass, EDGE__TARGET);
 
+		chartEClass = createEClass(CHART);
+		createEAttribute(chartEClass, CHART__ID);
+		createEAttribute(chartEClass, CHART__TITLE);
+		createEAttribute(chartEClass, CHART__XTITLE);
+		createEAttribute(chartEClass, CHART__YTITLE);
+
+		chartElementEClass = createEClass(CHART_ELEMENT);
+		createEAttribute(chartElementEClass, CHART_ELEMENT__ID);
+		createEAttribute(chartElementEClass, CHART_ELEMENT__TITLE);
+		createEAttribute(chartElementEClass, CHART_ELEMENT__VALUE);
+
 		barChartEClass = createEClass(BAR_CHART);
-		createEAttribute(barChartEClass, BAR_CHART__ID);
-		createEAttribute(barChartEClass, BAR_CHART__TITLE);
-		createEAttribute(barChartEClass, BAR_CHART__XTITLE);
-		createEAttribute(barChartEClass, BAR_CHART__YTITLE);
 		createEReference(barChartEClass, BAR_CHART__BARS);
 
 		barEClass = createEClass(BAR);
-		createEAttribute(barEClass, BAR__ID);
-		createEAttribute(barEClass, BAR__TITLE);
-		createEAttribute(barEClass, BAR__VALUE);
+
+		stackBarChartEClass = createEClass(STACK_BAR_CHART);
+		createEReference(stackBarChartEClass, STACK_BAR_CHART__STACK_BAR);
+		createEReference(stackBarChartEClass, STACK_BAR_CHART__CATEGORIES);
+
+		categoryEClass = createEClass(CATEGORY);
+		createEAttribute(categoryEClass, CATEGORY__CATEGORY);
+
+		stackBarsEClass = createEClass(STACK_BARS);
+		createEReference(stackBarsEClass, STACK_BARS__CATEGORY);
+		createEReference(stackBarsEClass, STACK_BARS__BARS);
+
+		lineChartEClass = createEClass(LINE_CHART);
+		createEReference(lineChartEClass, LINE_CHART__POINTS);
+
+		pointEClass = createEClass(POINT);
 	}
 
 	/**
@@ -582,8 +775,14 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		graphEClass.getESuperTypes().add(this.getDiagram());
 		nodeEClass.getESuperTypes().add(this.getDiagramElement());
 		edgeEClass.getESuperTypes().add(this.getDiagramElement());
-		barChartEClass.getESuperTypes().add(this.getDiagram());
-		barEClass.getESuperTypes().add(this.getDiagramElement());
+		chartEClass.getESuperTypes().add(this.getDiagram());
+		chartElementEClass.getESuperTypes().add(this.getDiagramElement());
+		barChartEClass.getESuperTypes().add(this.getChart());
+		barEClass.getESuperTypes().add(this.getChartElement());
+		stackBarChartEClass.getESuperTypes().add(this.getChart());
+		stackBarsEClass.getESuperTypes().add(this.getChartElement());
+		lineChartEClass.getESuperTypes().add(this.getChart());
+		pointEClass.getESuperTypes().add(this.getChartElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -619,17 +818,37 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		initEReference(getEdge_Source(), this.getNode(), this.getNode_Outgoing(), "source", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_Target(), this.getNode(), this.getNode_Incoming(), "target", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(chartEClass, Chart.class, "Chart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChart_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChart_Title(), ecorePackage.getEString(), "title", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChart_XTitle(), ecorePackage.getEString(), "xTitle", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChart_YTitle(), ecorePackage.getEString(), "yTitle", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(chartElementEClass, ChartElement.class, "ChartElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChartElement_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartElement_Title(), ecorePackage.getEString(), "title", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartElement_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(barChartEClass, BarChart.class, "BarChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBarChart_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBarChart_Title(), ecorePackage.getEString(), "title", null, 0, 1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBarChart_XTitle(), ecorePackage.getEString(), "xTitle", null, 0, 1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBarChart_YTitle(), ecorePackage.getEString(), "yTitle", null, 0, 1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBarChart_Bars(), this.getBar(), null, "bars", null, 0, -1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(barEClass, Bar.class, "Bar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBar_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, Bar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBar_Title(), ecorePackage.getEString(), "title", null, 0, 1, Bar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBar_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, Bar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stackBarChartEClass, StackBarChart.class, "StackBarChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStackBarChart_StackBar(), this.getStackBars(), null, "stackBar", null, 0, -1, StackBarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStackBarChart_Categories(), this.getCategory(), null, "categories", null, 0, -1, StackBarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategory_Category(), ecorePackage.getEString(), "category", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stackBarsEClass, StackBars.class, "StackBars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStackBars_Category(), this.getCategory(), null, "category", null, 0, 1, StackBars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStackBars_Bars(), this.getChartElement(), null, "bars", null, 0, -1, StackBars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lineChartEClass, LineChart.class, "LineChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLineChart_Points(), this.getPoint(), null, "points", null, 0, -1, LineChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

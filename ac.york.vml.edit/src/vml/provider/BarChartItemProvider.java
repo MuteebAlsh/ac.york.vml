@@ -10,9 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import vml.BarChart;
@@ -25,7 +23,7 @@ import vml.VmlPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BarChartItemProvider extends DiagramItemProvider {
+public class BarChartItemProvider extends ChartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,100 +45,8 @@ public class BarChartItemProvider extends DiagramItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIDPropertyDescriptor(object);
-			addTitlePropertyDescriptor(object);
-			addXTitlePropertyDescriptor(object);
-			addYTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the ID feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BarChart_ID_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_ID_feature", "_UI_BarChart_type"),
-				 VmlPackage.Literals.BAR_CHART__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BarChart_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_title_feature", "_UI_BarChart_type"),
-				 VmlPackage.Literals.BAR_CHART__TITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the XTitle feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BarChart_xTitle_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_xTitle_feature", "_UI_BarChart_type"),
-				 VmlPackage.Literals.BAR_CHART__XTITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the YTitle feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BarChart_yTitle_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BarChart_yTitle_feature", "_UI_BarChart_type"),
-				 VmlPackage.Literals.BAR_CHART__YTITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -212,12 +118,6 @@ public class BarChartItemProvider extends DiagramItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BarChart.class)) {
-			case VmlPackage.BAR_CHART__ID:
-			case VmlPackage.BAR_CHART__TITLE:
-			case VmlPackage.BAR_CHART__XTITLE:
-			case VmlPackage.BAR_CHART__YTITLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case VmlPackage.BAR_CHART__BARS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

@@ -119,9 +119,24 @@ public class VmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VmlPackage.CHART: {
+				Chart chart = (Chart)theEObject;
+				T result = caseChart(chart);
+				if (result == null) result = caseDiagram(chart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.CHART_ELEMENT: {
+				ChartElement chartElement = (ChartElement)theEObject;
+				T result = caseChartElement(chartElement);
+				if (result == null) result = caseDiagramElement(chartElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case VmlPackage.BAR_CHART: {
 				BarChart barChart = (BarChart)theEObject;
 				T result = caseBarChart(barChart);
+				if (result == null) result = caseChart(barChart);
 				if (result == null) result = caseDiagram(barChart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -129,7 +144,46 @@ public class VmlSwitch<T> extends Switch<T> {
 			case VmlPackage.BAR: {
 				Bar bar = (Bar)theEObject;
 				T result = caseBar(bar);
+				if (result == null) result = caseChartElement(bar);
 				if (result == null) result = caseDiagramElement(bar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.STACK_BAR_CHART: {
+				StackBarChart stackBarChart = (StackBarChart)theEObject;
+				T result = caseStackBarChart(stackBarChart);
+				if (result == null) result = caseChart(stackBarChart);
+				if (result == null) result = caseDiagram(stackBarChart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.CATEGORY: {
+				Category category = (Category)theEObject;
+				T result = caseCategory(category);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.STACK_BARS: {
+				StackBars stackBars = (StackBars)theEObject;
+				T result = caseStackBars(stackBars);
+				if (result == null) result = caseChartElement(stackBars);
+				if (result == null) result = caseDiagramElement(stackBars);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.LINE_CHART: {
+				LineChart lineChart = (LineChart)theEObject;
+				T result = caseLineChart(lineChart);
+				if (result == null) result = caseChart(lineChart);
+				if (result == null) result = caseDiagram(lineChart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.POINT: {
+				Point point = (Point)theEObject;
+				T result = casePoint(point);
+				if (result == null) result = caseChartElement(point);
+				if (result == null) result = caseDiagramElement(point);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,6 +312,36 @@ public class VmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chart</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChart(Chart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chart Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chart Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChartElement(ChartElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bar Chart</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -284,6 +368,81 @@ public class VmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBar(Bar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stack Bar Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stack Bar Chart</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStackBarChart(StackBarChart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategory(Category object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stack Bars</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stack Bars</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStackBars(StackBars object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line Chart</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line Chart</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLineChart(LineChart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePoint(Point object) {
 		return null;
 	}
 

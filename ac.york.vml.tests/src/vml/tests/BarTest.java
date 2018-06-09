@@ -13,7 +13,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BarTest extends DiagramElementTest {
+public class BarTest extends ChartElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -16,4 +16,9 @@
     <bars title="New York" value="20.0"/>
     <bars title="London" value="30.0"/>
   </diagrams>
+  <diagrams xsi:type="LineChart" title="Line Chart" xTitle="Years" yTitle="Graduate Number">
+    <points title="2016" value="20.0"/>
+    <points title="2017" value="35.0"/>
+    <points title="2018" value="10.0"/>
+  </diagrams>
 </Model>

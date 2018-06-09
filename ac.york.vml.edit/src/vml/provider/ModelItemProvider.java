@@ -166,7 +166,22 @@ public class ModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createChart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
 				 VmlFactory.eINSTANCE.createBarChart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createStackBarChart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__DIAGRAMS,
+				 VmlFactory.eINSTANCE.createLineChart()));
 	}
 
 	/**

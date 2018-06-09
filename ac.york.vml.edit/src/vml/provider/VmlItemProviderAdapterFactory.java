@@ -256,6 +256,52 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.Chart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartItemProvider chartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Chart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartAdapter() {
+		if (chartItemProvider == null) {
+			chartItemProvider = new ChartItemProvider(this);
+		}
+
+		return chartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.ChartElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartElementItemProvider chartElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.ChartElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartElementAdapter() {
+		if (chartElementItemProvider == null) {
+			chartElementItemProvider = new ChartElementItemProvider(this);
+		}
+
+		return chartElementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link vml.BarChart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,6 +345,121 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		}
 
 		return barItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.StackBarChart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StackBarChartItemProvider stackBarChartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.StackBarChart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStackBarChartAdapter() {
+		if (stackBarChartItemProvider == null) {
+			stackBarChartItemProvider = new StackBarChartItemProvider(this);
+		}
+
+		return stackBarChartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Category} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategoryItemProvider categoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Category}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategoryAdapter() {
+		if (categoryItemProvider == null) {
+			categoryItemProvider = new CategoryItemProvider(this);
+		}
+
+		return categoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.StackBars} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StackBarsItemProvider stackBarsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.StackBars}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStackBarsAdapter() {
+		if (stackBarsItemProvider == null) {
+			stackBarsItemProvider = new StackBarsItemProvider(this);
+		}
+
+		return stackBarsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.LineChart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineChartItemProvider lineChartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.LineChart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineChartAdapter() {
+		if (lineChartItemProvider == null) {
+			lineChartItemProvider = new LineChartItemProvider(this);
+		}
+
+		return lineChartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Point} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PointItemProvider pointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Point}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPointAdapter() {
+		if (pointItemProvider == null) {
+			pointItemProvider = new PointItemProvider(this);
+		}
+
+		return pointItemProvider;
 	}
 
 	/**
@@ -408,8 +569,15 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		if (graphItemProvider != null) graphItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
 		if (edgeItemProvider != null) edgeItemProvider.dispose();
+		if (chartItemProvider != null) chartItemProvider.dispose();
+		if (chartElementItemProvider != null) chartElementItemProvider.dispose();
 		if (barChartItemProvider != null) barChartItemProvider.dispose();
 		if (barItemProvider != null) barItemProvider.dispose();
+		if (stackBarChartItemProvider != null) stackBarChartItemProvider.dispose();
+		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (stackBarsItemProvider != null) stackBarsItemProvider.dispose();
+		if (lineChartItemProvider != null) lineChartItemProvider.dispose();
+		if (pointItemProvider != null) pointItemProvider.dispose();
 	}
 
 }
