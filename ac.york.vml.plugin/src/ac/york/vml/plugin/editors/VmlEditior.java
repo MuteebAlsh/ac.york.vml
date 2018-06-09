@@ -31,7 +31,6 @@ import ac.york.vml.plugin.widget.chart.AbstractChartBuilder;
 import ac.york.vml.plugin.widget.chart.BarChartBuilder;
 import ac.york.vml.plugin.widget.chart.GraphWidget;
 import ac.york.vml.plugin.widget.chart.LineChartBuilder;
-import ac.york.vml.plugin.widget.chart.OverlayLine;
 import ac.york.vml.plugin.widget.chart.PieChartBuilder;
 import vml.BarChart;
 import vml.Diagram;

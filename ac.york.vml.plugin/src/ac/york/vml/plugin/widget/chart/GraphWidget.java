@@ -9,8 +9,6 @@ import org.eclipse.zest.core.widgets.Graph;
 import org.eclipse.zest.core.widgets.GraphConnection;
 import org.eclipse.zest.core.widgets.GraphNode;
 import org.eclipse.zest.core.widgets.ZestStyles;
-import org.eclipse.zest.layouts.LayoutStyles;
-import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
 import vml.Diagram;
 import vml.Edge;
@@ -25,15 +23,16 @@ public class GraphWidget extends Graph{
 		
 		vml.Graph vmlGraph = (vml.Graph) myGraph;
 		
-		System.out.println("vmlGraph: " + vmlGraph.getNodes().size());
 		
 		//Graph graph = new Graph(parent, SWT.NONE);
 
 		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
 
 		for (Node node : vmlGraph.getNodes()) {
+			int nodeStyle = ZestStyles.NODES_CACHE_LABEL;
 			GraphNode graphNode = new GraphNode(this, SWT.NONE, node.getTitle());
 			graphNode.setData(node);
+			graphNode.setNodeStyle(nodeStyle);
 			nodeMap.put(node, graphNode);
 
 		}
