@@ -105,6 +105,7 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 			diagramComposite.setLayout(new FillLayout());
 			item.setControl(diagramComposite);
 			
+			
 
 
 			if (diagram instanceof vml.Graph) {

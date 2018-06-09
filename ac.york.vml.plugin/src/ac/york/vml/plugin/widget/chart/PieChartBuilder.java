@@ -131,7 +131,7 @@ public class PieChartBuilder extends AbstractChartBuilder {
 
 		// Apply the color palette
 		sdX = SeriesDefinitionImpl.create();
-		sdX.getSeriesPalette().shift(0);;
+		sdX.getSeriesPalette().shift(0);
 
 		((ChartWithoutAxes) chart).getSeriesDefinitions().add(sdX);
 		sdX.getSeries().add(seCategory);

@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
+import org.eclipse.birt.chart.model.attribute.DataPoint;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
 import org.eclipse.birt.chart.model.attribute.LegendItemType;
 import org.eclipse.birt.chart.model.attribute.LineStyle;
@@ -173,7 +174,10 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 		bs1.setDataSet(orthoValuesDataSet1);
 		bs1.setRiserOutline(null);
 
+
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
+		sdY.getQuery().setDefinition("Census.City");
+//		System.out.println("query: " + sdY.getQuery().getDefinition());
 		yAxis.getSeriesDefinitions().add(sdY);
 		sdY.getSeries().add(bs1);
 	}
