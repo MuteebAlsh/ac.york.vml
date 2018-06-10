@@ -554,22 +554,22 @@ public interface VmlPackage extends EPackage {
 	int CHART_ELEMENT__ID = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * The feature id for the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_ELEMENT__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+	int CHART_ELEMENT__XVALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_ELEMENT__VALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
+	int CHART_ELEMENT__YVALUE = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Chart Element</em>' class.
@@ -691,22 +691,22 @@ public interface VmlPackage extends EPackage {
 	int BAR__ID = CHART_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * The feature id for the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__TITLE = CHART_ELEMENT__TITLE;
+	int BAR__XVALUE = CHART_ELEMENT__XVALUE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BAR__VALUE = CHART_ELEMENT__VALUE;
+	int BAR__YVALUE = CHART_ELEMENT__YVALUE;
 
 	/**
 	 * The number of structural features of the '<em>Bar</em>' class.
@@ -875,22 +875,22 @@ public interface VmlPackage extends EPackage {
 	int STACK_BARS__ID = CHART_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * The feature id for the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STACK_BARS__TITLE = CHART_ELEMENT__TITLE;
+	int STACK_BARS__XVALUE = CHART_ELEMENT__XVALUE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STACK_BARS__VALUE = CHART_ELEMENT__VALUE;
+	int STACK_BARS__YVALUE = CHART_ELEMENT__YVALUE;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1030,22 +1030,22 @@ public interface VmlPackage extends EPackage {
 	int POINT__ID = CHART_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * The feature id for the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__TITLE = CHART_ELEMENT__TITLE;
+	int POINT__XVALUE = CHART_ELEMENT__XVALUE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__VALUE = CHART_ELEMENT__VALUE;
+	int POINT__YVALUE = CHART_ELEMENT__YVALUE;
 
 	/**
 	 * The number of structural features of the '<em>Point</em>' class.
@@ -1064,6 +1064,79 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT_OPERATION_COUNT = CHART_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.ScatterImpl <em>Scatter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ScatterImpl
+	 * @see vml.impl.VmlPackageImpl#getScatter()
+	 * @generated
+	 */
+	int SCATTER = 17;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__ID = CHART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__TITLE = CHART__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>XTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__XTITLE = CHART__XTITLE;
+
+	/**
+	 * The feature id for the '<em><b>YTitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__YTITLE = CHART__YTITLE;
+
+	/**
+	 * The feature id for the '<em><b>Points</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__POINTS = CHART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scatter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_FEATURE_COUNT = CHART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Scatter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_OPERATION_COUNT = CHART_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link vml.Model <em>Model</em>}'.
@@ -1408,26 +1481,26 @@ public interface VmlPackage extends EPackage {
 	EAttribute getChartElement_ID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.ChartElement#getTitle <em>Title</em>}'.
+	 * Returns the meta object for the attribute '{@link vml.ChartElement#getXValue <em>XValue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see vml.ChartElement#getTitle()
+	 * @return the meta object for the attribute '<em>XValue</em>'.
+	 * @see vml.ChartElement#getXValue()
 	 * @see #getChartElement()
 	 * @generated
 	 */
-	EAttribute getChartElement_Title();
+	EAttribute getChartElement_XValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link vml.ChartElement#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link vml.ChartElement#getYValue <em>YValue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see vml.ChartElement#getValue()
+	 * @return the meta object for the attribute '<em>YValue</em>'.
+	 * @see vml.ChartElement#getYValue()
 	 * @see #getChartElement()
 	 * @generated
 	 */
-	EAttribute getChartElement_Value();
+	EAttribute getChartElement_YValue();
 
 	/**
 	 * Returns the meta object for class '{@link vml.BarChart <em>Bar Chart</em>}'.
@@ -1575,6 +1648,27 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPoint();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Scatter <em>Scatter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scatter</em>'.
+	 * @see vml.Scatter
+	 * @generated
+	 */
+	EClass getScatter();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Scatter#getPoints <em>Points</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Points</em>'.
+	 * @see vml.Scatter#getPoints()
+	 * @see #getScatter()
+	 * @generated
+	 */
+	EReference getScatter_Points();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1876,20 +1970,20 @@ public interface VmlPackage extends EPackage {
 		EAttribute CHART_ELEMENT__ID = eINSTANCE.getChartElement_ID();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>XValue</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHART_ELEMENT__TITLE = eINSTANCE.getChartElement_Title();
+		EAttribute CHART_ELEMENT__XVALUE = eINSTANCE.getChartElement_XValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>YValue</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHART_ELEMENT__VALUE = eINSTANCE.getChartElement_Value();
+		EAttribute CHART_ELEMENT__YVALUE = eINSTANCE.getChartElement_YValue();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.BarChartImpl <em>Bar Chart</em>}' class.
@@ -2016,6 +2110,24 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ScatterImpl <em>Scatter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ScatterImpl
+		 * @see vml.impl.VmlPackageImpl#getScatter()
+		 * @generated
+		 */
+		EClass SCATTER = eINSTANCE.getScatter();
+
+		/**
+		 * The meta object literal for the '<em><b>Points</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCATTER__POINTS = eINSTANCE.getScatter_Points();
 
 	}
 

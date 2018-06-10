@@ -164,22 +164,7 @@ public class StackBarsItemProvider extends ChartElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(VmlPackage.Literals.STACK_BARS__BARS,
-				 VmlFactory.eINSTANCE.createChartElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.STACK_BARS__BARS,
 				 VmlFactory.eINSTANCE.createBar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.STACK_BARS__BARS,
-				 VmlFactory.eINSTANCE.createStackBars()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.STACK_BARS__BARS,
-				 VmlFactory.eINSTANCE.createPoint()));
 	}
 
 }

@@ -13,13 +13,16 @@ package ac.york.vml.plugin.widget.chart;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
+import org.eclipse.birt.chart.model.attribute.DataPoint;
+import org.eclipse.birt.chart.model.attribute.DataPointComponentType;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
 import org.eclipse.birt.chart.model.attribute.LineStyle;
 import org.eclipse.birt.chart.model.attribute.MarkerType;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
+import org.eclipse.birt.chart.model.attribute.impl.DataPointComponentImpl;
+import org.eclipse.birt.chart.model.attribute.impl.JavaNumberFormatSpecifierImpl;
 import org.eclipse.birt.chart.model.component.Series;
 import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
 import org.eclipse.birt.chart.model.data.NumberDataSet;
@@ -28,95 +31,90 @@ import org.eclipse.birt.chart.model.data.TextDataSet;
 import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
 import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
-import org.eclipse.birt.chart.model.type.LineSeries;
-import org.eclipse.birt.chart.model.type.impl.LineSeriesImpl;
+import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
+import org.eclipse.birt.chart.model.type.ScatterSeries;
+import org.eclipse.birt.chart.model.type.impl.ScatterSeriesImpl;
 import org.eclipse.emf.common.util.EList;
 
-import vml.LineChart;
 import vml.Point;
+import vml.Scatter;
 
 /**
- * Builds line chart.
+ * Builds scatter chart.
  * 
  * @author Qi Liang
  */
-public class LineChartBuilder extends AbstractChartWithAxisBuilder {
+public class ScatterChartBuilder extends AbstractChartWithAxisBuilder {
 
 	
-	protected LineChart line = null;
+	protected Scatter scatter = null;
     /**
      * Constructor.
      * 
      * @param dataSet
      *            data for chart
      */
-    public LineChartBuilder(LineChart dataSet) {
+    public ScatterChartBuilder(Scatter dataSet) {
         super(dataSet);
-        line = (LineChart) dataSet;
-        title = line.getTitle();
-        xTitle = line.getXTitle();
-        yTitle = line.getYTitle();
+        scatter = (Scatter) dataSet;
+        title = scatter.getTitle();
+        xTitle = scatter.getXTitle();
+        yTitle = scatter.getYTitle();
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildXAxis()
+     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildXAxis()
      */
     protected void buildXAxis() {
-        xAxis = ((ChartWithAxes) chart).getPrimaryBaseAxes()[0];
+        xAxis = ((ChartWithAxesImpl) chart).getPrimaryBaseAxes()[0];
 
-        xAxis.getTitle().setVisible(true);
         xAxis.getTitle().getCaption().setValue(xTitle);
-        xAxis.getTitle().getCaption().getFont().setBold(false);
-        xAxis.getTitle().getCaption().getFont().setSize(11);
-        xAxis.getTitle().getCaption().getFont().setName(FONT_NAME);
-
-        xAxis.getLabel().setVisible(true);
-        xAxis.getLabel().getCaption().getFont().setSize(8);
-        xAxis.getLabel().getCaption().getFont().setName(FONT_NAME);
-
-        xAxis.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
+        xAxis.getLabel().getCaption().setColor(ColorDefinitionImpl.GREEN()
+                .darker());
+        xAxis.getTitle().setVisible(true);
 
         xAxis.setType(AxisType.TEXT_LITERAL);
+
+        xAxis.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
+        xAxis.getMajorGrid().getLineAttributes()
+                .setStyle(LineStyle.DOTTED_LITERAL);
+        xAxis.getMajorGrid().getLineAttributes().setColor(ColorDefinitionImpl
+                .GREY());
+        xAxis.getMajorGrid().getLineAttributes().setVisible(true);
+
         xAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildYAxis()
+     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildYAxis()
      */
     protected void buildYAxis() {
-        yAxis = ((ChartWithAxes) chart).getPrimaryOrthogonalAxis(xAxis);
+        yAxis = ((ChartWithAxesImpl) chart).getPrimaryOrthogonalAxis(xAxis);
 
         yAxis.getTitle().setVisible(true);
         yAxis.getTitle().getCaption().setValue(yTitle);
-        yAxis.getTitle().getCaption().getFont().setBold(false);
-        yAxis.getTitle().getCaption().getFont().setRotation(90);
-        yAxis.getTitle().getCaption().getFont().setSize(11);
-        yAxis.getTitle().getCaption().getFont().setName(FONT_NAME);
-
-        yAxis.getLabel().setVisible(true);
-        yAxis.getLabel().getCaption().getFont().setSize(8);
-        yAxis.getLabel().getCaption().getFont().setName(FONT_NAME);
-
-        yAxis.getMajorGrid().getLineAttributes().setVisible(true);
-        yAxis.getMajorGrid().getLineAttributes().setColor(ColorDefinitionImpl
-                .GREY());
-        yAxis.getMajorGrid().getLineAttributes()
-                .setStyle(LineStyle.DASHED_LITERAL);
-        yAxis.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
 
         yAxis.setType(AxisType.LINEAR_LITERAL);
+
+        yAxis.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
+        yAxis.getMajorGrid().getLineAttributes()
+                .setStyle(LineStyle.DOTTED_LITERAL);
+        yAxis.getMajorGrid().getLineAttributes().setColor(ColorDefinitionImpl
+                .GREY());
+        yAxis.getMajorGrid().getLineAttributes().setVisible(true);
+
         yAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
         
-        yAxis.getScale().setStep(1.0);
+        yAxis.getScale().setStep(10.0);
     }
     
     
     protected List<String> getXValue() {
-		EList<Point> lines = line.getPoints();
+		EList<Point> lines = scatter.getPoints();
 		List<String> lineTitle = new ArrayList<>();
 		for (Point singleBar : lines) {
 			lineTitle.add(singleBar.getXValue());
@@ -126,7 +124,7 @@ public class LineChartBuilder extends AbstractChartWithAxisBuilder {
 
 	protected List<Double> getYValue() {
 
-		EList<Point> lines = line.getPoints();
+		EList<Point> lines = scatter.getPoints();
 		List<Double> lineValue = new ArrayList<>();
 		for (Point singleBar : lines) {
 			lineValue.add(singleBar.getYValue());
@@ -137,42 +135,46 @@ public class LineChartBuilder extends AbstractChartWithAxisBuilder {
     /*
      * (non-Javadoc)
      * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildXSeries()
+     * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildXSeries()
      */
     protected void buildXSeries() {
-
         TextDataSet categoryValues = TextDataSetImpl
                 .create(getXValue());
 
-        Series seCategory = SeriesImpl.create();
-        seCategory.setDataSet(categoryValues);
+        Series seBase = SeriesImpl.create();
+        seBase.setDataSet(categoryValues);
 
-        // Apply the color palette
         SeriesDefinition sdX = SeriesDefinitionImpl.create();
-        sdX.getSeriesPalette().shift(0);;
-
         xAxis.getSeriesDefinitions().add(sdX);
-        sdX.getSeries().add(seCategory);
+        sdX.getSeries().add(seBase);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ibm.examples.chart.widget.chart.AbstractChartBuilder#buildYSeries()
-     */
-	protected void buildYSeries() {
+    protected void buildYSeries() {
 
         NumberDataSet orthoValuesDataSet1 = NumberDataSetImpl.create(getYValue());
 
-        LineSeries ls = (LineSeries) LineSeriesImpl.create();
-        ls.setDataSet(orthoValuesDataSet1);
-        ls.getLineAttributes().setColor(ColorDefinitionImpl.BLUE());
-        ls.getMarkers().get(0).setType(MarkerType.CIRCLE_LITERAL);
-        ls.getLabel().setVisible(true);
+        ScatterSeries ss = (ScatterSeries) ScatterSeriesImpl.create();
+        ss.setSeriesIdentifier("Cities");
+        ss.getMarkers().get(0).setType(MarkerType.CIRCLE_LITERAL);;
+        DataPoint dp = ss.getDataPoint();
+        dp.getComponents().clear();
+        dp.setPrefix("(");
+        dp.setSuffix(")");
+        dp.getComponents().add(DataPointComponentImpl
+                .create(DataPointComponentType.BASE_VALUE_LITERAL,
+                        JavaNumberFormatSpecifierImpl.create("0")));
+        dp.getComponents().add(DataPointComponentImpl
+                .create(DataPointComponentType.ORTHOGONAL_VALUE_LITERAL,
+                        JavaNumberFormatSpecifierImpl.create("0")));
+        ss.getLabel().getCaption().setColor(ColorDefinitionImpl.RED());
+        ss.getLabel().setBackground(ColorDefinitionImpl.CYAN());
+        ss.getLabel().setVisible(true);
+        ss.setDataSet(orthoValuesDataSet1);
 
         SeriesDefinition sdY = SeriesDefinitionImpl.create();
         yAxis.getSeriesDefinitions().add(sdY);
-        sdY.getSeries().add(ls);
+        sdY.getSeriesPalette().update(ColorDefinitionImpl.BLACK());
+        sdY.getSeries().add(ss);
     }
 
 }

@@ -15,22 +15,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.birt.chart.model.ChartWithAxes;
+import org.eclipse.birt.chart.model.attribute.ActionType;
 import org.eclipse.birt.chart.model.attribute.AxisType;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
-import org.eclipse.birt.chart.model.attribute.DataPoint;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
 import org.eclipse.birt.chart.model.attribute.LegendItemType;
 import org.eclipse.birt.chart.model.attribute.LineStyle;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
+import org.eclipse.birt.chart.model.attribute.TriggerCondition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
+import org.eclipse.birt.chart.model.attribute.impl.URLValueImpl;
 import org.eclipse.birt.chart.model.component.Series;
 import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
 import org.eclipse.birt.chart.model.data.NumberDataSet;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.birt.chart.model.data.TextDataSet;
+import org.eclipse.birt.chart.model.data.Trigger;
+import org.eclipse.birt.chart.model.data.impl.ActionImpl;
 import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
 import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
+import org.eclipse.birt.chart.model.data.impl.TriggerImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.type.BarSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
@@ -118,25 +123,25 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 		yAxis.setType(AxisType.LINEAR_LITERAL);
 		yAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
 
-		yAxis.getScale().setStep(1.0);
+		yAxis.getScale().setStep(10.0);
 	}
 
 	
-	protected List<String> getTitle() {
+	protected List<String> getXValue() {
 		EList<Bar> bars = bar.getBars();
 		List<String> barTitle = new ArrayList<>();
 		for (Bar singleBar : bars) {
-			barTitle.add(singleBar.getTitle());
+			barTitle.add(singleBar.getXValue());
 		}
 		return barTitle;
 	}
 
-	protected List<Double> getValue() {
+	protected List<Double> getYValue() {
 
 		EList<Bar> bars = bar.getBars();
 		List<Double> barValue = new ArrayList<>();
 		for (Bar singleBar : bars) {
-			barValue.add(singleBar.getValue());
+			barValue.add(singleBar.getYValue());
 		}
 		return barValue;
 	}
@@ -148,7 +153,7 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 
 	protected void buildXSeries() {
 
-		TextDataSet categoryValues = TextDataSetImpl.create(getTitle());
+		TextDataSet categoryValues = TextDataSetImpl.create(getXValue());
 
 		Series seCategory = SeriesImpl.create();
 		seCategory.setDataSet(categoryValues);
@@ -168,15 +173,20 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 	 */
 	protected void buildYSeries() {
 
-		NumberDataSet orthoValuesDataSet1 = NumberDataSetImpl.create(getValue());
+		NumberDataSet orthoValuesDataSet1 = NumberDataSetImpl.create(getYValue());
 
 		BarSeries bs1 = (BarSeries) BarSeriesImpl.create();
 		bs1.setDataSet(orthoValuesDataSet1);
 		bs1.setRiserOutline(null);
-
-
+		
+		Trigger triger = TriggerImpl.create( TriggerCondition.ONMOUSEDOWN_LITERAL,
+				ActionImpl.create( ActionType.URL_REDIRECT_LITERAL,
+						URLValueImpl.create( "http://www.actuate.com", //$NON-NLS-1$
+								null, null, null, null ) ) );
+		
+		bs1.getTriggers().add(triger);
+		
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
-		sdY.getQuery().setDefinition("Census.City");
 //		System.out.println("query: " + sdY.getQuery().getDefinition());
 		yAxis.getSeriesDefinitions().add(sdY);
 		sdY.getSeries().add(bs1);

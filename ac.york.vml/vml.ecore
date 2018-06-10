@@ -50,8 +50,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChartElement" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BarChart" eSuperTypes="#//Chart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bars" upperBound="-1" eType="#//Bar"
@@ -69,7 +69,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StackBars" eSuperTypes="#//ChartElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//Category"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bars" upperBound="-1" eType="#//ChartElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bars" upperBound="-1" eType="#//Bar"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LineChart" eSuperTypes="#//Chart">
@@ -77,4 +77,8 @@
         eType="#//Point" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//ChartElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scatter" eSuperTypes="#//Chart">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
+        eType="#//Point" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

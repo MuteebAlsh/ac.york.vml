@@ -463,6 +463,29 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.Scatter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterItemProvider scatterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Scatter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScatterAdapter() {
+		if (scatterItemProvider == null) {
+			scatterItemProvider = new ScatterItemProvider(this);
+		}
+
+		return scatterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -578,6 +601,7 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		if (stackBarsItemProvider != null) stackBarsItemProvider.dispose();
 		if (lineChartItemProvider != null) lineChartItemProvider.dispose();
 		if (pointItemProvider != null) pointItemProvider.dispose();
+		if (scatterItemProvider != null) scatterItemProvider.dispose();
 	}
 
 }

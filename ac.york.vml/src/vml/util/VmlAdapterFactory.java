@@ -136,6 +136,10 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 				return createPointAdapter();
 			}
 			@Override
+			public Adapter caseScatter(Scatter object) {
+				return createScatterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -390,6 +394,20 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Scatter <em>Scatter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Scatter
+	 * @generated
+	 */
+	public Adapter createScatterAdapter() {
 		return null;
 	}
 

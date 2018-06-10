@@ -73,6 +73,7 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 			case VmlPackage.STACK_BARS: return createStackBars();
 			case VmlPackage.LINE_CHART: return createLineChart();
 			case VmlPackage.POINT: return createPoint();
+			case VmlPackage.SCATTER: return createScatter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -246,6 +247,16 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Point createPoint() {
 		PointImpl point = new PointImpl();
 		return point;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scatter createScatter() {
+		ScatterImpl scatter = new ScatterImpl();
+		return scatter;
 	}
 
 	/**

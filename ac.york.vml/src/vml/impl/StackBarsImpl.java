@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import vml.Bar;
 import vml.Category;
-import vml.ChartElement;
 import vml.StackBars;
 import vml.VmlPackage;
 
@@ -54,7 +54,7 @@ public class StackBarsImpl extends ChartElementImpl implements StackBars {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ChartElement> bars;
+	protected EList<Bar> bars;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,9 +118,9 @@ public class StackBarsImpl extends ChartElementImpl implements StackBars {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ChartElement> getBars() {
+	public EList<Bar> getBars() {
 		if (bars == null) {
-			bars = new EObjectContainmentEList<ChartElement>(ChartElement.class, this, VmlPackage.STACK_BARS__BARS);
+			bars = new EObjectContainmentEList<Bar>(Bar.class, this, VmlPackage.STACK_BARS__BARS);
 		}
 		return bars;
 	}
@@ -170,7 +170,7 @@ public class StackBarsImpl extends ChartElementImpl implements StackBars {
 				return;
 			case VmlPackage.STACK_BARS__BARS:
 				getBars().clear();
-				getBars().addAll((Collection<? extends ChartElement>)newValue);
+				getBars().addAll((Collection<? extends Bar>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -46,8 +46,8 @@ public class ChartElementItemProvider extends DiagramElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addIDPropertyDescriptor(object);
-			addTitlePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addXValuePropertyDescriptor(object);
+			addYValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,19 +75,19 @@ public class ChartElementItemProvider extends DiagramElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
+	 * This adds a property descriptor for the XValue feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTitlePropertyDescriptor(Object object) {
+	protected void addXValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ChartElement_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ChartElement_title_feature", "_UI_ChartElement_type"),
-				 VmlPackage.Literals.CHART_ELEMENT__TITLE,
+				 getString("_UI_ChartElement_xValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChartElement_xValue_feature", "_UI_ChartElement_type"),
+				 VmlPackage.Literals.CHART_ELEMENT__XVALUE,
 				 true,
 				 false,
 				 false,
@@ -97,19 +97,19 @@ public class ChartElementItemProvider extends DiagramElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the YValue feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addYValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ChartElement_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ChartElement_value_feature", "_UI_ChartElement_type"),
-				 VmlPackage.Literals.CHART_ELEMENT__VALUE,
+				 getString("_UI_ChartElement_yValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChartElement_yValue_feature", "_UI_ChartElement_type"),
+				 VmlPackage.Literals.CHART_ELEMENT__YVALUE,
 				 true,
 				 false,
 				 false,
@@ -158,8 +158,8 @@ public class ChartElementItemProvider extends DiagramElementItemProvider {
 
 		switch (notification.getFeatureID(ChartElement.class)) {
 			case VmlPackage.CHART_ELEMENT__ID:
-			case VmlPackage.CHART_ELEMENT__TITLE:
-			case VmlPackage.CHART_ELEMENT__VALUE:
+			case VmlPackage.CHART_ELEMENT__XVALUE:
+			case VmlPackage.CHART_ELEMENT__YVALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

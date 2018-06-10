@@ -187,6 +187,14 @@ public class VmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VmlPackage.SCATTER: {
+				Scatter scatter = (Scatter)theEObject;
+				T result = caseScatter(scatter);
+				if (result == null) result = caseChart(scatter);
+				if (result == null) result = caseDiagram(scatter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -443,6 +451,21 @@ public class VmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoint(Point object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scatter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scatter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScatter(Scatter object) {
 		return null;
 	}
 

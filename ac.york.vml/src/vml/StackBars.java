@@ -50,7 +50,7 @@ public interface StackBars extends ChartElement {
 
 	/**
 	 * Returns the value of the '<em><b>Bars</b></em>' containment reference list.
-	 * The list contents are of type {@link vml.ChartElement}.
+	 * The list contents are of type {@link vml.Bar}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bars</em>' containment reference list isn't clear,
@@ -62,6 +62,6 @@ public interface StackBars extends ChartElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ChartElement> getBars();
+	EList<Bar> getBars();
 
 } // StackBars

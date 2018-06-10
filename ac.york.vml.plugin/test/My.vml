@@ -7,20 +7,24 @@
     <edges relation="has" source="//@diagrams.0/@nodes.0" target="//@diagrams.0/@nodes.1"/>
     <edges source="//@diagrams.0/@nodes.0" target="//@diagrams.0/@nodes.2"/>
   </diagrams>
-  <diagrams xsi:type="Graph" title="ss"/>
-  <diagrams xsi:type="Graph" title="ssss"/>
   <diagrams xsi:type="Pie" title="First Pie" identifier="Cities">
     <slices title="USA" value="25"/>
     <slices title="UK" value="75"/>
     <slices title="Saudi Arabia" value="50"/>
   </diagrams>
   <diagrams xsi:type="BarChart" title="First Bar Chart" xTitle="Cities" yTitle="Population">
-    <bars title="New York" value="20.0"/>
-    <bars title="London" value="30.0"/>
+    <bars xValue="New York" yValue="20.0"/>
+    <bars xValue="London" yValue="30.0"/>
   </diagrams>
   <diagrams xsi:type="LineChart" title="Line Chart" xTitle="Years" yTitle="Graduate Number">
-    <points title="2016" value="20.0"/>
-    <points title="2017" value="35.0"/>
-    <points title="2018" value="10.0"/>
+    <points xValue="2016" yValue="20.0"/>
+    <points xValue="2017" yValue="35.0"/>
+    <points xValue="2018" yValue="10.0"/>
+  </diagrams>
+  <diagrams xsi:type="Scatter" title="Scatter" xTitle="X" yTitle="Y">
+    <points xValue="100" yValue="20.0"/>
+    <points xValue="200" yValue="300.0"/>
+    <points xValue="30" yValue="100.0"/>
+    <points xValue="55" yValue="-10.0"/>
   </diagrams>
 </Model>

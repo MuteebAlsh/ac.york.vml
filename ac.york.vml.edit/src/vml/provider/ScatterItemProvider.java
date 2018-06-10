@@ -9,44 +9,29 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import vml.Model;
+import vml.Scatter;
 import vml.VmlFactory;
 import vml.VmlPackage;
 
 /**
- * This is the item provider adapter for a {@link vml.Model} object.
+ * This is the item provider adapter for a {@link vml.Scatter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ScatterItemProvider extends ChartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelItemProvider(AdapterFactory adapterFactory) {
+	public ScatterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,7 +62,7 @@ public class ModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(VmlPackage.Literals.MODEL__DIAGRAMS);
+			childrenFeatures.add(VmlPackage.Literals.SCATTER__POINTS);
 		}
 		return childrenFeatures;
 	}
@@ -96,14 +81,14 @@ public class ModelItemProvider
 	}
 
 	/**
-	 * This returns Model.gif.
+	 * This returns Scatter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Model"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Scatter"));
 	}
 
 	/**
@@ -114,7 +99,11 @@ public class ModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Model_type");
+		Integer labelValue = ((Scatter)object).getID();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Scatter_type") :
+			getString("_UI_Scatter_type") + " " + label;
 	}
 	
 
@@ -129,8 +118,8 @@ public class ModelItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Model.class)) {
-			case VmlPackage.MODEL__DIAGRAMS:
+		switch (notification.getFeatureID(Scatter.class)) {
+			case VmlPackage.SCATTER__POINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,54 +139,8 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createDiagram()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createPie()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createGraph()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createChart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createBarChart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createStackBarChart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createLineChart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.MODEL__DIAGRAMS,
-				 VmlFactory.eINSTANCE.createScatter()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return VmlEditPlugin.INSTANCE;
+				(VmlPackage.Literals.SCATTER__POINTS,
+				 VmlFactory.eINSTANCE.createPoint()));
 	}
 
 }

@@ -32,11 +32,13 @@ import ac.york.vml.plugin.widget.chart.BarChartBuilder;
 import ac.york.vml.plugin.widget.chart.GraphWidget;
 import ac.york.vml.plugin.widget.chart.LineChartBuilder;
 import ac.york.vml.plugin.widget.chart.PieChartBuilder;
+import ac.york.vml.plugin.widget.chart.ScatterChartBuilder;
 import vml.BarChart;
 import vml.Diagram;
 import vml.LineChart;
 import vml.Model;
 import vml.Pie;
+import vml.Scatter;
 import vml.VmlPackage;
 
 public class VmlEditior extends EditorPart implements IResourceChangeListener {
@@ -150,6 +152,16 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
 
+			} else if (diagram instanceof Scatter) {
+				Scatter scatter = (Scatter) diagram;
+				//Chart chart = new OverlayLine().createOverlayLine();
+				Chart chart= createChart(scatter);
+				item.setText(scatter.getTitle() != null ? scatter.getTitle() : "Untitiled");
+				
+				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+				canvas.setChart(chart);
+				canvas.setSize(800, 600);
+
 			}
 		}
 		tabs.setSelection(0);
@@ -168,6 +180,9 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 		} else if (diagram instanceof LineChart) {
 			LineChart line = (LineChart) diagram;
 			builder = new LineChartBuilder(line);
+		} else if (diagram instanceof Scatter) {
+			Scatter scatter = (Scatter) diagram;
+			builder = new ScatterChartBuilder(scatter);
 		}
 		builder.build();
         Chart chart = builder.getChart();

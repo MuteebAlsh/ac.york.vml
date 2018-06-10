@@ -23,6 +23,7 @@ import vml.Model;
 import vml.Node;
 import vml.Pie;
 import vml.Point;
+import vml.Scatter;
 import vml.Slice;
 import vml.StackBarChart;
 import vml.StackBars;
@@ -154,6 +155,13 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * @generated
 	 */
 	private EClass pointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scatterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -509,7 +517,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChartElement_Title() {
+	public EAttribute getChartElement_XValue() {
 		return (EAttribute)chartElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -518,7 +526,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChartElement_Value() {
+	public EAttribute getChartElement_YValue() {
 		return (EAttribute)chartElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -653,6 +661,24 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getScatter() {
+		return scatterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScatter_Points() {
+		return (EReference)scatterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VmlFactory getVmlFactory() {
 		return (VmlFactory)getEFactoryInstance();
 	}
@@ -717,8 +743,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		chartElementEClass = createEClass(CHART_ELEMENT);
 		createEAttribute(chartElementEClass, CHART_ELEMENT__ID);
-		createEAttribute(chartElementEClass, CHART_ELEMENT__TITLE);
-		createEAttribute(chartElementEClass, CHART_ELEMENT__VALUE);
+		createEAttribute(chartElementEClass, CHART_ELEMENT__XVALUE);
+		createEAttribute(chartElementEClass, CHART_ELEMENT__YVALUE);
 
 		barChartEClass = createEClass(BAR_CHART);
 		createEReference(barChartEClass, BAR_CHART__BARS);
@@ -740,6 +766,9 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEReference(lineChartEClass, LINE_CHART__POINTS);
 
 		pointEClass = createEClass(POINT);
+
+		scatterEClass = createEClass(SCATTER);
+		createEReference(scatterEClass, SCATTER__POINTS);
 	}
 
 	/**
@@ -783,6 +812,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		stackBarsEClass.getESuperTypes().add(this.getChartElement());
 		lineChartEClass.getESuperTypes().add(this.getChart());
 		pointEClass.getESuperTypes().add(this.getChartElement());
+		scatterEClass.getESuperTypes().add(this.getChart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -826,8 +856,8 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		initEClass(chartElementEClass, ChartElement.class, "ChartElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChartElement_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChartElement_Title(), ecorePackage.getEString(), "title", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChartElement_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartElement_XValue(), ecorePackage.getEString(), "xValue", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartElement_YValue(), ecorePackage.getEDoubleObject(), "yValue", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(barChartEClass, BarChart.class, "BarChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBarChart_Bars(), this.getBar(), null, "bars", null, 0, -1, BarChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -843,12 +873,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		initEClass(stackBarsEClass, StackBars.class, "StackBars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStackBars_Category(), this.getCategory(), null, "category", null, 0, 1, StackBars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStackBars_Bars(), this.getChartElement(), null, "bars", null, 0, -1, StackBars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStackBars_Bars(), this.getBar(), null, "bars", null, 0, -1, StackBars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartEClass, LineChart.class, "LineChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLineChart_Points(), this.getPoint(), null, "points", null, 0, -1, LineChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(scatterEClass, Scatter.class, "Scatter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getScatter_Points(), this.getPoint(), null, "points", null, 0, -1, Scatter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

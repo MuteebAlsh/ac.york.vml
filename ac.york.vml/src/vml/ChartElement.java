@@ -13,8 +13,8 @@ package vml;
  * </p>
  * <ul>
  *   <li>{@link vml.ChartElement#getID <em>ID</em>}</li>
- *   <li>{@link vml.ChartElement#getTitle <em>Title</em>}</li>
- *   <li>{@link vml.ChartElement#getValue <em>Value</em>}</li>
+ *   <li>{@link vml.ChartElement#getXValue <em>XValue</em>}</li>
+ *   <li>{@link vml.ChartElement#getYValue <em>YValue</em>}</li>
  * </ul>
  *
  * @see vml.VmlPackage#getChartElement()
@@ -49,55 +49,55 @@ public interface ChartElement extends DiagramElement {
 	void setID(Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * Returns the value of the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
+	 * If the meaning of the '<em>XValue</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Title</em>' attribute.
-	 * @see #setTitle(String)
-	 * @see vml.VmlPackage#getChartElement_Title()
+	 * @return the value of the '<em>XValue</em>' attribute.
+	 * @see #setXValue(String)
+	 * @see vml.VmlPackage#getChartElement_XValue()
 	 * @model
 	 * @generated
 	 */
-	String getTitle();
+	String getXValue();
 
 	/**
-	 * Sets the value of the '{@link vml.ChartElement#getTitle <em>Title</em>}' attribute.
+	 * Sets the value of the '{@link vml.ChartElement#getXValue <em>XValue</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' attribute.
-	 * @see #getTitle()
+	 * @param value the new value of the '<em>XValue</em>' attribute.
+	 * @see #getXValue()
 	 * @generated
 	 */
-	void setTitle(String value);
+	void setXValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>YValue</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Double)
-	 * @see vml.VmlPackage#getChartElement_Value()
+	 * @return the value of the '<em>YValue</em>' attribute.
+	 * @see #setYValue(Double)
+	 * @see vml.VmlPackage#getChartElement_YValue()
 	 * @model
 	 * @generated
 	 */
-	Double getValue();
+	Double getYValue();
 
 	/**
-	 * Sets the value of the '{@link vml.ChartElement#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link vml.ChartElement#getYValue <em>YValue</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>YValue</em>' attribute.
+	 * @see #getYValue()
 	 * @generated
 	 */
-	void setValue(Double value);
+	void setYValue(Double value);
 
 } // ChartElement

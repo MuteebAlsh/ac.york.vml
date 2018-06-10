@@ -175,6 +175,15 @@ public interface VmlFactory extends EFactory {
 	Point createPoint();
 
 	/**
+	 * Returns a new object of class '<em>Scatter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scatter</em>'.
+	 * @generated
+	 */
+	Scatter createScatter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

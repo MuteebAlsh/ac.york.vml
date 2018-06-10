@@ -1,6 +1,7 @@
 package ac.york.vml.plugin.editors;
 
 import org.eclipse.birt.chart.device.IDeviceRenderer;
+import org.eclipse.birt.chart.device.IUpdateNotifier;
 import org.eclipse.birt.chart.exception.ChartException;
 import org.eclipse.birt.chart.factory.GeneratedChartState;
 import org.eclipse.birt.chart.factory.Generator;
@@ -24,7 +25,7 @@ import org.eclipse.swt.widgets.Display;
  * The canvas to show chart.
  * 
  */
-public class ChartCanvas extends Canvas {
+public class ChartCanvas extends Canvas implements IUpdateNotifier{
 
 	/**
 	 * The device render for rendering chart.
@@ -62,6 +63,7 @@ public class ChartCanvas extends Canvas {
 		try {
 			PluginSettings ps = PluginSettings.instance();
 			render = ps.getDevice("dv.SWT");
+			render.setProperty(IDeviceRenderer.UPDATE_NOTIFIER, this);
 		} catch (ChartException ex) {
 			ex.printStackTrace();
 		}
@@ -175,6 +177,35 @@ public class ChartCanvas extends Canvas {
 		if (cachedImage != null)
 			cachedImage.dispose();
 		super.dispose();
+	}
+
+	@Override
+	public Chart getDesignTimeModel() {
+		// TODO Auto-generated method stub
+		return chart;
+	}
+
+	@Override
+	public Chart getRunTimeModel() {
+		return state.getChartModel();
+	}
+
+	@Override
+	public Object peerInstance() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+
+	@Override
+	public void regenerateChart() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void repaintChart() {
+		// TODO Auto-generated method stub
+		
 	}
 
 
