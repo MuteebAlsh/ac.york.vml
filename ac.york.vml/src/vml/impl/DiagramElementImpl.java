@@ -2,16 +2,12 @@
  */
 package vml.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import vml.Diagram;
 import vml.DiagramElement;
 import vml.VmlPackage;
@@ -31,14 +27,14 @@ import vml.VmlPackage;
  */
 public class DiagramElementImpl extends MinimalEObjectImpl.Container implements DiagramElement {
 	/**
-	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' reference list.
+	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDiagrams()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Diagram> diagrams;
+	protected Diagram diagrams;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,11 +60,37 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Diagram> getDiagrams() {
-		if (diagrams == null) {
-			diagrams = new EObjectResolvingEList<Diagram>(Diagram.class, this, VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS);
+	public Diagram getDiagrams() {
+		if (diagrams != null && diagrams.eIsProxy()) {
+			InternalEObject oldDiagrams = (InternalEObject)diagrams;
+			diagrams = (Diagram)eResolveProxy(oldDiagrams);
+			if (diagrams != oldDiagrams) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS, oldDiagrams, diagrams));
+			}
 		}
 		return diagrams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Diagram basicGetDiagrams() {
+		return diagrams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDiagrams(Diagram newDiagrams) {
+		Diagram oldDiagrams = diagrams;
+		diagrams = newDiagrams;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS, oldDiagrams, diagrams));
 	}
 
 	/**
@@ -80,7 +102,8 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
-				return getDiagrams();
+				if (resolve) return getDiagrams();
+				return basicGetDiagrams();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -95,8 +118,7 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
-				getDiagrams().clear();
-				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
+				setDiagrams((Diagram)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,7 +133,7 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
-				getDiagrams().clear();
+				setDiagrams((Diagram)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -126,7 +148,7 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
-				return diagrams != null && !diagrams.isEmpty();
+				return diagrams != null;
 		}
 		return super.eIsSet(featureID);
 	}

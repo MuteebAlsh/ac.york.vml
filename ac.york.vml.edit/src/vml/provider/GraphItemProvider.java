@@ -111,6 +111,7 @@ public class GraphItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(VmlPackage.Literals.GRAPH__NODES);
 			childrenFeatures.add(VmlPackage.Literals.GRAPH__EDGES);
+			childrenFeatures.add(VmlPackage.Literals.GRAPH__STYLE);
 		}
 		return childrenFeatures;
 	}
@@ -173,6 +174,7 @@ public class GraphItemProvider
 				return;
 			case VmlPackage.GRAPH__NODES:
 			case VmlPackage.GRAPH__EDGES:
+			case VmlPackage.GRAPH__STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -199,6 +201,21 @@ public class GraphItemProvider
 			(createChildParameter
 				(VmlPackage.Literals.GRAPH__EDGES,
 				 VmlFactory.eINSTANCE.createEdge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.GRAPH__STYLE,
+				 VmlFactory.eINSTANCE.createGraphStyle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.GRAPH__STYLE,
+				 VmlFactory.eINSTANCE.createNodeStyle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.GRAPH__STYLE,
+				 VmlFactory.eINSTANCE.createEdgeStyle()));
 	}
 
 }

@@ -78,6 +78,7 @@ public class ModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(VmlPackage.Literals.MODEL__DIAGRAMS);
+			childrenFeatures.add(VmlPackage.Literals.MODEL__TABLES);
 		}
 		return childrenFeatures;
 	}
@@ -131,6 +132,7 @@ public class ModelItemProvider
 
 		switch (notification.getFeatureID(Model.class)) {
 			case VmlPackage.MODEL__DIAGRAMS:
+			case VmlPackage.MODEL__TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -187,6 +189,11 @@ public class ModelItemProvider
 			(createChildParameter
 				(VmlPackage.Literals.MODEL__DIAGRAMS,
 				 VmlFactory.eINSTANCE.createScatter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.MODEL__TABLES,
+				 VmlFactory.eINSTANCE.createTable()));
 	}
 
 	/**

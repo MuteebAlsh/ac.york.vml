@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import vml.Edge;
 import vml.Graph;
+import vml.GraphStyle;
 import vml.Node;
 import vml.VmlPackage;
 
@@ -31,6 +32,7 @@ import vml.VmlPackage;
  *   <li>{@link vml.impl.GraphImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link vml.impl.GraphImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link vml.impl.GraphImpl#getEdges <em>Edges</em>}</li>
+ *   <li>{@link vml.impl.GraphImpl#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,6 +97,16 @@ public class GraphImpl extends DiagramImpl implements Graph {
 	 * @ordered
 	 */
 	protected EList<Edge> edges;
+
+	/**
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected GraphStyle style;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +198,49 @@ public class GraphImpl extends DiagramImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GraphStyle getStyle() {
+		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStyle(GraphStyle newStyle, NotificationChain msgs) {
+		GraphStyle oldStyle = style;
+		style = newStyle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VmlPackage.GRAPH__STYLE, oldStyle, newStyle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(GraphStyle newStyle) {
+		if (newStyle != style) {
+			NotificationChain msgs = null;
+			if (style != null)
+				msgs = ((InternalEObject)style).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VmlPackage.GRAPH__STYLE, null, msgs);
+			if (newStyle != null)
+				msgs = ((InternalEObject)newStyle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VmlPackage.GRAPH__STYLE, null, msgs);
+			msgs = basicSetStyle(newStyle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.GRAPH__STYLE, newStyle, newStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -193,6 +248,8 @@ public class GraphImpl extends DiagramImpl implements Graph {
 				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
 			case VmlPackage.GRAPH__EDGES:
 				return ((InternalEList<?>)getEdges()).basicRemove(otherEnd, msgs);
+			case VmlPackage.GRAPH__STYLE:
+				return basicSetStyle(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,6 +270,8 @@ public class GraphImpl extends DiagramImpl implements Graph {
 				return getNodes();
 			case VmlPackage.GRAPH__EDGES:
 				return getEdges();
+			case VmlPackage.GRAPH__STYLE:
+				return getStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,6 +299,9 @@ public class GraphImpl extends DiagramImpl implements Graph {
 				getEdges().clear();
 				getEdges().addAll((Collection<? extends Edge>)newValue);
 				return;
+			case VmlPackage.GRAPH__STYLE:
+				setStyle((GraphStyle)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -264,6 +326,9 @@ public class GraphImpl extends DiagramImpl implements Graph {
 			case VmlPackage.GRAPH__EDGES:
 				getEdges().clear();
 				return;
+			case VmlPackage.GRAPH__STYLE:
+				setStyle((GraphStyle)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -284,6 +349,8 @@ public class GraphImpl extends DiagramImpl implements Graph {
 				return nodes != null && !nodes.isEmpty();
 			case VmlPackage.GRAPH__EDGES:
 				return edges != null && !edges.isEmpty();
+			case VmlPackage.GRAPH__STYLE:
+				return style != null;
 		}
 		return super.eIsSet(featureID);
 	}

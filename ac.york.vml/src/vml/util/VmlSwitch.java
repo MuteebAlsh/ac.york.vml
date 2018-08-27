@@ -72,9 +72,76 @@ public class VmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VmlPackage.TABLE: {
+				Table table = (Table)theEObject;
+				T result = caseTable(table);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.COLUMN: {
+				Column column = (Column)theEObject;
+				T result = caseColumn(column);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.ROW: {
+				Row row = (Row)theEObject;
+				T result = caseRow(row);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.CELL: {
+				Cell cell = (Cell)theEObject;
+				T result = caseCell(cell);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case VmlPackage.DIAGRAM: {
 				Diagram diagram = (Diagram)theEObject;
 				T result = caseDiagram(diagram);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.STYLE: {
+				Style style = (Style)theEObject;
+				T result = caseStyle(style);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.GRAPH_STYLE: {
+				GraphStyle graphStyle = (GraphStyle)theEObject;
+				T result = caseGraphStyle(graphStyle);
+				if (result == null) result = caseStyle(graphStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.NODE_STYLE: {
+				NodeStyle nodeStyle = (NodeStyle)theEObject;
+				T result = caseNodeStyle(nodeStyle);
+				if (result == null) result = caseGraphStyle(nodeStyle);
+				if (result == null) result = caseStyle(nodeStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.EDGE_STYLE: {
+				EdgeStyle edgeStyle = (EdgeStyle)theEObject;
+				T result = caseEdgeStyle(edgeStyle);
+				if (result == null) result = caseGraphStyle(edgeStyle);
+				if (result == null) result = caseStyle(edgeStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.CHART_WITH_AXIS_STYLE: {
+				ChartWithAxisStyle chartWithAxisStyle = (ChartWithAxisStyle)theEObject;
+				T result = caseChartWithAxisStyle(chartWithAxisStyle);
+				if (result == null) result = caseStyle(chartWithAxisStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VmlPackage.CHART_WITHOUT_AXIS_STYLE: {
+				ChartWithoutAxisStyle chartWithoutAxisStyle = (ChartWithoutAxisStyle)theEObject;
+				T result = caseChartWithoutAxisStyle(chartWithoutAxisStyle);
+				if (result == null) result = caseStyle(chartWithoutAxisStyle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,6 +262,12 @@ public class VmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VmlPackage.COLOR: {
+				Color color = (Color)theEObject;
+				T result = caseColor(color);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -215,6 +288,66 @@ public class VmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTable(Table object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumn(Column object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRow(Row object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cell</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cell</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCell(Cell object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Diagram</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -226,6 +359,96 @@ public class VmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDiagram(Diagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStyle(Style object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Graph Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Graph Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGraphStyle(GraphStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Node Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Node Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNodeStyle(NodeStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Edge Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Edge Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEdgeStyle(EdgeStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chart With Axis Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chart With Axis Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChartWithAxisStyle(ChartWithAxisStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chart Without Axis Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chart Without Axis Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChartWithoutAxisStyle(ChartWithoutAxisStyle object) {
 		return null;
 	}
 
@@ -466,6 +689,21 @@ public class VmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScatter(Scatter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Color</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Color</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColor(Color object) {
 		return null;
 	}
 

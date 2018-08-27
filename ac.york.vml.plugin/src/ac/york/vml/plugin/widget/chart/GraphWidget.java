@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.zest.core.widgets.Graph;
 import org.eclipse.zest.core.widgets.GraphConnection;
@@ -14,17 +19,16 @@ import vml.Diagram;
 import vml.Edge;
 import vml.Node;
 
-public class GraphWidget extends Graph{
+public class GraphWidget extends Graph {
 
-	
-	public GraphWidget(Composite parent, int style, Diagram myGraph) {
-		
-		super(parent,style);
-		
+	public GraphWidget(Composite parent, int style, Diagram myGraph, CTabFolder tabs) {
+
+		super(parent, style);
+
 		vml.Graph vmlGraph = (vml.Graph) myGraph;
-		
-		
-		//Graph graph = new Graph(parent, SWT.NONE);
+
+		CTabFolder tabfolder = (CTabFolder) tabs;
+		// Graph graph = new Graph(parent, SWT.NONE);
 
 		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
 
@@ -33,6 +37,8 @@ public class GraphWidget extends Graph{
 			GraphNode graphNode = new GraphNode(this, SWT.NONE, node.getTitle());
 			graphNode.setData(node);
 			graphNode.setNodeStyle(nodeStyle);
+			graphNode.setData("reference", node.getDiagrams());
+			System.out.println("graphNode with references: " + graphNode.getData("reference"));
 			nodeMap.put(node, graphNode);
 
 		}
@@ -49,5 +55,50 @@ public class GraphWidget extends Graph{
 			}
 		}
 
+		this.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				int item = tabfolder.getItemCount();
+				for (int i = 0; i < item; i++) {
+					if (tabfolder.getItem(i).getData() == e.item.getData("reference")
+							&& tabfolder.getItem(i).getData() != null && i != tabfolder.getSelectionIndex()) {
+						System.out.println("---------- I get it --------");
+						tabfolder.setSelection(i);
+					}
+				}
+				
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		this.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseUp(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+
+				
+
+			}
+		});
+
 	}
+
 }

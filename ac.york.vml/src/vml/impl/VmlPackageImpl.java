@@ -4,6 +4,7 @@ package vml.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -12,21 +13,33 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import vml.Bar;
 import vml.BarChart;
 import vml.Category;
+import vml.Cell;
 import vml.Chart;
 import vml.ChartElement;
+import vml.ChartWithAxisStyle;
+import vml.ChartWithoutAxisStyle;
+import vml.Color;
+import vml.Column;
 import vml.Diagram;
 import vml.DiagramElement;
 import vml.Edge;
+import vml.EdgeStyle;
 import vml.Graph;
+import vml.GraphStyle;
 import vml.LineChart;
+import vml.LineStyle;
 import vml.Model;
 import vml.Node;
+import vml.NodeStyle;
 import vml.Pie;
 import vml.Point;
+import vml.Row;
 import vml.Scatter;
 import vml.Slice;
 import vml.StackBarChart;
 import vml.StackBars;
+import vml.Style;
+import vml.Table;
 import vml.VmlFactory;
 import vml.VmlPackage;
 
@@ -49,7 +62,77 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass columnEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cellEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass diagramEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass graphStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nodeStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass edgeStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartWithAxisStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartWithoutAxisStyleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +247,20 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	private EClass scatterEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass colorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum lineStyleEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -247,8 +344,314 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Tables() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTable() {
+		return tableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_Columns() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_Rows() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_TableTitle() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColumn() {
+		return columnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumn_ColumnTitle() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRow() {
+		return rowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRow_Cells() {
+		return (EReference)rowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCell() {
+		return cellEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCell_Col() {
+		return (EReference)cellEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_TextValue() {
+		return (EAttribute)cellEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDiagram() {
 		return diagramEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDiagram_Digrams() {
+		return (EReference)diagramEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStyle() {
+		return styleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGraphStyle() {
+		return graphStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNodeStyle() {
+		return nodeStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNodeStyle_BorderWidth() {
+		return (EAttribute)nodeStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNodeStyle_Padding() {
+		return (EAttribute)nodeStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNodeStyle_BackgroundColor() {
+		return (EReference)nodeStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNodeStyle_ForegroundColor() {
+		return (EReference)nodeStyleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNodeStyle_HighlightColor() {
+		return (EReference)nodeStyleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNodeStyle_BorderColor() {
+		return (EReference)nodeStyleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNodeStyle_BorderHighlightColor() {
+		return (EReference)nodeStyleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEdgeStyle() {
+		return edgeStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEdgeStyle_LineWidth() {
+		return (EAttribute)edgeStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEdgeStyle_Weight() {
+		return (EAttribute)edgeStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEdgeStyle_Source() {
+		return (EReference)edgeStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEdgeStyle_Target() {
+		return (EReference)edgeStyleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEdgeStyle_LineColor() {
+		return (EReference)edgeStyleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEdgeStyle_HighlightColor() {
+		return (EReference)edgeStyleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEdgeStyle_Directed() {
+		return (EAttribute)edgeStyleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEdgeStyle_LineStyle() {
+		return (EAttribute)edgeStyleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartWithAxisStyle() {
+		return chartWithAxisStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartWithoutAxisStyle() {
+		return chartWithoutAxisStyleEClass;
 	}
 
 	/**
@@ -303,6 +706,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 */
 	public EReference getPie_Slices() {
 		return (EReference)pieEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPie_Style() {
+		return (EReference)pieEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -382,6 +794,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGraph_Style() {
+		return (EReference)graphEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -400,8 +821,17 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNode_Icone() {
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getNode_Outgoing() {
-		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
+		return (EReference)nodeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -410,7 +840,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * @generated
 	 */
 	public EReference getNode_Incoming() {
-		return (EReference)nodeEClass.getEStructuralFeatures().get(2);
+		return (EReference)nodeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -492,6 +922,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 */
 	public EAttribute getChart_YTitle() {
 		return (EAttribute)chartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChart_Style() {
+		return (EReference)chartEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -679,6 +1118,60 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getColor() {
+		return colorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColor_Name() {
+		return (EAttribute)colorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColor_Red() {
+		return (EAttribute)colorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColor_Green() {
+		return (EAttribute)colorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColor_Blue() {
+		return (EAttribute)colorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLineStyle() {
+		return lineStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VmlFactory getVmlFactory() {
 		return (VmlFactory)getEFactoryInstance();
 	}
@@ -704,8 +1197,52 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__DIAGRAMS);
+		createEReference(modelEClass, MODEL__TABLES);
+
+		tableEClass = createEClass(TABLE);
+		createEReference(tableEClass, TABLE__COLUMNS);
+		createEReference(tableEClass, TABLE__ROWS);
+		createEAttribute(tableEClass, TABLE__TABLE_TITLE);
+
+		columnEClass = createEClass(COLUMN);
+		createEAttribute(columnEClass, COLUMN__COLUMN_TITLE);
+
+		rowEClass = createEClass(ROW);
+		createEReference(rowEClass, ROW__CELLS);
+
+		cellEClass = createEClass(CELL);
+		createEReference(cellEClass, CELL__COL);
+		createEAttribute(cellEClass, CELL__TEXT_VALUE);
 
 		diagramEClass = createEClass(DIAGRAM);
+		createEReference(diagramEClass, DIAGRAM__DIGRAMS);
+
+		styleEClass = createEClass(STYLE);
+
+		graphStyleEClass = createEClass(GRAPH_STYLE);
+
+		nodeStyleEClass = createEClass(NODE_STYLE);
+		createEAttribute(nodeStyleEClass, NODE_STYLE__BORDER_WIDTH);
+		createEAttribute(nodeStyleEClass, NODE_STYLE__PADDING);
+		createEReference(nodeStyleEClass, NODE_STYLE__BACKGROUND_COLOR);
+		createEReference(nodeStyleEClass, NODE_STYLE__FOREGROUND_COLOR);
+		createEReference(nodeStyleEClass, NODE_STYLE__HIGHLIGHT_COLOR);
+		createEReference(nodeStyleEClass, NODE_STYLE__BORDER_COLOR);
+		createEReference(nodeStyleEClass, NODE_STYLE__BORDER_HIGHLIGHT_COLOR);
+
+		edgeStyleEClass = createEClass(EDGE_STYLE);
+		createEAttribute(edgeStyleEClass, EDGE_STYLE__LINE_WIDTH);
+		createEAttribute(edgeStyleEClass, EDGE_STYLE__WEIGHT);
+		createEReference(edgeStyleEClass, EDGE_STYLE__SOURCE);
+		createEReference(edgeStyleEClass, EDGE_STYLE__TARGET);
+		createEReference(edgeStyleEClass, EDGE_STYLE__LINE_COLOR);
+		createEReference(edgeStyleEClass, EDGE_STYLE__HIGHLIGHT_COLOR);
+		createEAttribute(edgeStyleEClass, EDGE_STYLE__DIRECTED);
+		createEAttribute(edgeStyleEClass, EDGE_STYLE__LINE_STYLE);
+
+		chartWithAxisStyleEClass = createEClass(CHART_WITH_AXIS_STYLE);
+
+		chartWithoutAxisStyleEClass = createEClass(CHART_WITHOUT_AXIS_STYLE);
 
 		diagramElementEClass = createEClass(DIAGRAM_ELEMENT);
 		createEReference(diagramElementEClass, DIAGRAM_ELEMENT__DIAGRAMS);
@@ -714,6 +1251,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEAttribute(pieEClass, PIE__TITLE);
 		createEAttribute(pieEClass, PIE__IDENTIFIER);
 		createEReference(pieEClass, PIE__SLICES);
+		createEReference(pieEClass, PIE__STYLE);
 
 		sliceEClass = createEClass(SLICE);
 		createEAttribute(sliceEClass, SLICE__TITLE);
@@ -724,9 +1262,11 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEAttribute(graphEClass, GRAPH__TITLE);
 		createEReference(graphEClass, GRAPH__NODES);
 		createEReference(graphEClass, GRAPH__EDGES);
+		createEReference(graphEClass, GRAPH__STYLE);
 
 		nodeEClass = createEClass(NODE);
 		createEAttribute(nodeEClass, NODE__TITLE);
+		createEAttribute(nodeEClass, NODE__ICONE);
 		createEReference(nodeEClass, NODE__OUTGOING);
 		createEReference(nodeEClass, NODE__INCOMING);
 
@@ -740,6 +1280,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		createEAttribute(chartEClass, CHART__TITLE);
 		createEAttribute(chartEClass, CHART__XTITLE);
 		createEAttribute(chartEClass, CHART__YTITLE);
+		createEReference(chartEClass, CHART__STYLE);
 
 		chartElementEClass = createEClass(CHART_ELEMENT);
 		createEAttribute(chartElementEClass, CHART_ELEMENT__ID);
@@ -769,6 +1310,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		scatterEClass = createEClass(SCATTER);
 		createEReference(scatterEClass, SCATTER__POINTS);
+
+		colorEClass = createEClass(COLOR);
+		createEAttribute(colorEClass, COLOR__NAME);
+		createEAttribute(colorEClass, COLOR__RED);
+		createEAttribute(colorEClass, COLOR__GREEN);
+		createEAttribute(colorEClass, COLOR__BLUE);
+
+		// Create enums
+		lineStyleEEnum = createEEnum(LINE_STYLE);
 	}
 
 	/**
@@ -799,6 +1349,11 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		graphStyleEClass.getESuperTypes().add(this.getStyle());
+		nodeStyleEClass.getESuperTypes().add(this.getGraphStyle());
+		edgeStyleEClass.getESuperTypes().add(this.getGraphStyle());
+		chartWithAxisStyleEClass.getESuperTypes().add(this.getStyle());
+		chartWithoutAxisStyleEClass.getESuperTypes().add(this.getStyle());
 		pieEClass.getESuperTypes().add(this.getDiagram());
 		sliceEClass.getESuperTypes().add(this.getDiagramElement());
 		graphEClass.getESuperTypes().add(this.getDiagram());
@@ -817,16 +1372,61 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Tables(), this.getTable(), null, "tables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Rows(), this.getRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_TableTitle(), ecorePackage.getEString(), "tableTitle", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColumn_ColumnTitle(), ecorePackage.getEString(), "columnTitle", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRow_Cells(), this.getCell(), null, "cells", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCell_Col(), this.getColumn(), null, "col", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_TextValue(), ecorePackage.getEString(), "textValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(diagramEClass, Diagram.class, "Diagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDiagram_Digrams(), this.getDiagram(), null, "digrams", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(graphStyleEClass, GraphStyle.class, "GraphStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(nodeStyleEClass, NodeStyle.class, "NodeStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNodeStyle_BorderWidth(), ecorePackage.getEInt(), "borderWidth", "1", 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeStyle_Padding(), ecorePackage.getEInt(), "padding", "0", 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeStyle_BackgroundColor(), this.getColor(), null, "backgroundColor", null, 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeStyle_ForegroundColor(), this.getColor(), null, "foregroundColor", null, 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeStyle_HighlightColor(), this.getColor(), null, "highlightColor", null, 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeStyle_BorderColor(), this.getColor(), null, "borderColor", null, 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeStyle_BorderHighlightColor(), this.getColor(), null, "borderHighlightColor", null, 0, 1, NodeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(edgeStyleEClass, EdgeStyle.class, "EdgeStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEdgeStyle_LineWidth(), ecorePackage.getEInt(), "lineWidth", "1", 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEdgeStyle_Weight(), ecorePackage.getEDouble(), "weight", "1", 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdgeStyle_Source(), this.getNode(), null, "source", null, 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdgeStyle_Target(), this.getNode(), null, "target", null, 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdgeStyle_LineColor(), this.getColor(), null, "lineColor", null, 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdgeStyle_HighlightColor(), this.getColor(), null, "highlightColor", null, 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEdgeStyle_Directed(), ecorePackage.getEBoolean(), "directed", "false", 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEdgeStyle_LineStyle(), this.getLineStyle(), "lineStyle", null, 0, 1, EdgeStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(chartWithAxisStyleEClass, ChartWithAxisStyle.class, "ChartWithAxisStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(chartWithoutAxisStyleEClass, ChartWithoutAxisStyle.class, "ChartWithoutAxisStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(diagramElementEClass, DiagramElement.class, "DiagramElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDiagramElement_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, -1, DiagramElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramElement_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, 1, DiagramElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pieEClass, Pie.class, "Pie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPie_Title(), ecorePackage.getEString(), "title", null, 0, 1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPie_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPie_Slices(), this.getSlice(), null, "slices", null, 0, -1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPie_Style(), this.getChartWithoutAxisStyle(), null, "style", null, 0, 1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sliceEClass, Slice.class, "Slice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSlice_Title(), ecorePackage.getEString(), "title", null, 0, 1, Slice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -837,9 +1437,11 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		initEAttribute(getGraph_Title(), ecorePackage.getEString(), "title", null, 0, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGraph_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGraph_Edges(), this.getEdge(), null, "edges", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_Style(), this.getGraphStyle(), null, "style", null, 0, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Title(), ecorePackage.getEString(), "title", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_Icone(), ecorePackage.getEString(), "icone", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Outgoing(), this.getEdge(), this.getEdge_Source(), "outgoing", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Incoming(), this.getEdge(), this.getEdge_Target(), "incoming", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -853,6 +1455,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 		initEAttribute(getChart_Title(), ecorePackage.getEString(), "title", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChart_XTitle(), ecorePackage.getEString(), "xTitle", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChart_YTitle(), ecorePackage.getEString(), "yTitle", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChart_Style(), this.getChartWithAxisStyle(), null, "style", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chartElementEClass, ChartElement.class, "ChartElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChartElement_ID(), ecorePackage.getEIntegerObject(), "ID", null, 0, 1, ChartElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -882,6 +1485,18 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		initEClass(scatterEClass, Scatter.class, "Scatter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScatter_Points(), this.getPoint(), null, "points", null, 0, -1, Scatter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColor_Name(), ecorePackage.getEString(), "name", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColor_Red(), ecorePackage.getEInt(), "red", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColor_Green(), ecorePackage.getEInt(), "green", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColor_Blue(), ecorePackage.getEInt(), "blue", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(lineStyleEEnum, LineStyle.class, "LineStyle");
+		addEEnumLiteral(lineStyleEEnum, LineStyle.SOLID);
+		addEEnumLiteral(lineStyleEEnum, LineStyle.DASH);
+		addEEnumLiteral(lineStyleEEnum, LineStyle.DOT);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -3,6 +3,7 @@
 package vml.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -57,7 +58,17 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case VmlPackage.MODEL: return createModel();
+			case VmlPackage.TABLE: return createTable();
+			case VmlPackage.COLUMN: return createColumn();
+			case VmlPackage.ROW: return createRow();
+			case VmlPackage.CELL: return createCell();
 			case VmlPackage.DIAGRAM: return createDiagram();
+			case VmlPackage.STYLE: return createStyle();
+			case VmlPackage.GRAPH_STYLE: return createGraphStyle();
+			case VmlPackage.NODE_STYLE: return createNodeStyle();
+			case VmlPackage.EDGE_STYLE: return createEdgeStyle();
+			case VmlPackage.CHART_WITH_AXIS_STYLE: return createChartWithAxisStyle();
+			case VmlPackage.CHART_WITHOUT_AXIS_STYLE: return createChartWithoutAxisStyle();
 			case VmlPackage.DIAGRAM_ELEMENT: return createDiagramElement();
 			case VmlPackage.PIE: return createPie();
 			case VmlPackage.SLICE: return createSlice();
@@ -74,8 +85,39 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 			case VmlPackage.LINE_CHART: return createLineChart();
 			case VmlPackage.POINT: return createPoint();
 			case VmlPackage.SCATTER: return createScatter();
+			case VmlPackage.COLOR: return createColor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case VmlPackage.LINE_STYLE:
+				return createLineStyleFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case VmlPackage.LINE_STYLE:
+				return convertLineStyleToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -94,9 +136,109 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Table createTable() {
+		TableImpl table = new TableImpl();
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Column createColumn() {
+		ColumnImpl column = new ColumnImpl();
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Row createRow() {
+		RowImpl row = new RowImpl();
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cell createCell() {
+		CellImpl cell = new CellImpl();
+		return cell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Diagram createDiagram() {
 		DiagramImpl diagram = new DiagramImpl();
 		return diagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Style createStyle() {
+		StyleImpl style = new StyleImpl();
+		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GraphStyle createGraphStyle() {
+		GraphStyleImpl graphStyle = new GraphStyleImpl();
+		return graphStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NodeStyle createNodeStyle() {
+		NodeStyleImpl nodeStyle = new NodeStyleImpl();
+		return nodeStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EdgeStyle createEdgeStyle() {
+		EdgeStyleImpl edgeStyle = new EdgeStyleImpl();
+		return edgeStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChartWithAxisStyle createChartWithAxisStyle() {
+		ChartWithAxisStyleImpl chartWithAxisStyle = new ChartWithAxisStyleImpl();
+		return chartWithAxisStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChartWithoutAxisStyle createChartWithoutAxisStyle() {
+		ChartWithoutAxisStyleImpl chartWithoutAxisStyle = new ChartWithoutAxisStyleImpl();
+		return chartWithoutAxisStyle;
 	}
 
 	/**
@@ -257,6 +399,36 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Scatter createScatter() {
 		ScatterImpl scatter = new ScatterImpl();
 		return scatter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColor() {
+		ColorImpl color = new ColorImpl();
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineStyle createLineStyleFromString(EDataType eDataType, String initialValue) {
+		LineStyle result = LineStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLineStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

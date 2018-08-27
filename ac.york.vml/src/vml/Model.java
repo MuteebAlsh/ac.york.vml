@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link vml.Model#getDiagrams <em>Diagrams</em>}</li>
+ *   <li>{@link vml.Model#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @see vml.VmlPackage#getModel()
@@ -38,5 +39,21 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Diagram> getDiagrams();
+
+	/**
+	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
+	 * The list contents are of type {@link vml.Table}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tables</em>' containment reference list.
+	 * @see vml.VmlPackage#getModel_Tables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Table> getTables();
 
 } // Model

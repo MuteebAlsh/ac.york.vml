@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link vml.Graph#getTitle <em>Title</em>}</li>
  *   <li>{@link vml.Graph#getNodes <em>Nodes</em>}</li>
  *   <li>{@link vml.Graph#getEdges <em>Edges</em>}</li>
+ *   <li>{@link vml.Graph#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see vml.VmlPackage#getGraph()
@@ -107,5 +108,31 @@ public interface Graph extends Diagram {
 	 * @generated
 	 */
 	EList<Edge> getEdges();
+
+	/**
+	 * Returns the value of the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Style</em>' containment reference.
+	 * @see #setStyle(GraphStyle)
+	 * @see vml.VmlPackage#getGraph_Style()
+	 * @model containment="true"
+	 * @generated
+	 */
+	GraphStyle getStyle();
+
+	/**
+	 * Sets the value of the '{@link vml.Graph#getStyle <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Style</em>' containment reference.
+	 * @see #getStyle()
+	 * @generated
+	 */
+	void setStyle(GraphStyle value);
 
 } // Graph

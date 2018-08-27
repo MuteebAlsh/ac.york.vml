@@ -28,6 +28,7 @@ import vml.VmlPackage;
  * </p>
  * <ul>
  *   <li>{@link vml.impl.NodeImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link vml.impl.NodeImpl#getIcone <em>Icone</em>}</li>
  *   <li>{@link vml.impl.NodeImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link vml.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
  * </ul>
@@ -54,6 +55,26 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIcone() <em>Icone</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcone()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ICONE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIcone() <em>Icone</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcone()
+	 * @generated
+	 * @ordered
+	 */
+	protected String icone = ICONE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
@@ -113,6 +134,27 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 		title = newTitle;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.NODE__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getIcone() {
+		return icone;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIcone(String newIcone) {
+		String oldIcone = icone;
+		icone = newIcone;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.NODE__ICONE, oldIcone, icone));
 	}
 
 	/**
@@ -182,6 +224,8 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 		switch (featureID) {
 			case VmlPackage.NODE__TITLE:
 				return getTitle();
+			case VmlPackage.NODE__ICONE:
+				return getIcone();
 			case VmlPackage.NODE__OUTGOING:
 				return getOutgoing();
 			case VmlPackage.NODE__INCOMING:
@@ -201,6 +245,9 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 		switch (featureID) {
 			case VmlPackage.NODE__TITLE:
 				setTitle((String)newValue);
+				return;
+			case VmlPackage.NODE__ICONE:
+				setIcone((String)newValue);
 				return;
 			case VmlPackage.NODE__OUTGOING:
 				getOutgoing().clear();
@@ -225,6 +272,9 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 			case VmlPackage.NODE__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
+			case VmlPackage.NODE__ICONE:
+				setIcone(ICONE_EDEFAULT);
+				return;
 			case VmlPackage.NODE__OUTGOING:
 				getOutgoing().clear();
 				return;
@@ -245,6 +295,8 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 		switch (featureID) {
 			case VmlPackage.NODE__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case VmlPackage.NODE__ICONE:
+				return ICONE_EDEFAULT == null ? icone != null : !ICONE_EDEFAULT.equals(icone);
 			case VmlPackage.NODE__OUTGOING:
 				return outgoing != null && !outgoing.isEmpty();
 			case VmlPackage.NODE__INCOMING:
@@ -265,6 +317,8 @@ public class NodeImpl extends DiagramElementImpl implements Node {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (title: ");
 		result.append(title);
+		result.append(", icone: ");
+		result.append(icone);
 		result.append(')');
 		return result.toString();
 	}

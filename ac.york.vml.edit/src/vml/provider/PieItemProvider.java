@@ -110,6 +110,7 @@ public class PieItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(VmlPackage.Literals.PIE__SLICES);
+			childrenFeatures.add(VmlPackage.Literals.PIE__STYLE);
 		}
 		return childrenFeatures;
 	}
@@ -170,6 +171,7 @@ public class PieItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case VmlPackage.PIE__SLICES:
+			case VmlPackage.PIE__STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,6 +193,11 @@ public class PieItemProvider
 			(createChildParameter
 				(VmlPackage.Literals.PIE__SLICES,
 				 VmlFactory.eINSTANCE.createSlice()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VmlPackage.Literals.PIE__STYLE,
+				 VmlFactory.eINSTANCE.createChartWithoutAxisStyle()));
 	}
 
 }

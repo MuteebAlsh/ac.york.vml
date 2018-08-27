@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link vml.Pie#getTitle <em>Title</em>}</li>
  *   <li>{@link vml.Pie#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link vml.Pie#getSlices <em>Slices</em>}</li>
+ *   <li>{@link vml.Pie#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see vml.VmlPackage#getPie()
@@ -90,5 +91,31 @@ public interface Pie extends Diagram {
 	 * @generated
 	 */
 	EList<Slice> getSlices();
+
+	/**
+	 * Returns the value of the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Style</em>' containment reference.
+	 * @see #setStyle(ChartWithoutAxisStyle)
+	 * @see vml.VmlPackage#getPie_Style()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ChartWithoutAxisStyle getStyle();
+
+	/**
+	 * Sets the value of the '{@link vml.Pie#getStyle <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Style</em>' containment reference.
+	 * @see #getStyle()
+	 * @generated
+	 */
+	void setStyle(ChartWithoutAxisStyle value);
 
 } // Pie

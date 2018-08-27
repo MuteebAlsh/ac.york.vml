@@ -72,8 +72,48 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 				return createModelAdapter();
 			}
 			@Override
+			public Adapter caseTable(Table object) {
+				return createTableAdapter();
+			}
+			@Override
+			public Adapter caseColumn(Column object) {
+				return createColumnAdapter();
+			}
+			@Override
+			public Adapter caseRow(Row object) {
+				return createRowAdapter();
+			}
+			@Override
+			public Adapter caseCell(Cell object) {
+				return createCellAdapter();
+			}
+			@Override
 			public Adapter caseDiagram(Diagram object) {
 				return createDiagramAdapter();
+			}
+			@Override
+			public Adapter caseStyle(Style object) {
+				return createStyleAdapter();
+			}
+			@Override
+			public Adapter caseGraphStyle(GraphStyle object) {
+				return createGraphStyleAdapter();
+			}
+			@Override
+			public Adapter caseNodeStyle(NodeStyle object) {
+				return createNodeStyleAdapter();
+			}
+			@Override
+			public Adapter caseEdgeStyle(EdgeStyle object) {
+				return createEdgeStyleAdapter();
+			}
+			@Override
+			public Adapter caseChartWithAxisStyle(ChartWithAxisStyle object) {
+				return createChartWithAxisStyleAdapter();
+			}
+			@Override
+			public Adapter caseChartWithoutAxisStyle(ChartWithoutAxisStyle object) {
+				return createChartWithoutAxisStyleAdapter();
 			}
 			@Override
 			public Adapter caseDiagramElement(DiagramElement object) {
@@ -140,6 +180,10 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 				return createScatterAdapter();
 			}
 			@Override
+			public Adapter caseColor(Color object) {
+				return createColorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +218,62 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link vml.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Table
+	 * @generated
+	 */
+	public Adapter createTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Column <em>Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Column
+	 * @generated
+	 */
+	public Adapter createColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Row <em>Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Row
+	 * @generated
+	 */
+	public Adapter createRowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Cell <em>Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Cell
+	 * @generated
+	 */
+	public Adapter createCellAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link vml.Diagram <em>Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -184,6 +284,90 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiagramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Style <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Style
+	 * @generated
+	 */
+	public Adapter createStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.GraphStyle <em>Graph Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.GraphStyle
+	 * @generated
+	 */
+	public Adapter createGraphStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.NodeStyle <em>Node Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.NodeStyle
+	 * @generated
+	 */
+	public Adapter createNodeStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.EdgeStyle <em>Edge Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.EdgeStyle
+	 * @generated
+	 */
+	public Adapter createEdgeStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.ChartWithAxisStyle <em>Chart With Axis Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.ChartWithAxisStyle
+	 * @generated
+	 */
+	public Adapter createChartWithAxisStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.ChartWithoutAxisStyle <em>Chart Without Axis Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.ChartWithoutAxisStyle
+	 * @generated
+	 */
+	public Adapter createChartWithoutAxisStyleAdapter() {
 		return null;
 	}
 
@@ -408,6 +592,20 @@ public class VmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createScatterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link vml.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see vml.Color
+	 * @generated
+	 */
+	public Adapter createColorAdapter() {
 		return null;
 	}
 

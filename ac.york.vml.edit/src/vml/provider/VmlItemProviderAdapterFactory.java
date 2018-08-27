@@ -95,6 +95,98 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.Table} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableItemProvider tableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Table}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableAdapter() {
+		if (tableItemProvider == null) {
+			tableItemProvider = new TableItemProvider(this);
+		}
+
+		return tableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Column} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnItemProvider columnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Column}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnAdapter() {
+		if (columnItemProvider == null) {
+			columnItemProvider = new ColumnItemProvider(this);
+		}
+
+		return columnItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Row} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RowItemProvider rowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Row}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRowAdapter() {
+		if (rowItemProvider == null) {
+			rowItemProvider = new RowItemProvider(this);
+		}
+
+		return rowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Cell} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CellItemProvider cellItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Cell}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCellAdapter() {
+		if (cellItemProvider == null) {
+			cellItemProvider = new CellItemProvider(this);
+		}
+
+		return cellItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link vml.Diagram} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,6 +207,144 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		}
 
 		return diagramItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.Style} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StyleItemProvider styleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Style}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStyleAdapter() {
+		if (styleItemProvider == null) {
+			styleItemProvider = new StyleItemProvider(this);
+		}
+
+		return styleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.GraphStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GraphStyleItemProvider graphStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.GraphStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGraphStyleAdapter() {
+		if (graphStyleItemProvider == null) {
+			graphStyleItemProvider = new GraphStyleItemProvider(this);
+		}
+
+		return graphStyleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.NodeStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NodeStyleItemProvider nodeStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.NodeStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNodeStyleAdapter() {
+		if (nodeStyleItemProvider == null) {
+			nodeStyleItemProvider = new NodeStyleItemProvider(this);
+		}
+
+		return nodeStyleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.EdgeStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EdgeStyleItemProvider edgeStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.EdgeStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEdgeStyleAdapter() {
+		if (edgeStyleItemProvider == null) {
+			edgeStyleItemProvider = new EdgeStyleItemProvider(this);
+		}
+
+		return edgeStyleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.ChartWithAxisStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartWithAxisStyleItemProvider chartWithAxisStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.ChartWithAxisStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartWithAxisStyleAdapter() {
+		if (chartWithAxisStyleItemProvider == null) {
+			chartWithAxisStyleItemProvider = new ChartWithAxisStyleItemProvider(this);
+		}
+
+		return chartWithAxisStyleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link vml.ChartWithoutAxisStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartWithoutAxisStyleItemProvider chartWithoutAxisStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.ChartWithoutAxisStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartWithoutAxisStyleAdapter() {
+		if (chartWithoutAxisStyleItemProvider == null) {
+			chartWithoutAxisStyleItemProvider = new ChartWithoutAxisStyleItemProvider(this);
+		}
+
+		return chartWithoutAxisStyleItemProvider;
 	}
 
 	/**
@@ -486,6 +716,29 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link vml.Color} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColorItemProvider colorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link vml.Color}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColorAdapter() {
+		if (colorItemProvider == null) {
+			colorItemProvider = new ColorItemProvider(this);
+		}
+
+		return colorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -585,7 +838,17 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
+		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (columnItemProvider != null) columnItemProvider.dispose();
+		if (rowItemProvider != null) rowItemProvider.dispose();
+		if (cellItemProvider != null) cellItemProvider.dispose();
 		if (diagramItemProvider != null) diagramItemProvider.dispose();
+		if (styleItemProvider != null) styleItemProvider.dispose();
+		if (graphStyleItemProvider != null) graphStyleItemProvider.dispose();
+		if (nodeStyleItemProvider != null) nodeStyleItemProvider.dispose();
+		if (edgeStyleItemProvider != null) edgeStyleItemProvider.dispose();
+		if (chartWithAxisStyleItemProvider != null) chartWithAxisStyleItemProvider.dispose();
+		if (chartWithoutAxisStyleItemProvider != null) chartWithoutAxisStyleItemProvider.dispose();
 		if (diagramElementItemProvider != null) diagramElementItemProvider.dispose();
 		if (pieItemProvider != null) pieItemProvider.dispose();
 		if (sliceItemProvider != null) sliceItemProvider.dispose();
@@ -602,6 +865,7 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		if (lineChartItemProvider != null) lineChartItemProvider.dispose();
 		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (scatterItemProvider != null) scatterItemProvider.dispose();
+		if (colorItemProvider != null) colorItemProvider.dispose();
 	}
 
 }

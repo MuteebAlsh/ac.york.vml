@@ -111,7 +111,9 @@ public class LineChartBuilder extends AbstractChartWithAxisBuilder {
         yAxis.setType(AxisType.LINEAR_LITERAL);
         yAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
         
-        yAxis.getScale().setStep(1.0);
+//        yAxis.getScale().setStep(1.0);
+        yAxis.getScale().setStepNumber(5);
+
     }
     
     

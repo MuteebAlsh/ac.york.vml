@@ -46,6 +46,7 @@ public class NodeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTitlePropertyDescriptor(object);
+			addIconePropertyDescriptor(object);
 			addOutgoingPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
 		}
@@ -66,6 +67,28 @@ public class NodeItemProvider
 				 getString("_UI_Node_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Node_title_feature", "_UI_Node_type"),
 				 VmlPackage.Literals.NODE__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Icone feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIconePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_icone_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_icone_feature", "_UI_Node_type"),
+				 VmlPackage.Literals.NODE__ICONE,
 				 true,
 				 false,
 				 false,
@@ -157,6 +180,7 @@ public class NodeItemProvider
 
 		switch (notification.getFeatureID(Node.class)) {
 			case VmlPackage.NODE__TITLE:
+			case VmlPackage.NODE__ICONE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

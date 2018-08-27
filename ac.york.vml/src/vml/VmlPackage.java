@@ -4,6 +4,7 @@ package vml;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -76,13 +77,22 @@ public interface VmlPackage extends EPackage {
 	int MODEL__DIAGRAMS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__TABLES = 1;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 1;
+	int MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -94,6 +104,181 @@ public interface VmlPackage extends EPackage {
 	int MODEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link vml.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.TableImpl
+	 * @see vml.impl.VmlPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__COLUMNS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Table Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TABLE_TITLE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.ColumnImpl <em>Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ColumnImpl
+	 * @see vml.impl.VmlPackageImpl#getColumn()
+	 * @generated
+	 */
+	int COLUMN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Column Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__COLUMN_TITLE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.RowImpl <em>Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.RowImpl
+	 * @see vml.impl.VmlPackageImpl#getRow()
+	 * @generated
+	 */
+	int ROW = 3;
+
+	/**
+	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__CELLS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.CellImpl <em>Cell</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.CellImpl
+	 * @see vml.impl.VmlPackageImpl#getCell()
+	 * @generated
+	 */
+	int CELL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Col</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__COL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Text Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__TEXT_VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Cell</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Cell</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link vml.impl.DiagramImpl <em>Diagram</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,7 +286,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getDiagram()
 	 * @generated
 	 */
-	int DIAGRAM = 1;
+	int DIAGRAM = 5;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM__DIGRAMS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
@@ -110,7 +304,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_FEATURE_COUNT = 0;
+	int DIAGRAM_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Diagram</em>' class.
@@ -122,6 +316,309 @@ public interface VmlPackage extends EPackage {
 	int DIAGRAM_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link vml.impl.StyleImpl <em>Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.StyleImpl
+	 * @see vml.impl.VmlPackageImpl#getStyle()
+	 * @generated
+	 */
+	int STYLE = 6;
+
+	/**
+	 * The number of structural features of the '<em>Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.GraphStyleImpl <em>Graph Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.GraphStyleImpl
+	 * @see vml.impl.VmlPackageImpl#getGraphStyle()
+	 * @generated
+	 */
+	int GRAPH_STYLE = 7;
+
+	/**
+	 * The number of structural features of the '<em>Graph Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_STYLE_FEATURE_COUNT = STYLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Graph Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_STYLE_OPERATION_COUNT = STYLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.NodeStyleImpl <em>Node Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.NodeStyleImpl
+	 * @see vml.impl.VmlPackageImpl#getNodeStyle()
+	 * @generated
+	 */
+	int NODE_STYLE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Border Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__BORDER_WIDTH = GRAPH_STYLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Padding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__PADDING = GRAPH_STYLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Background Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__BACKGROUND_COLOR = GRAPH_STYLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Foreground Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__FOREGROUND_COLOR = GRAPH_STYLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Highlight Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__HIGHLIGHT_COLOR = GRAPH_STYLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__BORDER_COLOR = GRAPH_STYLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Border Highlight Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE__BORDER_HIGHLIGHT_COLOR = GRAPH_STYLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Node Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE_FEATURE_COUNT = GRAPH_STYLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of operations of the '<em>Node Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_STYLE_OPERATION_COUNT = GRAPH_STYLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.EdgeStyleImpl <em>Edge Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.EdgeStyleImpl
+	 * @see vml.impl.VmlPackageImpl#getEdgeStyle()
+	 * @generated
+	 */
+	int EDGE_STYLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Line Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__LINE_WIDTH = GRAPH_STYLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__WEIGHT = GRAPH_STYLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__SOURCE = GRAPH_STYLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__TARGET = GRAPH_STYLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Line Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__LINE_COLOR = GRAPH_STYLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Highlight Color</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__HIGHLIGHT_COLOR = GRAPH_STYLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Directed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__DIRECTED = GRAPH_STYLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE__LINE_STYLE = GRAPH_STYLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Edge Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE_FEATURE_COUNT = GRAPH_STYLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Edge Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE_STYLE_OPERATION_COUNT = GRAPH_STYLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.ChartWithAxisStyleImpl <em>Chart With Axis Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ChartWithAxisStyleImpl
+	 * @see vml.impl.VmlPackageImpl#getChartWithAxisStyle()
+	 * @generated
+	 */
+	int CHART_WITH_AXIS_STYLE = 10;
+
+	/**
+	 * The number of structural features of the '<em>Chart With Axis Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_WITH_AXIS_STYLE_FEATURE_COUNT = STYLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Chart With Axis Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_WITH_AXIS_STYLE_OPERATION_COUNT = STYLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link vml.impl.ChartWithoutAxisStyleImpl <em>Chart Without Axis Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ChartWithoutAxisStyleImpl
+	 * @see vml.impl.VmlPackageImpl#getChartWithoutAxisStyle()
+	 * @generated
+	 */
+	int CHART_WITHOUT_AXIS_STYLE = 11;
+
+	/**
+	 * The number of structural features of the '<em>Chart Without Axis Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_WITHOUT_AXIS_STYLE_FEATURE_COUNT = STYLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Chart Without Axis Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_WITHOUT_AXIS_STYLE_OPERATION_COUNT = STYLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link vml.impl.DiagramElementImpl <em>Diagram Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,10 +626,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getDiagramElement()
 	 * @generated
 	 */
-	int DIAGRAM_ELEMENT = 2;
+	int DIAGRAM_ELEMENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -166,7 +663,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getPie()
 	 * @generated
 	 */
-	int PIE = 3;
+	int PIE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE__DIGRAMS = DIAGRAM__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -196,13 +702,22 @@ public interface VmlPackage extends EPackage {
 	int PIE__SLICES = DIAGRAM_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE__STYLE = DIAGRAM_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Pie</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIE_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 3;
+	int PIE_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Pie</em>' class.
@@ -221,10 +736,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getSlice()
 	 * @generated
 	 */
-	int SLICE = 4;
+	int SLICE = 14;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -276,7 +791,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getGraph()
 	 * @generated
 	 */
-	int GRAPH = 5;
+	int GRAPH = 15;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__DIGRAMS = DIAGRAM__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -315,13 +839,22 @@ public interface VmlPackage extends EPackage {
 	int GRAPH__EDGES = DIAGRAM_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__STYLE = DIAGRAM_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 4;
+	int GRAPH_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -340,10 +873,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 6;
+	int NODE = 16;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -361,13 +894,22 @@ public interface VmlPackage extends EPackage {
 	int NODE__TITLE = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Icone</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__ICONE = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__OUTGOING = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+	int NODE__OUTGOING = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -376,7 +918,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__INCOMING = DIAGRAM_ELEMENT_FEATURE_COUNT + 2;
+	int NODE__INCOMING = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -385,7 +927,7 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 3;
+	int NODE_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -404,10 +946,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getEdge()
 	 * @generated
 	 */
-	int EDGE = 7;
+	int EDGE = 17;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -469,7 +1011,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getChart()
 	 * @generated
 	 */
-	int CHART = 8;
+	int CHART = 18;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__DIGRAMS = DIAGRAM__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -508,13 +1059,22 @@ public interface VmlPackage extends EPackage {
 	int CHART__YTITLE = DIAGRAM_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__STYLE = DIAGRAM_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Chart</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 4;
+	int CHART_FEATURE_COUNT = DIAGRAM_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Chart</em>' class.
@@ -533,10 +1093,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getChartElement()
 	 * @generated
 	 */
-	int CHART_ELEMENT = 9;
+	int CHART_ELEMENT = 19;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -597,7 +1157,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getBarChart()
 	 * @generated
 	 */
-	int BAR_CHART = 10;
+	int BAR_CHART = 20;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__DIGRAMS = CHART__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -636,6 +1205,15 @@ public interface VmlPackage extends EPackage {
 	int BAR_CHART__YTITLE = CHART__YTITLE;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART__STYLE = CHART__STYLE;
+
+	/**
 	 * The feature id for the '<em><b>Bars</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,10 +1248,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getBar()
 	 * @generated
 	 */
-	int BAR = 11;
+	int BAR = 21;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -735,7 +1313,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getStackBarChart()
 	 * @generated
 	 */
-	int STACK_BAR_CHART = 12;
+	int STACK_BAR_CHART = 22;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__DIGRAMS = CHART__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -772,6 +1359,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int STACK_BAR_CHART__YTITLE = CHART__YTITLE;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BAR_CHART__STYLE = CHART__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Stack Bar</b></em>' containment reference list.
@@ -817,7 +1413,7 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 13;
+	int CATEGORY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -854,10 +1450,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getStackBars()
 	 * @generated
 	 */
-	int STACK_BARS = 14;
+	int STACK_BARS = 24;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -936,7 +1532,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getLineChart()
 	 * @generated
 	 */
-	int LINE_CHART = 15;
+	int LINE_CHART = 25;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__DIGRAMS = CHART__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -975,6 +1580,15 @@ public interface VmlPackage extends EPackage {
 	int LINE_CHART__YTITLE = CHART__YTITLE;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART__STYLE = CHART__STYLE;
+
+	/**
 	 * The feature id for the '<em><b>Points</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1009,10 +1623,10 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 16;
+	int POINT = 26;
 
 	/**
-	 * The feature id for the '<em><b>Diagrams</b></em>' reference list.
+	 * The feature id for the '<em><b>Diagrams</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1073,7 +1687,16 @@ public interface VmlPackage extends EPackage {
 	 * @see vml.impl.VmlPackageImpl#getScatter()
 	 * @generated
 	 */
-	int SCATTER = 17;
+	int SCATTER = 27;
+
+	/**
+	 * The feature id for the '<em><b>Digrams</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__DIGRAMS = CHART__DIGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -1112,6 +1735,15 @@ public interface VmlPackage extends EPackage {
 	int SCATTER__YTITLE = CHART__YTITLE;
 
 	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER__STYLE = CHART__STYLE;
+
+	/**
 	 * The feature id for the '<em><b>Points</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1139,6 +1771,80 @@ public interface VmlPackage extends EPackage {
 	int SCATTER_OPERATION_COUNT = CHART_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link vml.impl.ColorImpl <em>Color</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.impl.ColorImpl
+	 * @see vml.impl.VmlPackageImpl#getColor()
+	 * @generated
+	 */
+	int COLOR = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Red</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__RED = 1;
+
+	/**
+	 * The feature id for the '<em><b>Green</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__GREEN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Blue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__BLUE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Color</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Color</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link vml.LineStyle <em>Line Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see vml.LineStyle
+	 * @see vml.impl.VmlPackageImpl#getLineStyle()
+	 * @generated
+	 */
+	int LINE_STYLE = 29;
+
+	/**
 	 * Returns the meta object for class '{@link vml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1160,6 +1866,134 @@ public interface VmlPackage extends EPackage {
 	EReference getModel_Diagrams();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Model#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tables</em>'.
+	 * @see vml.Model#getTables()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Tables();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table</em>'.
+	 * @see vml.Table
+	 * @generated
+	 */
+	EClass getTable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Table#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see vml.Table#getColumns()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Columns();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Table#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rows</em>'.
+	 * @see vml.Table#getRows()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Rows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Table#getTableTitle <em>Table Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table Title</em>'.
+	 * @see vml.Table#getTableTitle()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_TableTitle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Column <em>Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Column</em>'.
+	 * @see vml.Column
+	 * @generated
+	 */
+	EClass getColumn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Column#getColumnTitle <em>Column Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Title</em>'.
+	 * @see vml.Column#getColumnTitle()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_ColumnTitle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Row <em>Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Row</em>'.
+	 * @see vml.Row
+	 * @generated
+	 */
+	EClass getRow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Row#getCells <em>Cells</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cells</em>'.
+	 * @see vml.Row#getCells()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EReference getRow_Cells();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Cell <em>Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cell</em>'.
+	 * @see vml.Cell
+	 * @generated
+	 */
+	EClass getCell();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.Cell#getCol <em>Col</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Col</em>'.
+	 * @see vml.Cell#getCol()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EReference getCell_Col();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Cell#getTextValue <em>Text Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text Value</em>'.
+	 * @see vml.Cell#getTextValue()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_TextValue();
+
+	/**
 	 * Returns the meta object for class '{@link vml.Diagram <em>Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,6 +2002,242 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDiagram();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link vml.Diagram#getDigrams <em>Digrams</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Digrams</em>'.
+	 * @see vml.Diagram#getDigrams()
+	 * @see #getDiagram()
+	 * @generated
+	 */
+	EReference getDiagram_Digrams();
+
+	/**
+	 * Returns the meta object for class '{@link vml.Style <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Style</em>'.
+	 * @see vml.Style
+	 * @generated
+	 */
+	EClass getStyle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.GraphStyle <em>Graph Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Graph Style</em>'.
+	 * @see vml.GraphStyle
+	 * @generated
+	 */
+	EClass getGraphStyle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.NodeStyle <em>Node Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Node Style</em>'.
+	 * @see vml.NodeStyle
+	 * @generated
+	 */
+	EClass getNodeStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.NodeStyle#getBorderWidth <em>Border Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Border Width</em>'.
+	 * @see vml.NodeStyle#getBorderWidth()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EAttribute getNodeStyle_BorderWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.NodeStyle#getPadding <em>Padding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Padding</em>'.
+	 * @see vml.NodeStyle#getPadding()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EAttribute getNodeStyle_Padding();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.NodeStyle#getBackgroundColor <em>Background Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Background Color</em>'.
+	 * @see vml.NodeStyle#getBackgroundColor()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EReference getNodeStyle_BackgroundColor();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.NodeStyle#getForegroundColor <em>Foreground Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Foreground Color</em>'.
+	 * @see vml.NodeStyle#getForegroundColor()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EReference getNodeStyle_ForegroundColor();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.NodeStyle#getHighlightColor <em>Highlight Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Highlight Color</em>'.
+	 * @see vml.NodeStyle#getHighlightColor()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EReference getNodeStyle_HighlightColor();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.NodeStyle#getBorderColor <em>Border Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Border Color</em>'.
+	 * @see vml.NodeStyle#getBorderColor()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EReference getNodeStyle_BorderColor();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.NodeStyle#getBorderHighlightColor <em>Border Highlight Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Border Highlight Color</em>'.
+	 * @see vml.NodeStyle#getBorderHighlightColor()
+	 * @see #getNodeStyle()
+	 * @generated
+	 */
+	EReference getNodeStyle_BorderHighlightColor();
+
+	/**
+	 * Returns the meta object for class '{@link vml.EdgeStyle <em>Edge Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Edge Style</em>'.
+	 * @see vml.EdgeStyle
+	 * @generated
+	 */
+	EClass getEdgeStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.EdgeStyle#getLineWidth <em>Line Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Width</em>'.
+	 * @see vml.EdgeStyle#getLineWidth()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EAttribute getEdgeStyle_LineWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.EdgeStyle#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see vml.EdgeStyle#getWeight()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EAttribute getEdgeStyle_Weight();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.EdgeStyle#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see vml.EdgeStyle#getSource()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EReference getEdgeStyle_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.EdgeStyle#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see vml.EdgeStyle#getTarget()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EReference getEdgeStyle_Target();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.EdgeStyle#getLineColor <em>Line Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Line Color</em>'.
+	 * @see vml.EdgeStyle#getLineColor()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EReference getEdgeStyle_LineColor();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.EdgeStyle#getHighlightColor <em>Highlight Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Highlight Color</em>'.
+	 * @see vml.EdgeStyle#getHighlightColor()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EReference getEdgeStyle_HighlightColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.EdgeStyle#isDirected <em>Directed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Directed</em>'.
+	 * @see vml.EdgeStyle#isDirected()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EAttribute getEdgeStyle_Directed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.EdgeStyle#getLineStyle <em>Line Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Style</em>'.
+	 * @see vml.EdgeStyle#getLineStyle()
+	 * @see #getEdgeStyle()
+	 * @generated
+	 */
+	EAttribute getEdgeStyle_LineStyle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.ChartWithAxisStyle <em>Chart With Axis Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart With Axis Style</em>'.
+	 * @see vml.ChartWithAxisStyle
+	 * @generated
+	 */
+	EClass getChartWithAxisStyle();
+
+	/**
+	 * Returns the meta object for class '{@link vml.ChartWithoutAxisStyle <em>Chart Without Axis Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart Without Axis Style</em>'.
+	 * @see vml.ChartWithoutAxisStyle
+	 * @generated
+	 */
+	EClass getChartWithoutAxisStyle();
 
 	/**
 	 * Returns the meta object for class '{@link vml.DiagramElement <em>Diagram Element</em>}'.
@@ -1180,10 +2250,10 @@ public interface VmlPackage extends EPackage {
 	EClass getDiagramElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link vml.DiagramElement#getDiagrams <em>Diagrams</em>}'.
+	 * Returns the meta object for the reference '{@link vml.DiagramElement#getDiagrams <em>Diagrams</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Diagrams</em>'.
+	 * @return the meta object for the reference '<em>Diagrams</em>'.
 	 * @see vml.DiagramElement#getDiagrams()
 	 * @see #getDiagramElement()
 	 * @generated
@@ -1232,6 +2302,17 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPie_Slices();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link vml.Pie#getStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Style</em>'.
+	 * @see vml.Pie#getStyle()
+	 * @see #getPie()
+	 * @generated
+	 */
+	EReference getPie_Style();
 
 	/**
 	 * Returns the meta object for class '{@link vml.Slice <em>Slice</em>}'.
@@ -1320,6 +2401,17 @@ public interface VmlPackage extends EPackage {
 	EReference getGraph_Edges();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link vml.Graph#getStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Style</em>'.
+	 * @see vml.Graph#getStyle()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Style();
+
+	/**
 	 * Returns the meta object for class '{@link vml.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1339,6 +2431,17 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNode_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Node#getIcone <em>Icone</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icone</em>'.
+	 * @see vml.Node#getIcone()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EAttribute getNode_Icone();
 
 	/**
 	 * Returns the meta object for the reference list '{@link vml.Node#getOutgoing <em>Outgoing</em>}'.
@@ -1458,6 +2561,17 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChart_YTitle();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link vml.Chart#getStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Style</em>'.
+	 * @see vml.Chart#getStyle()
+	 * @see #getChart()
+	 * @generated
+	 */
+	EReference getChart_Style();
 
 	/**
 	 * Returns the meta object for class '{@link vml.ChartElement <em>Chart Element</em>}'.
@@ -1671,6 +2785,70 @@ public interface VmlPackage extends EPackage {
 	EReference getScatter_Points();
 
 	/**
+	 * Returns the meta object for class '{@link vml.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Color</em>'.
+	 * @see vml.Color
+	 * @generated
+	 */
+	EClass getColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Color#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see vml.Color#getName()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EAttribute getColor_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Color#getRed <em>Red</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Red</em>'.
+	 * @see vml.Color#getRed()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EAttribute getColor_Red();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Color#getGreen <em>Green</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Green</em>'.
+	 * @see vml.Color#getGreen()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EAttribute getColor_Green();
+
+	/**
+	 * Returns the meta object for the attribute '{@link vml.Color#getBlue <em>Blue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Blue</em>'.
+	 * @see vml.Color#getBlue()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EAttribute getColor_Blue();
+
+	/**
+	 * Returns the meta object for enum '{@link vml.LineStyle <em>Line Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Line Style</em>'.
+	 * @see vml.LineStyle
+	 * @generated
+	 */
+	EEnum getLineStyle();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1712,6 +2890,110 @@ public interface VmlPackage extends EPackage {
 		EReference MODEL__DIAGRAMS = eINSTANCE.getModel_Diagrams();
 
 		/**
+		 * The meta object literal for the '<em><b>Tables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__TABLES = eINSTANCE.getModel_Tables();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.TableImpl <em>Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.TableImpl
+		 * @see vml.impl.VmlPackageImpl#getTable()
+		 * @generated
+		 */
+		EClass TABLE = eINSTANCE.getTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__TABLE_TITLE = eINSTANCE.getTable_TableTitle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ColumnImpl <em>Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ColumnImpl
+		 * @see vml.impl.VmlPackageImpl#getColumn()
+		 * @generated
+		 */
+		EClass COLUMN = eINSTANCE.getColumn();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__COLUMN_TITLE = eINSTANCE.getColumn_ColumnTitle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.RowImpl <em>Row</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.RowImpl
+		 * @see vml.impl.VmlPackageImpl#getRow()
+		 * @generated
+		 */
+		EClass ROW = eINSTANCE.getRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Cells</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROW__CELLS = eINSTANCE.getRow_Cells();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.CellImpl <em>Cell</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.CellImpl
+		 * @see vml.impl.VmlPackageImpl#getCell()
+		 * @generated
+		 */
+		EClass CELL = eINSTANCE.getCell();
+
+		/**
+		 * The meta object literal for the '<em><b>Col</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CELL__COL = eINSTANCE.getCell_Col();
+
+		/**
+		 * The meta object literal for the '<em><b>Text Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__TEXT_VALUE = eINSTANCE.getCell_TextValue();
+
+		/**
 		 * The meta object literal for the '{@link vml.impl.DiagramImpl <em>Diagram</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1720,6 +3002,194 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIAGRAM = eINSTANCE.getDiagram();
+
+		/**
+		 * The meta object literal for the '<em><b>Digrams</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DIAGRAM__DIGRAMS = eINSTANCE.getDiagram_Digrams();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.StyleImpl <em>Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.StyleImpl
+		 * @see vml.impl.VmlPackageImpl#getStyle()
+		 * @generated
+		 */
+		EClass STYLE = eINSTANCE.getStyle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.GraphStyleImpl <em>Graph Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.GraphStyleImpl
+		 * @see vml.impl.VmlPackageImpl#getGraphStyle()
+		 * @generated
+		 */
+		EClass GRAPH_STYLE = eINSTANCE.getGraphStyle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.NodeStyleImpl <em>Node Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.NodeStyleImpl
+		 * @see vml.impl.VmlPackageImpl#getNodeStyle()
+		 * @generated
+		 */
+		EClass NODE_STYLE = eINSTANCE.getNodeStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Border Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_STYLE__BORDER_WIDTH = eINSTANCE.getNodeStyle_BorderWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Padding</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_STYLE__PADDING = eINSTANCE.getNodeStyle_Padding();
+
+		/**
+		 * The meta object literal for the '<em><b>Background Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_STYLE__BACKGROUND_COLOR = eINSTANCE.getNodeStyle_BackgroundColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Foreground Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_STYLE__FOREGROUND_COLOR = eINSTANCE.getNodeStyle_ForegroundColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Highlight Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_STYLE__HIGHLIGHT_COLOR = eINSTANCE.getNodeStyle_HighlightColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Border Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_STYLE__BORDER_COLOR = eINSTANCE.getNodeStyle_BorderColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Border Highlight Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_STYLE__BORDER_HIGHLIGHT_COLOR = eINSTANCE.getNodeStyle_BorderHighlightColor();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.EdgeStyleImpl <em>Edge Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.EdgeStyleImpl
+		 * @see vml.impl.VmlPackageImpl#getEdgeStyle()
+		 * @generated
+		 */
+		EClass EDGE_STYLE = eINSTANCE.getEdgeStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDGE_STYLE__LINE_WIDTH = eINSTANCE.getEdgeStyle_LineWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDGE_STYLE__WEIGHT = eINSTANCE.getEdgeStyle_Weight();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDGE_STYLE__SOURCE = eINSTANCE.getEdgeStyle_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDGE_STYLE__TARGET = eINSTANCE.getEdgeStyle_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDGE_STYLE__LINE_COLOR = eINSTANCE.getEdgeStyle_LineColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Highlight Color</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDGE_STYLE__HIGHLIGHT_COLOR = eINSTANCE.getEdgeStyle_HighlightColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Directed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDGE_STYLE__DIRECTED = eINSTANCE.getEdgeStyle_Directed();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDGE_STYLE__LINE_STYLE = eINSTANCE.getEdgeStyle_LineStyle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ChartWithAxisStyleImpl <em>Chart With Axis Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ChartWithAxisStyleImpl
+		 * @see vml.impl.VmlPackageImpl#getChartWithAxisStyle()
+		 * @generated
+		 */
+		EClass CHART_WITH_AXIS_STYLE = eINSTANCE.getChartWithAxisStyle();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ChartWithoutAxisStyleImpl <em>Chart Without Axis Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ChartWithoutAxisStyleImpl
+		 * @see vml.impl.VmlPackageImpl#getChartWithoutAxisStyle()
+		 * @generated
+		 */
+		EClass CHART_WITHOUT_AXIS_STYLE = eINSTANCE.getChartWithoutAxisStyle();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.DiagramElementImpl <em>Diagram Element</em>}' class.
@@ -1732,7 +3202,7 @@ public interface VmlPackage extends EPackage {
 		EClass DIAGRAM_ELEMENT = eINSTANCE.getDiagramElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Diagrams</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Diagrams</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1772,6 +3242,14 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PIE__SLICES = eINSTANCE.getPie_Slices();
+
+		/**
+		 * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIE__STYLE = eINSTANCE.getPie_Style();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.SliceImpl <em>Slice</em>}' class.
@@ -1842,6 +3320,14 @@ public interface VmlPackage extends EPackage {
 		EReference GRAPH__EDGES = eINSTANCE.getGraph_Edges();
 
 		/**
+		 * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__STYLE = eINSTANCE.getGraph_Style();
+
+		/**
 		 * The meta object literal for the '{@link vml.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1858,6 +3344,14 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NODE__TITLE = eINSTANCE.getNode_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Icone</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE__ICONE = eINSTANCE.getNode_Icone();
 
 		/**
 		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
@@ -1950,6 +3444,14 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHART__YTITLE = eINSTANCE.getChart_YTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHART__STYLE = eINSTANCE.getChart_Style();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.ChartElementImpl <em>Chart Element</em>}' class.
@@ -2128,6 +3630,58 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCATTER__POINTS = eINSTANCE.getScatter_Points();
+
+		/**
+		 * The meta object literal for the '{@link vml.impl.ColorImpl <em>Color</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.impl.ColorImpl
+		 * @see vml.impl.VmlPackageImpl#getColor()
+		 * @generated
+		 */
+		EClass COLOR = eINSTANCE.getColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLOR__NAME = eINSTANCE.getColor_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Red</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLOR__RED = eINSTANCE.getColor_Red();
+
+		/**
+		 * The meta object literal for the '<em><b>Green</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLOR__GREEN = eINSTANCE.getColor_Green();
+
+		/**
+		 * The meta object literal for the '<em><b>Blue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLOR__BLUE = eINSTANCE.getColor_Blue();
+
+		/**
+		 * The meta object literal for the '{@link vml.LineStyle <em>Line Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see vml.LineStyle
+		 * @see vml.impl.VmlPackageImpl#getLineStyle()
+		 * @generated
+		 */
+		EEnum LINE_STYLE = eINSTANCE.getLineStyle();
 
 	}
 

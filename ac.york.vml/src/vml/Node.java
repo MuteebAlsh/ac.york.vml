@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link vml.Node#getTitle <em>Title</em>}</li>
+ *   <li>{@link vml.Node#getIcone <em>Icone</em>}</li>
  *   <li>{@link vml.Node#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link vml.Node#getIncoming <em>Incoming</em>}</li>
  * </ul>
@@ -48,6 +49,32 @@ public interface Node extends DiagramElement {
 	 * @generated
 	 */
 	void setTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Icone</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Icone</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Icone</em>' attribute.
+	 * @see #setIcone(String)
+	 * @see vml.VmlPackage#getNode_Icone()
+	 * @model
+	 * @generated
+	 */
+	String getIcone();
+
+	/**
+	 * Sets the value of the '{@link vml.Node#getIcone <em>Icone</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Icone</em>' attribute.
+	 * @see #getIcone()
+	 * @generated
+	 */
+	void setIcone(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.

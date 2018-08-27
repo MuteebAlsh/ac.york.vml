@@ -36,6 +36,7 @@ import org.eclipse.birt.chart.model.type.ScatterSeries;
 import org.eclipse.birt.chart.model.type.impl.ScatterSeriesImpl;
 import org.eclipse.emf.common.util.EList;
 
+import ac.york.vml.plugin.provider.YAxisSteps;
 import vml.Point;
 import vml.Scatter;
 
@@ -109,7 +110,9 @@ public class ScatterChartBuilder extends AbstractChartWithAxisBuilder {
 
         yAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
         
-        yAxis.getScale().setStep(10.0);
+//        new YAxisSteps().getStepsValue(yAxis.getScale().getMax());
+//        yAxis.getScale().setStep(new YAxisSteps().getStepsValue(getYValue()));
+        yAxis.getScale().setStepNumber(5);
     }
     
     

@@ -123,7 +123,9 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 		yAxis.setType(AxisType.LINEAR_LITERAL);
 		yAxis.getOrigin().setType(IntersectionType.VALUE_LITERAL);
 
-		yAxis.getScale().setStep(10.0);
+//		yAxis.getScale().setStep(10.0);
+        yAxis.getScale().setStepNumber(5);
+
 	}
 
 	
@@ -179,7 +181,7 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 		bs1.setDataSet(orthoValuesDataSet1);
 		bs1.setRiserOutline(null);
 		
-		Trigger triger = TriggerImpl.create( TriggerCondition.ONMOUSEDOWN_LITERAL,
+		Trigger triger = TriggerImpl.create( TriggerCondition.ONMOUSEOVER_LITERAL,
 				ActionImpl.create( ActionType.URL_REDIRECT_LITERAL,
 						URLValueImpl.create( "http://www.actuate.com", //$NON-NLS-1$
 								null, null, null, null ) ) );

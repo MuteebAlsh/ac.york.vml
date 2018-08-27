@@ -31,6 +31,42 @@ public interface VmlFactory extends EFactory {
 	Model createModel();
 
 	/**
+	 * Returns a new object of class '<em>Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table</em>'.
+	 * @generated
+	 */
+	Table createTable();
+
+	/**
+	 * Returns a new object of class '<em>Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Column</em>'.
+	 * @generated
+	 */
+	Column createColumn();
+
+	/**
+	 * Returns a new object of class '<em>Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Row</em>'.
+	 * @generated
+	 */
+	Row createRow();
+
+	/**
+	 * Returns a new object of class '<em>Cell</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cell</em>'.
+	 * @generated
+	 */
+	Cell createCell();
+
+	/**
 	 * Returns a new object of class '<em>Diagram</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +74,60 @@ public interface VmlFactory extends EFactory {
 	 * @generated
 	 */
 	Diagram createDiagram();
+
+	/**
+	 * Returns a new object of class '<em>Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Style</em>'.
+	 * @generated
+	 */
+	Style createStyle();
+
+	/**
+	 * Returns a new object of class '<em>Graph Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Graph Style</em>'.
+	 * @generated
+	 */
+	GraphStyle createGraphStyle();
+
+	/**
+	 * Returns a new object of class '<em>Node Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Node Style</em>'.
+	 * @generated
+	 */
+	NodeStyle createNodeStyle();
+
+	/**
+	 * Returns a new object of class '<em>Edge Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Edge Style</em>'.
+	 * @generated
+	 */
+	EdgeStyle createEdgeStyle();
+
+	/**
+	 * Returns a new object of class '<em>Chart With Axis Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chart With Axis Style</em>'.
+	 * @generated
+	 */
+	ChartWithAxisStyle createChartWithAxisStyle();
+
+	/**
+	 * Returns a new object of class '<em>Chart Without Axis Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chart Without Axis Style</em>'.
+	 * @generated
+	 */
+	ChartWithoutAxisStyle createChartWithoutAxisStyle();
 
 	/**
 	 * Returns a new object of class '<em>Diagram Element</em>'.
@@ -182,6 +272,15 @@ public interface VmlFactory extends EFactory {
 	 * @generated
 	 */
 	Scatter createScatter();
+
+	/**
+	 * Returns a new object of class '<em>Color</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Color</em>'.
+	 * @generated
+	 */
+	Color createColor();
 
 	/**
 	 * Returns the package supported by this factory.

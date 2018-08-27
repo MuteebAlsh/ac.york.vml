@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import vml.Diagram;
 import vml.Model;
+import vml.Table;
 import vml.VmlPackage;
 
 /**
@@ -28,6 +29,7 @@ import vml.VmlPackage;
  * </p>
  * <ul>
  *   <li>{@link vml.impl.ModelImpl#getDiagrams <em>Diagrams</em>}</li>
+ *   <li>{@link vml.impl.ModelImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +44,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected EList<Diagram> diagrams;
+	/**
+	 * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Table> tables;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,11 +89,25 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Table> getTables() {
+		if (tables == null) {
+			tables = new EObjectContainmentEList<Table>(Table.class, this, VmlPackage.MODEL__TABLES);
+		}
+		return tables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case VmlPackage.MODEL__DIAGRAMS:
 				return ((InternalEList<?>)getDiagrams()).basicRemove(otherEnd, msgs);
+			case VmlPackage.MODEL__TABLES:
+				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,6 +122,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case VmlPackage.MODEL__DIAGRAMS:
 				return getDiagrams();
+			case VmlPackage.MODEL__TABLES:
+				return getTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,6 +141,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				getDiagrams().clear();
 				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
 				return;
+			case VmlPackage.MODEL__TABLES:
+				getTables().clear();
+				getTables().addAll((Collection<? extends Table>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,6 +160,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case VmlPackage.MODEL__DIAGRAMS:
 				getDiagrams().clear();
 				return;
+			case VmlPackage.MODEL__TABLES:
+				getTables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -143,6 +177,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case VmlPackage.MODEL__DIAGRAMS:
 				return diagrams != null && !diagrams.isEmpty();
+			case VmlPackage.MODEL__TABLES:
+				return tables != null && !tables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

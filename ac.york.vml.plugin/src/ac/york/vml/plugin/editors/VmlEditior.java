@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.TabFolder;
-import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
@@ -33,6 +33,7 @@ import ac.york.vml.plugin.widget.chart.GraphWidget;
 import ac.york.vml.plugin.widget.chart.LineChartBuilder;
 import ac.york.vml.plugin.widget.chart.PieChartBuilder;
 import ac.york.vml.plugin.widget.chart.ScatterChartBuilder;
+import ac.york.vml.plugin.widget.chart.TableWidget;
 import vml.BarChart;
 import vml.Diagram;
 import vml.LineChart;
@@ -97,80 +98,98 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 
 		Model model = (Model) resource.getContents().get(0);
 
-		TabFolder tabs = new TabFolder(parentElement, SWT.BOTTOM);
+		CTabFolder tabs = new CTabFolder(parentElement, SWT.BOTTOM);
 		List<Diagram> iteratorGraph = model.getDiagrams();
 
 		for (Diagram diagram : iteratorGraph) {
-			TabItem item = new TabItem(tabs, SWT.NONE);
-			
+			CTabItem item = new CTabItem(tabs, SWT.NONE);
+
 			Composite diagramComposite = new Composite(tabs, SWT.NONE);
 			diagramComposite.setLayout(new FillLayout());
 			item.setControl(diagramComposite);
-			
-			
-
 
 			if (diagram instanceof vml.Graph) {
-				
+
 				vml.Graph vmlGraph = (vml.Graph) diagram;
 
 				if (vmlGraph.getTitle() == null) {
 					item.setText("Graph Chart");
 				} else
 					item.setText(vmlGraph.getTitle());
-
-				GraphWidget graphWidget = new GraphWidget(diagramComposite, SWT.None, diagram);
+				item.setData(vmlGraph);
+				GraphWidget graphWidget = new GraphWidget(diagramComposite, SWT.None, diagram, tabs);
 				graphWidget.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 
 			} else if (diagram instanceof Pie) {
 				Pie vmlPie = (Pie) diagram;
-				Chart chart = createChart(vmlPie); 
+				Chart chart = createChart(vmlPie);
 				if (vmlPie.getTitle() == null)
 					item.setText("Pie Chart");
 				else
 					item.setText(vmlPie.getTitle());
+				item.setData(vmlPie);
 				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
 
-				
 			} else if (diagram instanceof BarChart) {
 				BarChart bar = (BarChart) diagram;
-				Chart chart = createChart(bar); 
+				Chart chart = createChart(bar);
 				item.setText(bar.getTitle() != null ? bar.getTitle() : "Untitiled");
-				
+
 				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
 			} else if (diagram instanceof LineChart) {
 				LineChart line = (LineChart) diagram;
-				//Chart chart = new OverlayLine().createOverlayLine();
-				Chart chart= createChart(line);
+				// Chart chart = new OverlayLine().createOverlayLine();
+				Chart chart = createChart(line);
 				item.setText(line.getTitle() != null ? line.getTitle() : "Untitiled");
-				
+
 				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
 
 			} else if (diagram instanceof Scatter) {
 				Scatter scatter = (Scatter) diagram;
-				//Chart chart = new OverlayLine().createOverlayLine();
-				Chart chart= createChart(scatter);
+				// Chart chart = new OverlayLine().createOverlayLine();
+				Chart chart = createChart(scatter);
 				item.setText(scatter.getTitle() != null ? scatter.getTitle() : "Untitiled");
-				
+
 				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
 				canvas.setChart(chart);
 				canvas.setSize(800, 600);
 
 			}
 		}
-		tabs.setSelection(0);
+		List<vml.Table> iteratorTable = model.getTables();
 
+		for (vml.Table table : iteratorTable) {
+			
+			CTabItem item = new CTabItem(tabs, SWT.NONE);
+
+			Composite tableComposite = new Composite(tabs, SWT.NONE);
+			tableComposite.setLayout(new FillLayout());
+			item.setControl(tableComposite);
+			
+			vml.Table vmlTable = (vml.Table) table;
+
+			if (vmlTable.getTableTitle() == null) {
+				item.setText("Table 1");
+			} else
+				item.setText(vmlTable.getTableTitle());
+			
+			
+			TableWidget tableWidget = new TableWidget(tableComposite, SWT.None, table);
+			
+		}
+
+		tabs.setSelection(0);
 	}
-	
+
 	private Chart createChart(Diagram diagram) {
 		AbstractChartBuilder builder = null;
-		
+
 		if (diagram instanceof Pie) {
 			Pie pie_ = (Pie) diagram;
 			builder = new PieChartBuilder(pie_);
@@ -185,12 +204,11 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 			builder = new ScatterChartBuilder(scatter);
 		}
 		builder.build();
-        Chart chart = builder.getChart();
+		Chart chart = builder.getChart();
 
-        return chart;
-		
+		return chart;
 
-    }
+	}
 
 	@Override
 	public void setFocus() {

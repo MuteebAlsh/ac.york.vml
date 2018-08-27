@@ -16,6 +16,7 @@ package vml;
  *   <li>{@link vml.Chart#getTitle <em>Title</em>}</li>
  *   <li>{@link vml.Chart#getXTitle <em>XTitle</em>}</li>
  *   <li>{@link vml.Chart#getYTitle <em>YTitle</em>}</li>
+ *   <li>{@link vml.Chart#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see vml.VmlPackage#getChart()
@@ -126,5 +127,31 @@ public interface Chart extends Diagram {
 	 * @generated
 	 */
 	void setYTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Style</em>' containment reference.
+	 * @see #setStyle(ChartWithAxisStyle)
+	 * @see vml.VmlPackage#getChart_Style()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ChartWithAxisStyle getStyle();
+
+	/**
+	 * Sets the value of the '{@link vml.Chart#getStyle <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Style</em>' containment reference.
+	 * @see #getStyle()
+	 * @generated
+	 */
+	void setStyle(ChartWithAxisStyle value);
 
 } // Chart

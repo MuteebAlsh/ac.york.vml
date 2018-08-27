@@ -4,11 +4,14 @@ package vml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import vml.Chart;
+import vml.ChartWithAxisStyle;
 import vml.VmlPackage;
 
 /**
@@ -23,6 +26,7 @@ import vml.VmlPackage;
  *   <li>{@link vml.impl.ChartImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link vml.impl.ChartImpl#getXTitle <em>XTitle</em>}</li>
  *   <li>{@link vml.impl.ChartImpl#getYTitle <em>YTitle</em>}</li>
+ *   <li>{@link vml.impl.ChartImpl#getStyle <em>Style</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +111,16 @@ public class ChartImpl extends DiagramImpl implements Chart {
 	 * @ordered
 	 */
 	protected String yTitle = YTITLE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected ChartWithAxisStyle style;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +230,63 @@ public class ChartImpl extends DiagramImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ChartWithAxisStyle getStyle() {
+		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStyle(ChartWithAxisStyle newStyle, NotificationChain msgs) {
+		ChartWithAxisStyle oldStyle = style;
+		style = newStyle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VmlPackage.CHART__STYLE, oldStyle, newStyle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(ChartWithAxisStyle newStyle) {
+		if (newStyle != style) {
+			NotificationChain msgs = null;
+			if (style != null)
+				msgs = ((InternalEObject)style).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VmlPackage.CHART__STYLE, null, msgs);
+			if (newStyle != null)
+				msgs = ((InternalEObject)newStyle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VmlPackage.CHART__STYLE, null, msgs);
+			msgs = basicSetStyle(newStyle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.CHART__STYLE, newStyle, newStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case VmlPackage.CHART__STYLE:
+				return basicSetStyle(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -227,6 +298,8 @@ public class ChartImpl extends DiagramImpl implements Chart {
 				return getXTitle();
 			case VmlPackage.CHART__YTITLE:
 				return getYTitle();
+			case VmlPackage.CHART__STYLE:
+				return getStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +323,9 @@ public class ChartImpl extends DiagramImpl implements Chart {
 				return;
 			case VmlPackage.CHART__YTITLE:
 				setYTitle((String)newValue);
+				return;
+			case VmlPackage.CHART__STYLE:
+				setStyle((ChartWithAxisStyle)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,6 +351,9 @@ public class ChartImpl extends DiagramImpl implements Chart {
 			case VmlPackage.CHART__YTITLE:
 				setYTitle(YTITLE_EDEFAULT);
 				return;
+			case VmlPackage.CHART__STYLE:
+				setStyle((ChartWithAxisStyle)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,6 +374,8 @@ public class ChartImpl extends DiagramImpl implements Chart {
 				return XTITLE_EDEFAULT == null ? xTitle != null : !XTITLE_EDEFAULT.equals(xTitle);
 			case VmlPackage.CHART__YTITLE:
 				return YTITLE_EDEFAULT == null ? yTitle != null : !YTITLE_EDEFAULT.equals(yTitle);
+			case VmlPackage.CHART__STYLE:
+				return style != null;
 		}
 		return super.eIsSet(featureID);
 	}
