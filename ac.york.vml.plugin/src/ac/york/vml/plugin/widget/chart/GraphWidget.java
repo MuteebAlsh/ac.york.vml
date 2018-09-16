@@ -28,7 +28,6 @@ public class GraphWidget extends Graph {
 		vml.Graph vmlGraph = (vml.Graph) myGraph;
 
 		CTabFolder tabfolder = (CTabFolder) tabs;
-		// Graph graph = new Graph(parent, SWT.NONE);
 
 		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
 
@@ -37,7 +36,13 @@ public class GraphWidget extends Graph {
 			GraphNode graphNode = new GraphNode(this, SWT.NONE, node.getTitle());
 			graphNode.setData(node);
 			graphNode.setNodeStyle(nodeStyle);
-			graphNode.setData("reference", node.getDiagrams());
+			if (node.getDiagrams() != null) {
+				graphNode.setData("Diagram", node.getDiagrams());
+			}
+			if (node.getTable() != null) {
+				graphNode.setData("Table", node.getTable());
+			}
+
 			System.out.println("graphNode with references: " + graphNode.getData("reference"));
 			nodeMap.put(node, graphNode);
 
@@ -56,27 +61,29 @@ public class GraphWidget extends Graph {
 		}
 
 		this.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				int item = tabfolder.getItemCount();
 				for (int i = 0; i < item; i++) {
-					if (tabfolder.getItem(i).getData() == e.item.getData("reference")
+					if ((tabfolder.getItem(i).getData() == e.item.getData("Diagram")
+							|| tabfolder.getItem(i).getData() == e.item.getData("Table"))
 							&& tabfolder.getItem(i).getData() != null && i != tabfolder.getSelectionIndex()) {
 						System.out.println("---------- I get it --------");
 						tabfolder.setSelection(i);
 					}
+	
 				}
-				
+
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
 		this.addMouseListener(new MouseListener() {
 
 			@Override
@@ -93,8 +100,6 @@ public class GraphWidget extends Graph {
 
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
-
-				
 
 			}
 		});

@@ -15,7 +15,9 @@ import java.util.List;
 
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
+import org.eclipse.birt.chart.model.attribute.ChartDimension;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
+import org.eclipse.birt.chart.model.attribute.LegendItemType;
 import org.eclipse.birt.chart.model.attribute.LineStyle;
 import org.eclipse.birt.chart.model.attribute.MarkerType;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
@@ -28,6 +30,8 @@ import org.eclipse.birt.chart.model.data.TextDataSet;
 import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
 import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
+import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
+import org.eclipse.birt.chart.model.layout.Plot;
 import org.eclipse.birt.chart.model.type.LineSeries;
 import org.eclipse.birt.chart.model.type.impl.LineSeriesImpl;
 import org.eclipse.emf.common.util.EList;
@@ -57,6 +61,24 @@ public class LineChartBuilder extends AbstractChartWithAxisBuilder {
         xTitle = line.getXTitle();
         yTitle = line.getYTitle();
     }
+    
+    
+	protected void createChart() {
+		chart = ChartWithAxesImpl.create();
+		chart.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
+	}
+	
+	
+//
+//	/*
+//	 * (non-Javadoc)
+//	 * 
+//	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildLegend()
+//	 */
+//	protected void buildLegend() {
+//		chart.getLegend().setItemType(LegendItemType.CATEGORIES_LITERAL);
+//		chart.getLegend().setVisible(true);
+//	}
 
     /*
      * (non-Javadoc)

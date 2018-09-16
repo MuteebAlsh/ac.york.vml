@@ -638,13 +638,22 @@ public interface VmlPackage extends EPackage {
 	int DIAGRAM_ELEMENT__DIAGRAMS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_ELEMENT__TABLE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Diagram Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_ELEMENT_FEATURE_COUNT = 1;
+	int DIAGRAM_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Diagram Element</em>' class.
@@ -746,6 +755,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLICE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICE__TABLE = DIAGRAM_ELEMENT__TABLE;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -885,6 +903,15 @@ public interface VmlPackage extends EPackage {
 	int NODE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
 
 	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__TABLE = DIAGRAM_ELEMENT__TABLE;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,6 +983,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int EDGE__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__TABLE = DIAGRAM_ELEMENT__TABLE;
 
 	/**
 	 * The feature id for the '<em><b>Relation</b></em>' attribute.
@@ -1103,6 +1139,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHART_ELEMENT__DIAGRAMS = DIAGRAM_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_ELEMENT__TABLE = DIAGRAM_ELEMENT__TABLE;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -1258,6 +1303,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int BAR__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__TABLE = CHART_ELEMENT__TABLE;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -1462,6 +1516,15 @@ public interface VmlPackage extends EPackage {
 	int STACK_BARS__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
 
 	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_BARS__TABLE = CHART_ELEMENT__TABLE;
+
+	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1633,6 +1696,15 @@ public interface VmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT__DIAGRAMS = CHART_ELEMENT__DIAGRAMS;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__TABLE = CHART_ELEMENT__TABLE;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -2259,6 +2331,17 @@ public interface VmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDiagramElement_Diagrams();
+
+	/**
+	 * Returns the meta object for the reference '{@link vml.DiagramElement#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Table</em>'.
+	 * @see vml.DiagramElement#getTable()
+	 * @see #getDiagramElement()
+	 * @generated
+	 */
+	EReference getDiagramElement_Table();
 
 	/**
 	 * Returns the meta object for class '{@link vml.Pie <em>Pie</em>}'.
@@ -3208,6 +3291,14 @@ public interface VmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DIAGRAM_ELEMENT__DIAGRAMS = eINSTANCE.getDiagramElement_Diagrams();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DIAGRAM_ELEMENT__TABLE = eINSTANCE.getDiagramElement_Table();
 
 		/**
 		 * The meta object literal for the '{@link vml.impl.PieImpl <em>Pie</em>}' class.

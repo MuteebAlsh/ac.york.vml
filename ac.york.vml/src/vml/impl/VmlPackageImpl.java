@@ -677,6 +677,15 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDiagramElement_Table() {
+		return (EReference)diagramElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPie() {
 		return pieEClass;
 	}
@@ -1246,6 +1255,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		diagramElementEClass = createEClass(DIAGRAM_ELEMENT);
 		createEReference(diagramElementEClass, DIAGRAM_ELEMENT__DIAGRAMS);
+		createEReference(diagramElementEClass, DIAGRAM_ELEMENT__TABLE);
 
 		pieEClass = createEClass(PIE);
 		createEAttribute(pieEClass, PIE__TITLE);
@@ -1421,6 +1431,7 @@ public class VmlPackageImpl extends EPackageImpl implements VmlPackage {
 
 		initEClass(diagramElementEClass, DiagramElement.class, "DiagramElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDiagramElement_Diagrams(), this.getDiagram(), null, "diagrams", null, 0, 1, DiagramElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramElement_Table(), this.getTable(), null, "table", null, 0, 1, DiagramElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pieEClass, Pie.class, "Pie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPie_Title(), ecorePackage.getEString(), "title", null, 0, 1, Pie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

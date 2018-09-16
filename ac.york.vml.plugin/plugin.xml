@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="ac.york.vml.plugin.editors.VisuDSLEditor" name="VMLEditor" schema="schema/ac.york.vml.plugin.editors.VmlEditior.exsd"/>
 
    <extension
          point="org.eclipse.ui.editors">
@@ -8,8 +9,8 @@
             name="VML Model Viewer"
             extensions="vml"
             icon="icons/sample.png"
-            class="ac.york.vml.plugin.editors.VmlEditior"
-            id="ac.york.vml.plugin.editors.VmlEditior">
+            class="ac.york.vml.plugin.editors.VisuDSLEditor"
+            id="ac.york.vml.plugin.editors.VisuDSLEditor">
       </editor>
    </extension>
         

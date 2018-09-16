@@ -42,7 +42,7 @@ import vml.Pie;
 import vml.Scatter;
 import vml.VmlPackage;
 
-public class VmlEditior extends EditorPart implements IResourceChangeListener {
+public class VisuDSLEditor extends EditorPart implements IResourceChangeListener, IVisuDSLEditor{
 
 	protected Resource resource;
 	protected IFile file;
@@ -142,7 +142,6 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 				canvas.setSize(800, 600);
 			} else if (diagram instanceof LineChart) {
 				LineChart line = (LineChart) diagram;
-				// Chart chart = new OverlayLine().createOverlayLine();
 				Chart chart = createChart(line);
 				item.setText(line.getTitle() != null ? line.getTitle() : "Untitiled");
 
@@ -152,7 +151,6 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 
 			} else if (diagram instanceof Scatter) {
 				Scatter scatter = (Scatter) diagram;
-				// Chart chart = new OverlayLine().createOverlayLine();
 				Chart chart = createChart(scatter);
 				item.setText(scatter.getTitle() != null ? scatter.getTitle() : "Untitiled");
 
@@ -178,7 +176,7 @@ public class VmlEditior extends EditorPart implements IResourceChangeListener {
 				item.setText("Table 1");
 			} else
 				item.setText(vmlTable.getTableTitle());
-			
+			item.setData(vmlTable);
 			
 			TableWidget tableWidget = new TableWidget(tableComposite, SWT.None, table);
 			

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import vml.Diagram;
 import vml.DiagramElement;
+import vml.Table;
 import vml.VmlPackage;
 
 /**
@@ -21,6 +22,7 @@ import vml.VmlPackage;
  * </p>
  * <ul>
  *   <li>{@link vml.impl.DiagramElementImpl#getDiagrams <em>Diagrams</em>}</li>
+ *   <li>{@link vml.impl.DiagramElementImpl#getTable <em>Table</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,6 +37,16 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Diagram diagrams;
+
+	/**
+	 * The cached value of the '{@link #getTable() <em>Table</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Table table;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +110,53 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Table getTable() {
+		if (table != null && table.eIsProxy()) {
+			InternalEObject oldTable = (InternalEObject)table;
+			table = (Table)eResolveProxy(oldTable);
+			if (table != oldTable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VmlPackage.DIAGRAM_ELEMENT__TABLE, oldTable, table));
+			}
+		}
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table basicGetTable() {
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTable(Table newTable) {
+		Table oldTable = table;
+		table = newTable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VmlPackage.DIAGRAM_ELEMENT__TABLE, oldTable, table));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
 				if (resolve) return getDiagrams();
 				return basicGetDiagrams();
+			case VmlPackage.DIAGRAM_ELEMENT__TABLE:
+				if (resolve) return getTable();
+				return basicGetTable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,6 +173,9 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
 				setDiagrams((Diagram)newValue);
 				return;
+			case VmlPackage.DIAGRAM_ELEMENT__TABLE:
+				setTable((Table)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -135,6 +191,9 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
 				setDiagrams((Diagram)null);
 				return;
+			case VmlPackage.DIAGRAM_ELEMENT__TABLE:
+				setTable((Table)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -149,6 +208,8 @@ public class DiagramElementImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case VmlPackage.DIAGRAM_ELEMENT__DIAGRAMS:
 				return diagrams != null;
+			case VmlPackage.DIAGRAM_ELEMENT__TABLE:
+				return table != null;
 		}
 		return super.eIsSet(featureID);
 	}

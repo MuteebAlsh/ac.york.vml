@@ -87,11 +87,11 @@ public class PieChartBuilder extends AbstractChartBuilder {
 	 * 
 	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildLegend()
 	 */
-	protected void buildLegend() {
-		Legend lg = chart.getLegend();
-		lg.getText().getFont().setSize(16);
-		lg.getOutline().setVisible(true);
-	}
+		protected void buildLegend() {
+			Legend lg = chart.getLegend();
+			lg.getText().getFont().setSize(16);
+			lg.getOutline().setVisible(true);
+		}
 
 	protected List<String> getTitle() {
 		

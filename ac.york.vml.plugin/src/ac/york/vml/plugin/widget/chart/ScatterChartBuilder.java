@@ -32,6 +32,7 @@ import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
 import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
+import org.eclipse.birt.chart.model.layout.Plot;
 import org.eclipse.birt.chart.model.type.ScatterSeries;
 import org.eclipse.birt.chart.model.type.impl.ScatterSeriesImpl;
 import org.eclipse.emf.common.util.EList;
@@ -62,6 +63,15 @@ public class ScatterChartBuilder extends AbstractChartWithAxisBuilder {
         xTitle = scatter.getXTitle();
         yTitle = scatter.getYTitle();
     }
+    
+    protected void buildPlot() {
+		chart.setSeriesThickness(25);
+		chart.getBlock().setBackground(ColorDefinitionImpl.WHITE());
+		Plot p = chart.getPlot();
+		p.getClientArea().setBackground(null);
+		p.getClientArea().getOutline().setVisible(true);
+		p.getOutline().setVisible(true);
+	}
 
     /*
      * (non-Javadoc)
@@ -157,18 +167,18 @@ public class ScatterChartBuilder extends AbstractChartWithAxisBuilder {
         NumberDataSet orthoValuesDataSet1 = NumberDataSetImpl.create(getYValue());
 
         ScatterSeries ss = (ScatterSeries) ScatterSeriesImpl.create();
-        ss.setSeriesIdentifier("Cities");
+//        ss.setSeriesIdentifier("");
         ss.getMarkers().get(0).setType(MarkerType.CIRCLE_LITERAL);;
-        DataPoint dp = ss.getDataPoint();
-        dp.getComponents().clear();
-        dp.setPrefix("(");
-        dp.setSuffix(")");
-        dp.getComponents().add(DataPointComponentImpl
-                .create(DataPointComponentType.BASE_VALUE_LITERAL,
-                        JavaNumberFormatSpecifierImpl.create("0")));
-        dp.getComponents().add(DataPointComponentImpl
-                .create(DataPointComponentType.ORTHOGONAL_VALUE_LITERAL,
-                        JavaNumberFormatSpecifierImpl.create("0")));
+//        DataPoint dp = ss.getDataPoint();
+//        dp.getComponents().clear();
+//        dp.setPrefix("(");
+//        dp.setSuffix(")");
+//        dp.getComponents().add(DataPointComponentImpl
+//                .create(DataPointComponentType.BASE_VALUE_LITERAL,
+//                        JavaNumberFormatSpecifierImpl.create("0")));
+//        dp.getComponents().add(DataPointComponentImpl
+//                .create(DataPointComponentType.ORTHOGONAL_VALUE_LITERAL,
+//                        JavaNumberFormatSpecifierImpl.create("0")));
         ss.getLabel().getCaption().setColor(ColorDefinitionImpl.RED());
         ss.getLabel().setBackground(ColorDefinitionImpl.CYAN());
         ss.getLabel().setVisible(true);
@@ -176,7 +186,7 @@ public class ScatterChartBuilder extends AbstractChartWithAxisBuilder {
 
         SeriesDefinition sdY = SeriesDefinitionImpl.create();
         yAxis.getSeriesDefinitions().add(sdY);
-        sdY.getSeriesPalette().update(ColorDefinitionImpl.BLACK());
+        sdY.getSeriesPalette().update(ColorDefinitionImpl.BLUE());
         sdY.getSeries().add(ss);
     }
 

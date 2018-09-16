@@ -37,6 +37,7 @@ import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.model.data.impl.TriggerImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
+import org.eclipse.birt.chart.model.layout.Plot;
 import org.eclipse.birt.chart.model.type.BarSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
 import org.eclipse.emf.common.util.EList;
@@ -77,16 +78,18 @@ public class BarChartBuilder extends AbstractChartWithAxisBuilder {
 		chart = ChartWithAxesImpl.create();
 		chart.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
 	}
+	
+	
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ibm.examples.chart.widget.AbstractChartBuilder#buildLegend()
 	 */
-	protected void buildLegend() {
-		chart.getLegend().setItemType(LegendItemType.CATEGORIES_LITERAL);
-		chart.getLegend().setVisible(true);
-	}
+//	protected void buildLegend() {
+//		chart.getLegend().setItemType(LegendItemType.CATEGORIES_LITERAL);
+//		chart.getLegend().setVisible(true);
+//	}
 
 	/*
 	 * (non-Javadoc)

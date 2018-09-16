@@ -58,6 +58,7 @@ public class DiagramElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDiagramsPropertyDescriptor(object);
+			addTablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,6 +77,28 @@ public class DiagramElementItemProvider
 				 getString("_UI_DiagramElement_diagrams_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DiagramElement_diagrams_feature", "_UI_DiagramElement_type"),
 				 VmlPackage.Literals.DIAGRAM_ELEMENT__DIAGRAMS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Table feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DiagramElement_table_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DiagramElement_table_feature", "_UI_DiagramElement_type"),
+				 VmlPackage.Literals.DIAGRAM_ELEMENT__TABLE,
 				 true,
 				 false,
 				 true,
