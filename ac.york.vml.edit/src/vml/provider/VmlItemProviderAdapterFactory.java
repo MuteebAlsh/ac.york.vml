@@ -187,29 +187,6 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link vml.Diagram} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DiagramItemProvider diagramItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link vml.Diagram}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDiagramAdapter() {
-		if (diagramItemProvider == null) {
-			diagramItemProvider = new DiagramItemProvider(this);
-		}
-
-		return diagramItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link vml.Style} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,29 +325,6 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link vml.DiagramElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DiagramElementItemProvider diagramElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link vml.DiagramElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDiagramElementAdapter() {
-		if (diagramElementItemProvider == null) {
-			diagramElementItemProvider = new DiagramElementItemProvider(this);
-		}
-
-		return diagramElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link vml.Pie} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,29 +437,6 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		}
 
 		return edgeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link vml.Chart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChartItemProvider chartItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link vml.Chart}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChartAdapter() {
-		if (chartItemProvider == null) {
-			chartItemProvider = new ChartItemProvider(this);
-		}
-
-		return chartItemProvider;
 	}
 
 	/**
@@ -842,20 +773,17 @@ public class VmlItemProviderAdapterFactory extends VmlAdapterFactory implements 
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (rowItemProvider != null) rowItemProvider.dispose();
 		if (cellItemProvider != null) cellItemProvider.dispose();
-		if (diagramItemProvider != null) diagramItemProvider.dispose();
 		if (styleItemProvider != null) styleItemProvider.dispose();
 		if (graphStyleItemProvider != null) graphStyleItemProvider.dispose();
 		if (nodeStyleItemProvider != null) nodeStyleItemProvider.dispose();
 		if (edgeStyleItemProvider != null) edgeStyleItemProvider.dispose();
 		if (chartWithAxisStyleItemProvider != null) chartWithAxisStyleItemProvider.dispose();
 		if (chartWithoutAxisStyleItemProvider != null) chartWithoutAxisStyleItemProvider.dispose();
-		if (diagramElementItemProvider != null) diagramElementItemProvider.dispose();
 		if (pieItemProvider != null) pieItemProvider.dispose();
 		if (sliceItemProvider != null) sliceItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
 		if (edgeItemProvider != null) edgeItemProvider.dispose();
-		if (chartItemProvider != null) chartItemProvider.dispose();
 		if (chartElementItemProvider != null) chartElementItemProvider.dispose();
 		if (barChartItemProvider != null) barChartItemProvider.dispose();
 		if (barItemProvider != null) barItemProvider.dispose();

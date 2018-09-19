@@ -66,7 +66,7 @@ public class GraphWidget extends Graph {
 			public void widgetSelected(SelectionEvent e) {
 				int item = tabfolder.getItemCount();
 				for (int i = 0; i < item; i++) {
-					if ((tabfolder.getItem(i).getData() == e.item.getData("Diagram")
+					if (e.item != null && (tabfolder.getItem(i).getData() == e.item.getData("Diagram")
 							|| tabfolder.getItem(i).getData() == e.item.getData("Table"))
 							&& tabfolder.getItem(i).getData() != null && i != tabfolder.getSelectionIndex()) {
 						System.out.println("---------- I get it --------");

@@ -27,7 +27,7 @@ import vml.VmlPackage;
  *
  * @generated
  */
-public class DiagramElementImpl extends MinimalEObjectImpl.Container implements DiagramElement {
+public abstract class DiagramElementImpl extends MinimalEObjectImpl.Container implements DiagramElement {
 	/**
 	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' reference.
 	 * <!-- begin-user-doc -->

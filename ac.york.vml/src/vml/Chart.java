@@ -20,7 +20,7 @@ package vml;
  * </ul>
  *
  * @see vml.VmlPackage#getChart()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Chart extends Diagram {

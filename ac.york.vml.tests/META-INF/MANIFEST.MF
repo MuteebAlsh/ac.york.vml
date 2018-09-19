@@ -11,5 +11,9 @@ Export-Package: vml.tests
 Require-Bundle: org.eclipse.core.runtime,
  ac.york.vml;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport
+ org.junit;visibility:=reexport,
+ org.eclipse.ui;bundle-version="3.109.0",
+ org.eclipse.core.resources;bundle-version="3.12.0"
 Bundle-ActivationPolicy: lazy
+Import-Package: ac.york.vml.plugin.editors,
+ org.eclipse.swt.widgets

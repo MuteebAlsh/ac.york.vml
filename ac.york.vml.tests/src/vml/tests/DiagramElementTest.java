@@ -3,11 +3,7 @@
 package vml.tests;
 
 import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
-
 import vml.DiagramElement;
-import vml.VmlFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +11,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiagramElementTest extends TestCase {
+public abstract class DiagramElementTest extends TestCase {
 
 	/**
 	 * The fixture for this Diagram Element test case.
@@ -24,15 +20,6 @@ public class DiagramElementTest extends TestCase {
 	 * @generated
 	 */
 	protected DiagramElement fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(DiagramElementTest.class);
-	}
 
 	/**
 	 * Constructs a new Diagram Element test case with the given name.
@@ -62,28 +49,6 @@ public class DiagramElementTest extends TestCase {
 	 */
 	protected DiagramElement getFixture() {
 		return fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(VmlFactory.eINSTANCE.createDiagramElement());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //DiagramElementTest

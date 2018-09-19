@@ -42,7 +42,7 @@ import vml.Pie;
 import vml.Scatter;
 import vml.VmlPackage;
 
-public class VisuDSLEditor extends EditorPart implements IResourceChangeListener, IVisuDSLEditor{
+public class VisuDSLEditor extends EditorPart implements IResourceChangeListener, IVisuDSLEditor {
 
 	protected Resource resource;
 	protected IFile file;
@@ -66,18 +66,19 @@ public class VisuDSLEditor extends EditorPart implements IResourceChangeListener
 		setInput(input);
 
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
-
-		FileEditorInput fileInputEditor = (FileEditorInput) input;
-		file = fileInputEditor.getFile();
-		setPartName(file.getName());
-		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-		resourceSet.getPackageRegistry().put(VmlPackage.eINSTANCE.getNsURI(), VmlPackage.eINSTANCE);
-		resource = resourceSet.createResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true));
-		try {
-			resource.load(null);
-		} catch (IOException e) {
-			throw new PartInitException(e.getMessage(), e);
+		if (input instanceof FileEditorInput) {
+			FileEditorInput fileInputEditor = (FileEditorInput) input;
+			file = fileInputEditor.getFile();
+			setPartName(file.getName());
+			ResourceSet resourceSet = new ResourceSetImpl();
+			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+			resourceSet.getPackageRegistry().put(VmlPackage.eINSTANCE.getNsURI(), VmlPackage.eINSTANCE);
+			resource = resourceSet.createResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true));
+			try {
+				resource.load(null);
+			} catch (IOException e) {
+				throw new PartInitException(e.getMessage(), e);
+			}
 		}
 	}
 
@@ -110,79 +111,103 @@ public class VisuDSLEditor extends EditorPart implements IResourceChangeListener
 
 			if (diagram instanceof vml.Graph) {
 
-				vml.Graph vmlGraph = (vml.Graph) diagram;
-
-				if (vmlGraph.getTitle() == null) {
-					item.setText("Graph Chart");
-				} else
-					item.setText(vmlGraph.getTitle());
-				item.setData(vmlGraph);
-				GraphWidget graphWidget = new GraphWidget(diagramComposite, SWT.None, diagram, tabs);
-				graphWidget.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+				createGraph(tabs, diagram, item, diagramComposite);
 
 			} else if (diagram instanceof Pie) {
-				Pie vmlPie = (Pie) diagram;
-				Chart chart = createChart(vmlPie);
-				if (vmlPie.getTitle() == null)
-					item.setText("Pie Chart");
-				else
-					item.setText(vmlPie.getTitle());
-				item.setData(vmlPie);
-				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
-				canvas.setChart(chart);
-				canvas.setSize(800, 600);
+				createPie(diagram, item, diagramComposite);
 
 			} else if (diagram instanceof BarChart) {
-				BarChart bar = (BarChart) diagram;
-				Chart chart = createChart(bar);
-				item.setText(bar.getTitle() != null ? bar.getTitle() : "Untitiled");
-
-				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
-				canvas.setChart(chart);
-				canvas.setSize(800, 600);
+				createBarChart(diagram, item, diagramComposite);
 			} else if (diagram instanceof LineChart) {
-				LineChart line = (LineChart) diagram;
-				Chart chart = createChart(line);
-				item.setText(line.getTitle() != null ? line.getTitle() : "Untitiled");
-
-				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
-				canvas.setChart(chart);
-				canvas.setSize(800, 600);
+				createLineChart(diagram, item, diagramComposite);
 
 			} else if (diagram instanceof Scatter) {
-				Scatter scatter = (Scatter) diagram;
-				Chart chart = createChart(scatter);
-				item.setText(scatter.getTitle() != null ? scatter.getTitle() : "Untitiled");
-
-				ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
-				canvas.setChart(chart);
-				canvas.setSize(800, 600);
+				createScatterChart(diagram, item, diagramComposite);
 
 			}
 		}
+		createTable(model, tabs);
+
+		tabs.setSelection(0);
+	}
+
+	private void createTable(Model model, CTabFolder tabs) {
 		List<vml.Table> iteratorTable = model.getTables();
 
 		for (vml.Table table : iteratorTable) {
-			
+
 			CTabItem item = new CTabItem(tabs, SWT.NONE);
 
 			Composite tableComposite = new Composite(tabs, SWT.NONE);
 			tableComposite.setLayout(new FillLayout());
 			item.setControl(tableComposite);
-			
+
 			vml.Table vmlTable = (vml.Table) table;
 
 			if (vmlTable.getTableTitle() == null) {
-				item.setText("Table 1");
+				item.setText("Table");
 			} else
 				item.setText(vmlTable.getTableTitle());
 			item.setData(vmlTable);
-			
-			TableWidget tableWidget = new TableWidget(tableComposite, SWT.None, table);
-			
-		}
 
-		tabs.setSelection(0);
+			TableWidget tableWidget = new TableWidget(tableComposite, SWT.None, table);
+
+		}
+	}
+
+	private void createScatterChart(Diagram diagram, CTabItem item, Composite diagramComposite) {
+		Scatter scatter = (Scatter) diagram;
+		Chart chart = createChart(scatter);
+		item.setText(scatter.getTitle() != null ? scatter.getTitle() : "Untitiled");
+
+		ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+		canvas.setChart(chart);
+		canvas.setSize(800, 600);
+	}
+
+	private void createLineChart(Diagram diagram, CTabItem item, Composite diagramComposite) {
+		LineChart line = (LineChart) diagram;
+		Chart chart = createChart(line);
+		item.setText(line.getTitle() != null ? line.getTitle() : "Untitiled");
+
+		ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+		canvas.setChart(chart);
+		canvas.setSize(800, 600);
+	}
+
+	private void createBarChart(Diagram diagram, CTabItem item, Composite diagramComposite) {
+		BarChart bar = (BarChart) diagram;
+		Chart chart = createChart(bar);
+		item.setText(bar.getTitle() != null ? bar.getTitle() : "Untitiled");
+
+		ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+		canvas.setChart(chart);
+		canvas.setSize(800, 600);
+	}
+
+	private void createPie(Diagram diagram, CTabItem item, Composite diagramComposite) {
+		Pie vmlPie = (Pie) diagram;
+		Chart chart = createChart(vmlPie);
+		if (vmlPie.getTitle() == null)
+			item.setText("Pie Chart");
+		else
+			item.setText(vmlPie.getTitle());
+		item.setData(vmlPie);
+		ChartCanvas canvas = new ChartCanvas(diagramComposite, SWT.NONE);
+		canvas.setChart(chart);
+		canvas.setSize(800, 600);
+	}
+
+	protected void createGraph(CTabFolder tabs, Diagram diagram, CTabItem item, Composite diagramComposite) {
+		vml.Graph vmlGraph = (vml.Graph) diagram;
+
+		if (vmlGraph.getTitle() == null) {
+			item.setText("Graph Chart");
+		} else
+			item.setText(vmlGraph.getTitle());
+		item.setData(vmlGraph);
+		GraphWidget graphWidget = new GraphWidget(diagramComposite, SWT.None, diagram, tabs);
+		graphWidget.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 	}
 
 	private Chart createChart(Diagram diagram) {

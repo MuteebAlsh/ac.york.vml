@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see vml.VmlPackage#getDiagram()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Diagram extends EObject {

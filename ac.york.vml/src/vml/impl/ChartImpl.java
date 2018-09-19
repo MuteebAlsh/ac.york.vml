@@ -31,7 +31,7 @@ import vml.VmlPackage;
  *
  * @generated
  */
-public class ChartImpl extends DiagramImpl implements Chart {
+public abstract class ChartImpl extends DiagramImpl implements Chart {
 	/**
 	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
 	 * <!-- begin-user-doc -->

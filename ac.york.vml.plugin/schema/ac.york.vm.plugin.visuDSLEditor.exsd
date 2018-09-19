@@ -3,7 +3,7 @@
 <schema targetNamespace="ac.york.vml.plugin" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="ac.york.vml.plugin" id="ac.york.vml.plugin.editors.VmlEditior" name="VMLEditor"/>
+         <meta.schema plugin="ac.york.vml.plugin" id="ac.york.vm.plugin.visuDSLEditor" name="VisuDSLEditor"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":ac.york.vml.plugin.editors.IVmlEditior"/>
+                  <meta.attribute kind="java" basedOn="ac.york.vml.plugin.editors.VisuDSLEditor:"/>
                </appinfo>
             </annotation>
          </attribute>

@@ -2,10 +2,7 @@
  */
 package vml.tests;
 
-import junit.textui.TestRunner;
-
 import vml.Chart;
-import vml.VmlFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +10,7 @@ import vml.VmlFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChartTest extends DiagramTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(ChartTest.class);
-	}
+public abstract class ChartTest extends DiagramTest {
 
 	/**
 	 * Constructs a new Chart test case with the given name.
@@ -43,28 +31,6 @@ public class ChartTest extends DiagramTest {
 	@Override
 	protected Chart getFixture() {
 		return (Chart)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(VmlFactory.eINSTANCE.createChart());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //ChartTest

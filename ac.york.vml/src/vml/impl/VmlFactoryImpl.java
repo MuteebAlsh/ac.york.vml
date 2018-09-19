@@ -62,20 +62,17 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 			case VmlPackage.COLUMN: return createColumn();
 			case VmlPackage.ROW: return createRow();
 			case VmlPackage.CELL: return createCell();
-			case VmlPackage.DIAGRAM: return createDiagram();
 			case VmlPackage.STYLE: return createStyle();
 			case VmlPackage.GRAPH_STYLE: return createGraphStyle();
 			case VmlPackage.NODE_STYLE: return createNodeStyle();
 			case VmlPackage.EDGE_STYLE: return createEdgeStyle();
 			case VmlPackage.CHART_WITH_AXIS_STYLE: return createChartWithAxisStyle();
 			case VmlPackage.CHART_WITHOUT_AXIS_STYLE: return createChartWithoutAxisStyle();
-			case VmlPackage.DIAGRAM_ELEMENT: return createDiagramElement();
 			case VmlPackage.PIE: return createPie();
 			case VmlPackage.SLICE: return createSlice();
 			case VmlPackage.GRAPH: return createGraph();
 			case VmlPackage.NODE: return createNode();
 			case VmlPackage.EDGE: return createEdge();
-			case VmlPackage.CHART: return createChart();
 			case VmlPackage.CHART_ELEMENT: return createChartElement();
 			case VmlPackage.BAR_CHART: return createBarChart();
 			case VmlPackage.BAR: return createBar();
@@ -176,16 +173,6 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Diagram createDiagram() {
-		DiagramImpl diagram = new DiagramImpl();
-		return diagram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Style createStyle() {
 		StyleImpl style = new StyleImpl();
 		return style;
@@ -246,16 +233,6 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiagramElement createDiagramElement() {
-		DiagramElementImpl diagramElement = new DiagramElementImpl();
-		return diagramElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Pie createPie() {
 		PieImpl pie = new PieImpl();
 		return pie;
@@ -299,16 +276,6 @@ public class VmlFactoryImpl extends EFactoryImpl implements VmlFactory {
 	public Edge createEdge() {
 		EdgeImpl edge = new EdgeImpl();
 		return edge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Chart createChart() {
-		ChartImpl chart = new ChartImpl();
-		return chart;
 	}
 
 	/**

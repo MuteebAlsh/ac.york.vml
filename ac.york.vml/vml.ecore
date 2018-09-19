@@ -25,7 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="col" eType="#//Column"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Diagram">
+  <eClassifiers xsi:type="ecore:EClass" name="Diagram" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="digrams" upperBound="-1"
         eType="#//Diagram" containment="true"/>
   </eClassifiers>
@@ -62,7 +62,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChartWithAxisStyle" eSuperTypes="#//Style"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChartWithoutAxisStyle" eSuperTypes="#//Style"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DiagramElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DiagramElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="diagrams" eType="#//Diagram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"/>
   </eClassifiers>
@@ -103,7 +103,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Node"
         eOpposite="#//Node/incoming"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Chart" eSuperTypes="#//Diagram">
+  <eClassifiers xsi:type="ecore:EClass" name="Chart" abstract="true" eSuperTypes="#//Diagram">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

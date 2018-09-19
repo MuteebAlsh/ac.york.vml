@@ -67,15 +67,6 @@ public interface VmlFactory extends EFactory {
 	Cell createCell();
 
 	/**
-	 * Returns a new object of class '<em>Diagram</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Diagram</em>'.
-	 * @generated
-	 */
-	Diagram createDiagram();
-
-	/**
 	 * Returns a new object of class '<em>Style</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,15 +121,6 @@ public interface VmlFactory extends EFactory {
 	ChartWithoutAxisStyle createChartWithoutAxisStyle();
 
 	/**
-	 * Returns a new object of class '<em>Diagram Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Diagram Element</em>'.
-	 * @generated
-	 */
-	DiagramElement createDiagramElement();
-
-	/**
 	 * Returns a new object of class '<em>Pie</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,15 +164,6 @@ public interface VmlFactory extends EFactory {
 	 * @generated
 	 */
 	Edge createEdge();
-
-	/**
-	 * Returns a new object of class '<em>Chart</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Chart</em>'.
-	 * @generated
-	 */
-	Chart createChart();
 
 	/**
 	 * Returns a new object of class '<em>Chart Element</em>'.

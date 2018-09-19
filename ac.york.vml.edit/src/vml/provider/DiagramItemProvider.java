@@ -148,22 +148,12 @@ public class DiagramItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(VmlPackage.Literals.DIAGRAM__DIGRAMS,
-				 VmlFactory.eINSTANCE.createDiagram()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.DIAGRAM__DIGRAMS,
 				 VmlFactory.eINSTANCE.createPie()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(VmlPackage.Literals.DIAGRAM__DIGRAMS,
 				 VmlFactory.eINSTANCE.createGraph()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VmlPackage.Literals.DIAGRAM__DIGRAMS,
-				 VmlFactory.eINSTANCE.createChart()));
 
 		newChildDescriptors.add
 			(createChildParameter
