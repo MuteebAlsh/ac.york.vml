@@ -31,34 +31,9 @@ public class GraphWidget extends Graph {
 
 		Map<Node, GraphNode> nodeMap = new HashMap<Node, GraphNode>();
 
-		for (Node node : vmlGraph.getNodes()) {
-			int nodeStyle = ZestStyles.NODES_CACHE_LABEL;
-			GraphNode graphNode = new GraphNode(this, SWT.NONE, node.getTitle());
-			graphNode.setData(node);
-			graphNode.setNodeStyle(nodeStyle);
-			if (node.getDiagrams() != null) {
-				graphNode.setData("Diagram", node.getDiagrams());
-			}
-			if (node.getTable() != null) {
-				graphNode.setData("Table", node.getTable());
-			}
+		createNode(vmlGraph, nodeMap);
 
-			System.out.println("graphNode with references: " + graphNode.getData("reference"));
-			nodeMap.put(node, graphNode);
-
-		}
-
-		for (Edge edge : vmlGraph.getEdges()) {
-			int edgeStyle = ZestStyles.CONNECTIONS_SOLID;
-			GraphConnection graphConnection = new GraphConnection(this, edgeStyle, nodeMap.get(edge.getSource()),
-					nodeMap.get(edge.getTarget()));
-			graphConnection.setData(edge);
-			if (edge.getRelation() == null) {
-				graphConnection.setText("Untitile");
-			} else {
-				graphConnection.setText(edge.getRelation());
-			}
-		}
+		createEdge(vmlGraph, nodeMap);
 
 		this.addSelectionListener(new SelectionListener() {
 
@@ -104,6 +79,39 @@ public class GraphWidget extends Graph {
 			}
 		});
 
+	}
+
+	private void createEdge(vml.Graph vmlGraph, Map<Node, GraphNode> nodeMap) {
+		for (Edge edge : vmlGraph.getEdges()) {
+			int edgeStyle = ZestStyles.CONNECTIONS_SOLID;
+			GraphConnection graphConnection = new GraphConnection(this, edgeStyle, nodeMap.get(edge.getSource()),
+					nodeMap.get(edge.getTarget()));
+			graphConnection.setData(edge);
+			if (edge.getRelation() == null) {
+				graphConnection.setText("Untitile");
+			} else {
+				graphConnection.setText(edge.getRelation());
+			}
+		}
+	}
+
+	private void createNode(vml.Graph vmlGraph, Map<Node, GraphNode> nodeMap) {
+		for (Node node : vmlGraph.getNodes()) {
+			int nodeStyle = ZestStyles.NODES_CACHE_LABEL;
+			GraphNode graphNode = new GraphNode(this, SWT.NONE, node.getTitle());
+			graphNode.setData(node);
+			graphNode.setNodeStyle(nodeStyle);
+			if (node.getDiagrams() != null) {
+				graphNode.setData("Diagram", node.getDiagrams());
+			}
+			if (node.getTable() != null) {
+				graphNode.setData("Table", node.getTable());
+			}
+
+			System.out.println("graphNode with references: " + graphNode.getData("reference"));
+			nodeMap.put(node, graphNode);
+
+		}
 	}
 
 }
